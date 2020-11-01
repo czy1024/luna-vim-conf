@@ -1,0 +1,4 @@
+AuthName "password, sir!"
+AuthType basic
+AuthUserFile /Users/luna-mac/.htppasswd
+require valid-user
