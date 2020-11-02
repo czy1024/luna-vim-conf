@@ -1,3 +1,4 @@
+#!/bin/bash
 # 卸载旧版本
 sudo apt  remove docker \
            docker-client \

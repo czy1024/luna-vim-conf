@@ -1,4 +1,4 @@
-
+#!/bin/bash
 echo "拉取镜像nginx"
 docker pull nginx
 # 启动工作目录
@@ -26,6 +26,6 @@ docker run -d \
       -v ~/nginx/log:/var/log/nginx \
         nginx 
 
-# cp -r html ~/nginx
-# cp  default-http-server.conf ~/nginx/luna-ngin/conf.d/
-# docker exec -it nginx service nginx reload 
+cp -r html ~/nginx
+cp  default-http-server.conf ~/nginx/luna-ngin/conf.d/
+docker exec -it nginx service nginx reload 

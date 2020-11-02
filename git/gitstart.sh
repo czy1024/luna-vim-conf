@@ -1,3 +1,4 @@
+#!/bin/bash
 sudo apt-get instal git
 
 echo "配置用户"
@@ -10,3 +11,6 @@ git config --global user.email iszychen@gmail.com
 #git config --global https.proxy https://127.0.0.1:10822
 
 #git config --global http.sslVerify "false"
+
+# 查看配置列表
+git config --list

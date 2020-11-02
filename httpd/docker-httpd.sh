@@ -1,4 +1,4 @@
-
+#!/bin/bash
 echo "拉取镜像httpd"
 docker pull httpd
 # 启动工作目录
@@ -10,7 +10,7 @@ sudo docker run \
 # 拷贝工作目录	
 echo "拷贝工作目录"
 sudo mkdir ~/httpd
-sudo docker cp  httpd:/usr/local/apache2/conf ~/httpd
+sudo docker cp  httpd:/usr/local/apache2/conf ~/httpd/conf
 # 停止
 docker stop httpd
 # 移除

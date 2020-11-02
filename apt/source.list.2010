@@ -1,0 +1,11 @@
+mac:
+文件位置: /etc/hosts
+sudo killall -HUP mDNSResponder
+windows:
+ctrl+r，输入CMD，回车
+清除DNS缓存内容: ipconfig /flushdns    
+显示DNS缓存内容: ipconfig /displaydns   
+linux:
+文件位置：/etc/hosts
+刷新命令：systemctl restart nscd
+

@@ -1,4 +1,4 @@
-
+#!/bin/bash
 echo "拉取镜像mysql5.7"
 docker pull mysql:5.7
 # 启动工作目录
