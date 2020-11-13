@@ -21,5 +21,8 @@ git config --global --unset https.proxy
   git config pull.rebase true   # 变基
   git config pull.ff only       # 仅快进
 
+# 指定分支clone
+git clone -b [URL] 
+
 # 查看配置列表
 git config --list
