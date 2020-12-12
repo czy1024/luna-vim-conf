@@ -35,8 +35,9 @@ sudo /etc/init.d/nscd restart
 
 echo "添加host"
 sudo apt-get install nscd
-sudo cat "luna" >> /etc/hosts
+curl -x socks5://192.168.123.14:10821 https://raw.githubusercontent.com/czy1024/luna-vim-conf/master/host/host >> /etc/hosts
 
-
+echo "安装zsh"
 sudo apt install -y zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
