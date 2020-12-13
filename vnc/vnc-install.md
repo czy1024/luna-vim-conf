@@ -8,7 +8,7 @@ VNC Server安装如下：
 
 ```shell
 sudo apt install tigervnc-standalone-server tigervnc-xorg-extension tigervnc-viewer
-1
+
 ```
 
 1. **如果你没有任何桌面的话，可以输入以下命令安装过gnome桌面**：
@@ -17,21 +17,21 @@ sudo apt install tigervnc-standalone-server tigervnc-xorg-extension tigervnc-vie
 sudo apt install ubuntu-gnome-desktop
 sudo systemctl enable gdm
 sudo systemctl start gdm
-123
+
 ```
 
 1. **配置vnc的登陆密码，直接输入以下命令，输入两次密码即可（最多只能输入8位）**：
 
 ```shell
 vncpasswd
-1
+
 ```
 
 1. **配置vnc使用gnome桌面**：
 
 ```shell
 nano ~/.vnc/xstartup
-1
+
 ```
 
 然后将以下内容粘贴进去，并保存：
@@ -49,7 +49,7 @@ metacity &
 nautilus &
 gnome-terminal &
 
-123456789101112
+
 ```
 
 如果你使用的xfce桌面，就粘贴如下代码：
@@ -63,7 +63,6 @@ startxfce4 &
 [ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources 
 xsetroot -solid grey
 
-12345678
 ```
 
 1. **启动TigerVNC，直接输入**`vncserver`**看到如下结果就成功了**
