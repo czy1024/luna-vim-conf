@@ -1,7 +1,7 @@
 # 安装 x11vnc
 sudo apt install x11vnc -y
 # 配置访问密码
-sudo x11vnc -storepasswd /etc/x11vnc.pass
+ x11vnc -storepasswd /etc/x11vnc.pass
 
 # 创建服务
 sudo cat  >> /etc/systemd/system/x11vnc.service <<EOF
@@ -19,20 +19,20 @@ EOF
 # 防火墙
 sudo ufw allow 5900
 # 开机自启动
-sudo systemctl enable x11vnc
+ systemctl enable x11vnc
 # 重新加载systemctl
-sudo systemctl daemon-reload
-sudo service x11vnc start
+ systemctl daemon-reload
+ service x11vnc start
 
 # 显示配置 此时程序会生成 /root/xorg.conf.new文件
-sudo Xorg :1 -configure
+ Xorg :1 -configure
 cp /root/xorg.conf.new /usr/share/X11/xorg.conf.d/xorg.conf
 
 # 将此文件复制至 /usr/share/X11/xorg.conf.d/xorg.conf 
 # 这个文件保证在主机上插有显示器的时候，系统界面能在显示器上正常显示。下面我们再给系统添加一个虚拟显示器，当主机没有显示器的时候系统就使用这个虚拟显示器。
 
 # 安装虚拟显卡驱动
-sudo apt install xserver-xorg-video-dummy
+ apt install xserver-xorg-video-dummy
 
 sudo  cat >> /usr/share/X11/xorg.conf.d/xorg.conf <<EOF
 Section "Monitor"

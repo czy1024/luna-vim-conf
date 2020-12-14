@@ -3,9 +3,9 @@
 sudo apt install tigervnc-standalone-server tigervnc-xorg-extension -y
 
 # 安装桌面
-sudo apt install ubuntu-gnome-desktop -y
-sudo systemctl enable gdm
-sudo systemctl start gdm
+ apt install ubuntu-gnome-desktop -y
+ systemctl enable gdm
+ systemctl start gdm
 
 # 配置访问密码
 vncpasswd
