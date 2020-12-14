@@ -1,4 +1,5 @@
 #!/bin/bash
+#sh -c "$(curl  -fsSL https://raw.githubusercontent.com/czy1024/luna-linux-conf/master/mysql/docker-mysql.sh)"
 echo "拉取镜像mysql5.7"
 docker pull mysql:5.7
 # 启动工作目录
@@ -27,4 +28,4 @@ sudo docker run -d -p 3306:3306 \
  mysql:5.7 \
  --default-authentication-plugin mysql_native_password \
  --character-set-server utf8 \
- --collation-server utf8_general_ci \
+ --collation-server utf8_general_ci 
