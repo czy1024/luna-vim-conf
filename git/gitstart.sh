@@ -26,3 +26,6 @@ git clone -b [URL]
 
 # 查看配置列表
 git config --list
+
+git config --global http.proxy http://192.168.31.225:10822
+git config --global https.proxy http://192.168.31.225:10822

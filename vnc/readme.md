@@ -1,4 +1,8 @@
-### 安装
+### 安装 
+```shell
+sh -c "$(curl -x 192.168.31.225:10822 -fsSl https://raw.githubusercontent.com/czy1024/luna-linux-conf/master/vnc/vnc_install.sh)"
+```
+
 
 VNC Client就不用说了，单文件版，双击就能运行。
 
@@ -83,8 +87,8 @@ xsetroot -solid grey
 (2) 如果远程之后你发现是**灰屏而且鼠标指针是个十字**的话，表明需要安装gnome缺失组件：
 
 ```shell
-apt-get install --no-install-recommends ubuntu-desktop gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal -y
-1
+sudo apt-get install --no-install-recommends ubuntu-desktop gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal -y
+
 ```
 
 然后再安装dpi
@@ -92,7 +96,7 @@ apt-get install --no-install-recommends ubuntu-desktop gnome-panel gnome-setting
 ```shell
 sudo apt-get install xfonts-100dpi
 sudo apt-get install xfonts-75dpi
-12
+
 ```
 
 ### 图赏

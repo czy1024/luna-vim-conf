@@ -1,3 +1,4 @@
+#! /bin/bash
 # 安装 x11vnc
 sudo apt install x11vnc -y
 # 配置访问密码

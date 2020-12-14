@@ -1,4 +1,5 @@
 #!/bin/bash
+# to /etc/init.d/frpc sudo chmod 755 /etc/init.d/frpc
 ### BEGIN INIT INFO
 # Provides:          frpc
 # Required-Start:    $remote_fs $syslog

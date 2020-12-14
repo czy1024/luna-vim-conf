@@ -42,7 +42,7 @@ echo "5900"
 sudo ufw allow 5900
 
 # 如果远程之后你发现是**灰屏而且鼠标指针是个十字**的话，表明需要安装gnome缺失组件：
-apt-get install --no-install-recommends ubuntu-desktop gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal -y
+sudo apt-get install --no-install-recommends ubuntu-desktop gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal -y
 
 echo "然后再安装dpi"
 sudo apt-get install xfonts-100dpi
@@ -50,3 +50,4 @@ sudo apt-get install xfonts-75dpi
 
 # 开启外网监听
 vncserver -localhost no
+

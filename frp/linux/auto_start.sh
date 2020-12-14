@@ -1,14 +1,12 @@
-sudo cat  >> /etc/systemd/system/frpc.service <<EOF
+#!/bin/bash
+sudo cat  > /etc/systemd/system/frpc.service <<EOF
 [Unit]
 Description=A tcp server frpc service
 After=network.target
 StartLimitInterval=0
  
 [Service]
-Type=notify
-Restart=always
-TimeoutStartSec=0
-ExecStart=nohup /home/luna/Desktop/frp/frpc -c /home/luna/Desktop/frp/frpc.ini &
+ExecStart=/home/luna/Desktop/frp/frpc -c /home/luna/Desktop/frp/frpc.ini 
 ExecStop=killall /home/luna/Desktop/frp/frpc
 
 [Install]
