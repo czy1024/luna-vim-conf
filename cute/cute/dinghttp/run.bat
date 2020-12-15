@@ -1,0 +1,1 @@
+ding -config=ding.cfg -subdomain=cute 8086

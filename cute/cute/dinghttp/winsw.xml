@@ -1,0 +1,7 @@
+<service>
+  <id>ding-cute</id>
+  <name>ding-cute</name>
+  <description>用dingding发布ding-cute本地电脑网站到外网</description>
+  <executable>run.bat</executable>
+  <logmode>reset</logmode>
+</service>
