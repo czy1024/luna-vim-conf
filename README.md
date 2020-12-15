@@ -1,4 +1,4 @@
-# My ubuntu 16 Setup
+# My Linux 20 Setup
 
 ## Create a new user
 ```bash

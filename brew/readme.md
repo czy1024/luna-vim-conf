@@ -2,17 +2,6 @@
 
 好在，虽然官方没有提供，我们却可以使用 **Homebrew** 这一神器，来完成类似的工作，就如同 Homebrew 的 Slogan ：“The missing package manager for macOS (or Linux)”
 
-## 本文目录
-
-- [本文目录](https://sspai.com/post/56009#toc_0)
-- [Homebrew](https://sspai.com/post/56009#toc_1)
-- [Homebrew 的几个核心概念](https://sspai.com/post/56009#toc_2)
-- [Homebrew 常用操作](https://sspai.com/post/56009#toc_3)[安装 Homebrew](https://sspai.com/post/56009#toc_4)[安装软件](https://sspai.com/post/56009#toc_5)[搜索软件](https://sspai.com/post/56009#toc_6)[1. 使用命令搜索](https://sspai.com/post/56009#toc_7)[2. 使用网页搜索](https://sspai.com/post/56009#toc_8)[查看已经安装的包](https://sspai.com/post/56009#toc_9)[更新一个已经安装的包](https://sspai.com/post/56009#toc_10)[卸载某个已经安装的包](https://sspai.com/post/56009#toc_11)[查看包的信息](https://sspai.com/post/56009#toc_12)[清理软件的旧版](https://sspai.com/post/56009#toc_13)[管理后台软件](https://sspai.com/post/56009#toc_14)[检查 Hombrew 环境](https://sspai.com/post/56009#toc_15)[更新 Homebrew](https://sspai.com/post/56009#toc_16)[添加一个新的 tap](https://sspai.com/post/56009#toc_17)
-- [常用 tap](https://sspai.com/post/56009#toc_18)[1. Caskroom](https://sspai.com/post/56009#toc_19)[2. homebrew-cask-fonts](https://sspai.com/post/56009#toc_20)
-- [使用技巧](https://sspai.com/post/56009#toc_21)[切换国内的镜像源](https://sspai.com/post/56009#toc_22)[使用中科大的镜像](https://sspai.com/post/56009#toc_23)[使用清华大学的镜像](https://sspai.com/post/56009#toc_24)[使用 Brewfile 完成环境迁移](https://sspai.com/post/56009#toc_25)[使用网页搜索 Caskroom 的软件](https://sspai.com/post/56009#toc_26)
-- [辅助软件](https://sspai.com/post/56009#toc_27)[Cakebrew](https://sspai.com/post/56009#toc_28)[launchrocket](https://sspai.com/post/56009#toc_29)
-- [Reference](https://sspai.com/post/56009#toc_30)
-
 ## Homebrew
 
 Homebrew 由开发者 Max Howell 开发，并基于 BSD 开源，是一个非常方便的包管理器工具。在早期， Homebrew 仅有 macOS 的版本，后续随着用户的增多，Homebrew 还提供了 Linux 的版本，帮助开发者在 Linux 同样使用 Homebrew 来配置环境。
