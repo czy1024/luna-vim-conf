@@ -1,9 +1,9 @@
 #!/bin/bash
 echo "拉取镜像elasticsearch:7.6.2"
 docker pull elasticsearch:7.6.2
-# 启动工作目录
+# 启动工作目录 
 echo "启动工作目录"
-echo "拷贝工作目录"
+
 docker run -d \
    --name es \
    -e ES_JAVA_OPTS="-Xms256m -Xmx256m"  \
@@ -11,7 +11,8 @@ docker run -d \
    -p 9300:9300 \
    elasticsearch:7.6.2
 # 拷贝工作目录	
-
+echo "拷贝工作目录"
+mkdir ~/elasticsearch
 sudo docker cp es:/usr/share/elasticsearch/config ~/elasticsearch/
 
 # 修改配置文件
