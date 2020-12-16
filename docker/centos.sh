@@ -23,12 +23,12 @@ sudo yum install -y yum-utils \
 sudo yum-config-manager \
     --add-repo \
     http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
-
-# 配置缓存
-sudo yum makecache fast
-
+# centos8默认使用podman代替docker，所以需要containerd.io 1.2版本需要添加 --nobest 参数
+yum install https://download.docker.com/linux/fedora/30/x86_64/stable/Packages/containerd.io-1.2.10-3.2.fc30.x86_64.rpm -y
+# 可以安装1.4.1版本的
+# yum install https://download.docker.com/linux/centos/8/x86_64/stable/Packages/containerd.io-1.4.3-3.1.el8.x86_64.rpm -y
 # 安装最新稳定版本的docker
-sudo yum install -y docker-ce
+sudo yum install -y docker-ce --nobest
 
 # 配置镜像加速器
 sudo mkdir -p /etc/docker

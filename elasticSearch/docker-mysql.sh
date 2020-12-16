@@ -47,11 +47,9 @@ sudo docker run -d \
 
 #将ik分词器上传到服务器上，然后解压，并改名字为ik
 
-sudo mkdir  ~/elasticsearch
+sudo mkdir -p ~/elasticsearch/plugins/ik
 
-sudo mkdir ~/elasticsearch/plugins
-
-sudo mkdir ~/elasticsearch/plugins/ik
+sudo curl https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.6.2/elasticsearch-analysis-ik-7.6.2.zip
 
 sudo cp elasticsearch-analysis-ik-7.6.2.zip ~/elasticsearch/plugins/ik
 

@@ -44,10 +44,8 @@ service httpd stop 停止服务
 
 # 关闭开机启动
 sudo launchctl unload -w /System/Library/LaunchDaemons/org.apache.httpd.plist
-# 开启开机启动
+# ↑↓←→ 开启开机启动 mac ↓↓ 
 sudo launchctl load -w /System/Library/LaunchDaemons/org.apache.httpd.plist
-
-
 
  #brew services  安装
  brew install httpd
