@@ -3,41 +3,38 @@
 echo "设置密码"
 sudo passwd 
 
-# 备份原文件
-cp /etc/apt/sources.list /etc/apt/sources.list.copy
+# 更换root
+su
 
-sudo cat > /etc/apt/sources.list <<EOF 
+# 更新yum源
+# 备份现有源
+mv /etc/yum.repos.d /etc/yum.repos.d.backup
+#设置新的yum目录
+mkdir /etc/yum.repos.d
+# 安装wget
+yum install -y wget
+# 下载配置。此处一定要注意，很多教程都是CentOS 7的教程，所以贴的CentOS 7的下载源，对于CentOS 8一定要改为CentOS 8的下载源，否则还是不行。
+wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-8.repo
+# 清除文件并重建元数据缓存
+yum clean all
+yum makecache
+# 最后更新软件包，稍等软件安装包安装完就可以了
 
-# ubuntu 20.10
-# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ groovy main restricted universe multiverse
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ groovy main restricted universe multiverse
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ groovy-updates main restricted universe multiverse
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ groovy-updates main restricted universe multiverse
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ groovy-backports main restricted universe multiverse
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ groovy-backports main restricted universe multiverse
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ groovy-security main restricted universe multiverse
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ groovy-security main restricted universe multiverse
+yum update -y
 
-# 预发布软件源，不建议启用
-# deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ groovy-proposed main restricted universe multiverse
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ groovy-proposed main restricted universe multiverse
-EOF
+# 安装软件
+yum install redis openssh-server git nscd zsh -y
 
-# 更新源
-sudo apt-get update
-
-sudo apt-get install redis
 # redis密码配置
+cp /etc/redis.conf /etc/redis.conf.bak
 echo -n "please enter the password:"
 read passwd
 echo "your password is =>>>>> $passwd please remember"
-sed -i 's/# requirepass foobared/requirepass '"$passwd"'/g' /etc/redis/redis.conf
+sed -i 's/# requirepass foobared/requirepass '"$passwd"'/g' /etc/redis.conf
 # 取消端口绑定
-sed -i 's/bind 127.0.0.1 ::1/#bind 127.0.0.1 ::1/g' /etc/redis/redis.conf
+sed -i 's/bind 127.0.0.1/#bind 127.0.0.1/g' /etc/redis.conf
+sed -i 's/rotected-mode yes/rotected-mode no/g' /etc/redis.conf
 
-
-sudo apt-get install git -y
 echo "git 配置用户邮箱:"
 echo -n "please enter the username:"
 read username
@@ -54,16 +51,14 @@ ssh-keygen -t rsa -C "'"$email"'"
 #普通用户：/home/%USER%/.ssh/id_rsa.pub
 echo "ssh key生成====>root用户：/root/.ssh/id_rsa.pub 普通用户：/home/%USER%/.ssh/id_rsa.pub"
 
-echo "安装ssh"
-sudo apt-get install openssh-server -y
-sudo /etc/init.d/ssh restart
+
+# ssh配置
 # vim /etc/ssh/sshd_config
 echo "开启root登陆"
 sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config
-sudo /etc/init.d/ssh restart
-
+service sshd restart
 #scp root@%IP%:/tmp/id_rsa ~/Documents/id_rsa 
-#客户端执行: scp ~/.ssh/id_rsa.pub  root@172.16.22.2:/tmp/id_rsa.pub 
+#客户端执行: scp ~/.ssh/id_rsa.pub  root@192.168.31.92:/tmp/id_rsa.pub 
 #服务端执行: cat /tmp/id_rsa.pub >> ~/.ssh/authorized_keys
 
 sudo cat >> /etc/hosts <<EOF 
@@ -104,17 +99,14 @@ EOF
 
 # 刷新host
 echo "安装nscd"
-sudo apt-get install nscd -y
-sudo systemctl restart nscd 
+service restart nscd 
 
-sudo apt-get install npm -y
+yum install npm -y
 echo "npm 配置淘宝镜像"
-sudo npm config set registry https://registry.npm.taobao.org
+npm config set registry https://registry.npm.taobao.org
 
 echo "安装python3"
-sudo apt-get install python3 -y
+yum install python3 -y
 
 echo "安装java"
-sudo apt install openjdk-8-jre-headless -y
-
-echo "安装docker"
+yum install openjdk-8-jre-headless -y

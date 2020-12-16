@@ -125,9 +125,33 @@ update - 取回更新的软件包列表信息
 ## Centos7 yum 源
 
 ```bash
+CentOS 8
+
+
+sudo sed -e 's|^mirrorlist=|#mirrorlist=|g' \
+         -e 's|^#baseurl=http://mirror.centos.org/$contentdir|baseurl=https://mirrors.ustc.edu.cn/centos|g' \
+         -i.bak \
+         /etc/yum.repos.d/CentOS-Base.repo \
+         /etc/yum.repos.d/CentOS-Extras.repo \
+         /etc/yum.repos.d/CentOS-AppStream.repo
+
+CentOS 6   &   CentOS 7
+
+sudo sed -e 's|^mirrorlist=|#mirrorlist=|g' \
+         -e 's|^#baseurl=http://mirror.centos.org/centos|baseurl=https://mirrors.ustc.edu.cn/centos|g' \
+         -i.bak \
+         /etc/yum.repos.d/CentOS-Base.repo
+更新缓存
+
+yum makecache
+```
+
+
+
+```bash
 #备份
 sudo cp /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak
-
+# 注意名字
 sudo cat > /etc/yum.repos.d/CentOS-Base.repo <<EOF 
 #https://mirrors.tuna.tsinghua.edu.cn/help/centos/
 
@@ -191,9 +215,8 @@ EOF
 ```bash
 #备份
 sudo cp /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak
-
+#  注意名字
 sudo cat > /etc/yum.repos.d/CentOS-Base.repo <<EOF 
-#https://mirrors.tuna.tsinghua.edu.cn/help/centos/
 # CentOS-Base.repo
 #
 # The mirror system uses the connecting IP address of the client and the
@@ -201,58 +224,60 @@ sudo cat > /etc/yum.repos.d/CentOS-Base.repo <<EOF
 # geographically close to the client.  You should use this for CentOS updates
 # unless you are manually picking other mirrors.
 #
-# If the mirrorlist= does not work for you, as a fall back you can try the
+# If the mirrorlist= does not work for you, as a fall back you can try the 
 # remarked out baseurl= line instead.
 #
 #
-
-
-
-[BaseOS]
-name=CentOS-$releasever - Base
-baseurl=https://mirrors.tuna.tsinghua.edu.cn/centos/$releasever/BaseOS/$basearch/os/
-#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=BaseOS&infra=$infra
-enabled=1
+ 
+[base]
+name=CentOS-$releasever - Base - mirrors.aliyun.com
+failovermethod=priority
+baseurl=https://mirrors.aliyun.com/centos/$releasever/BaseOS/$basearch/os/
+        http://mirrors.aliyuncs.com/centos/$releasever/BaseOS/$basearch/os/
+        http://mirrors.cloud.aliyuncs.com/centos/$releasever/BaseOS/$basearch/os/
 gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
-
-[AppStream]
-name=CentOS-$releasever - AppStream
-baseurl=https://mirrors.tuna.tsinghua.edu.cn/centos/$releasever/AppStream/$basearch/os/
-#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=AppStream&infra=$infra
-enabled=1
-gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
-
-[PowerTools]
-name=CentOS-$releasever - PowerTools
-baseurl=https://mirrors.tuna.tsinghua.edu.cn/centos/$releasever/PowerTools/$basearch/os/
-#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=PowerTools&infra=$infra
-enabled=0
-gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
-
-
+gpgkey=https://mirrors.aliyun.com/centos/RPM-GPG-KEY-CentOS-Official
+ 
 #additional packages that may be useful
 [extras]
-name=CentOS-$releasever - Extras
-baseurl=https://mirrors.tuna.tsinghua.edu.cn/centos/$releasever/extras/$basearch/os/
-#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=extras
-enabled=1
+name=CentOS-$releasever - Extras - mirrors.aliyun.com
+failovermethod=priority
+baseurl=https://mirrors.aliyun.com/centos/$releasever/extras/$basearch/os/
+        http://mirrors.aliyuncs.com/centos/$releasever/extras/$basearch/os/
+        http://mirrors.cloud.aliyuncs.com/centos/$releasever/extras/$basearch/os/
 gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
-
-
-
+gpgkey=https://mirrors.aliyun.com/centos/RPM-GPG-KEY-CentOS-Official
+ 
 #additional packages that extend functionality of existing packages
 [centosplus]
-name=CentOS-$releasever - Plus
-baseurl=https://mirrors.tuna.tsinghua.edu.cn/centos/$releasever/centosplus/$basearch/os/
-#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=centosplus
+name=CentOS-$releasever - Plus - mirrors.aliyun.com
+failovermethod=priority
+baseurl=https://mirrors.aliyun.com/centos/$releasever/centosplus/$basearch/os/
+        http://mirrors.aliyuncs.com/centos/$releasever/centosplus/$basearch/os/
+        http://mirrors.cloud.aliyuncs.com/centos/$releasever/centosplus/$basearch/os/
 gpgcheck=1
 enabled=0
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
+gpgkey=https://mirrors.aliyun.com/centos/RPM-GPG-KEY-CentOS-Official
+ 
+[PowerTools]
+name=CentOS-$releasever - PowerTools - mirrors.aliyun.com
+failovermethod=priority
+baseurl=https://mirrors.aliyun.com/centos/$releasever/PowerTools/$basearch/os/
+        http://mirrors.aliyuncs.com/centos/$releasever/PowerTools/$basearch/os/
+        http://mirrors.cloud.aliyuncs.com/centos/$releasever/PowerTools/$basearch/os/
+gpgcheck=1
+enabled=0
+gpgkey=https://mirrors.aliyun.com/centos/RPM-GPG-KEY-CentOS-Official
 
+
+[AppStream]
+name=CentOS-$releasever - AppStream - mirrors.aliyun.com
+failovermethod=priority
+baseurl=https://mirrors.aliyun.com/centos/$releasever/AppStream/$basearch/os/
+        http://mirrors.aliyuncs.com/centos/$releasever/AppStream/$basearch/os/
+        http://mirrors.cloud.aliyuncs.com/centos/$releasever/AppStream/$basearch/os/
+gpgcheck=1
+gpgkey=https://mirrors.aliyun.com/centos/RPM-GPG-KEY-CentOS-Official
 
 EOF
 ```
