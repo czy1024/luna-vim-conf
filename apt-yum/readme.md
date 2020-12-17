@@ -1,4 +1,88 @@
-## Ubuntu apt 源
+## 镜像源网站
+
+Ubuntu、Python、Nodejs、MySQL、Git、Chromium、Docker、Homebrew 等一系列的常用开源系统、软件都是国外开发的，下载地址位于国外，从国内访问、下载、更新
+
+### 清华源镜像
+
+> https://mirrors.tuna.tsinghua.edu.cn/
+
+可能是最好的国内镜像站，最吸引人的特点是1）帮助文件最全面最好用；2）镜像源数量最多。是最推荐的镜像源。
+
+
+
+### 腾讯源
+
+> https://mirrors.cloud.tencent.com/
+
+访问很快，无论是电信移动还是教育网等环境都不用担心访问速度。
+
+软件数量和帮助文件尽管略逊于清华源，但还不错了，比阿里源好不少。
+
+### 阿里源
+
+> https://developer.aliyun.com/mirror/
+
+特点是不差钱，所以访问网速很快，无论是电信移动还是教育网等环境。
+
+不足之处是镜像源数量较少，比腾讯源少，很多软件目前都没有，比如 GitLab。
+
+### 华为源
+
+> https://mirrors.huaweicloud.com/
+
+软件数量还行，比阿里源多。
+
+有一些华为自家的。也有个别其他镜像源没有的，比如 ChromeDriver，似乎在其他镜像站没找到过。
+
+### 中科大源
+
+> http://mirrors.ustc.edu.cn/
+
+### 上海交大源
+
+https://mirrors.sjtug.sjtu.edu.cn/#/
+
+### 北京外国语大学源
+
+https://mirrors.bfsu.edu.cn/
+
+是清华源的姊妹站，维护和运营由清华源提供，本质上跟清华源是一样的。
+
+官方公告显示：网络接入 CERNET2 IPv6 和中国移动 IPv4 线路，支持 HTTP/HTTPS/RSYNC 访问，如果在使用 TUNA 镜像时遇到负载过高、速度过慢等问题，可以尝试切换至北外镜像站以获得更佳的体验。
+
+### 网易源
+
+> http://mirrors.163.com/
+
+软件数量较少。
+
+### 豆瓣 Python PyPI 镜像
+
+> http://pypi.doubanio.com/simple/
+
+Python pip 广泛使用的国内源。
+
+### 淘宝 NPM 镜像
+
+> https://developer.aliyun.com/mirror/NPM
+
+Nodejs npm/cnpm 方面可能最好用的国内源。
+
+### 总结
+
+考虑镜像源的选择大致主要为 3 方面：
+
+- 覆盖的软件数量
+- 访问速度，从各地、各宽带运营商的访问速度
+- 帮助文件
+
+总体来说，首推清华源，在覆盖软件数量和帮助文件方面堪称国内最好的镜像站。
+
+访问速度方面，大型商业公司、尤其是云服务商（没错，指的是腾讯源、阿里源和华为源）的镜像站会做得更好，毕竟钱多、基础设施广。
+
+在细分领域方面，特定领域有固有的特定选择。例如 Nodejs npm 的话淘宝的 cnpm 是不二的选择。又例如，Anaconda 由于授权原因，似乎只有清华源在内的几个大学的镜像站拿到了授权，腾讯、阿里等商业公司的镜像站不知道是没拿到授权还是懒得申请授权，并未上线 Anaconda 镜像。
+
+## Ubuntu20 apt 源 
 
 ```bash
 
