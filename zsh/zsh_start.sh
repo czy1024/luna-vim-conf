@@ -3,7 +3,11 @@ sudo apt install -y zsh
 # 直接脚本安装
 # sh -c "$(curl  -fsSL http://lunacute.vaiwan.com/chfs/shared/Documents/luna-linux-conf/zsh/install.sh)"
 
-# sh -c "$(curl  -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# sh -c "$(curl  -fsSL  http://wincute.vaiwan.com/chfs/shared/luna/luna-linux-conf/zsh/install.sh)"
+
+# sh -c "$(curl -x 127.0.0.1:10822 -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # sh -c "$(wget -O- http://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
