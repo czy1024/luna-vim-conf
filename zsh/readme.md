@@ -12,13 +12,13 @@
 /usr/bin/sh
 /usr/bin/bash
 /usr/sbin/nologin
-/bin/zsh12345678
+/bin/zsh
 ```
 
 切换shell为zsh
 
 ```
-chsh -s /bin/zsh1
+chsh -s /bin/zsh
 ```
 
 然后`echo $SHELL`看还是bash，很多博客说要重启，其实只要退出终端重新打开就切换过来了。
@@ -46,7 +46,6 @@ cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc12
 
 ```
 # root @ hadoop3 in ~ [10:59:27]
-123
 ```
 
 ## 安装自动提示插件
@@ -56,7 +55,7 @@ wget http://mimosa-pudica.net/src/incr-0.2.zsh
 mkdir ~/.oh-my-zsh/plugins/incr
 mv incr-0.2.zsh ~/.oh-my-zsh/plugins/incr
 echo 'source ~/.oh-my-zsh/plugins/incr/incr*.zsh' >> ~/.zshrc
-source ~/.zshrc12345
+source ~/.zshrc
 ```
 
 ok了，cd一下看看爽不爽。
@@ -68,14 +67,13 @@ ok了，cd一下看看爽不爽。
 ```
 git clone git://github.com/joelthelion/autojump.git
 
-autojump/install.py123
+autojump/install.py
 ```
 
 安装完成在~/下面有.autojump目录，在.zshrc里面加一行
 
 ```
 [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
-1
 ```
 
 妥了，可以使用`j`了。
