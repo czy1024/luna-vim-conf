@@ -2,9 +2,9 @@
 
 一、设置开发人员选项
 
-![img](https:////upload-images.jianshu.io/upload_images/10973801-0761ea5e814f830a.png?imageMogr2/auto-orient/strip|imageView2/2/w/1191/format/webp)
+![img](https://upload-images.jianshu.io/upload_images/10973801-0761ea5e814f830a.png?imageMogr2/auto-orient/strip|imageView2/2/w/1191/format/webp)
 
-![img](https:////upload-images.jianshu.io/upload_images/10973801-8b6c48a22e7d99d3.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp)
+![img](https://upload-images.jianshu.io/upload_images/10973801-8b6c48a22e7d99d3.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp)
 
 ## 修改之后需要重启
 
@@ -14,54 +14,54 @@
 
 
 
-![img](https:////upload-images.jianshu.io/upload_images/10973801-7228247d27e02bf8.png?imageMogr2/auto-orient/strip|imageView2/2/w/703/format/webp)
+![img](https://upload-images.jianshu.io/upload_images/10973801-7228247d27e02bf8.png?imageMogr2/auto-orient/strip|imageView2/2/w/703/format/webp)
 
 
 
 
 
-![img](https:////upload-images.jianshu.io/upload_images/10973801-2bfaf3d309c3d182.png?imageMogr2/auto-orient/strip|imageView2/2/w/962/format/webp)
+![img](https://upload-images.jianshu.io/upload_images/10973801-2bfaf3d309c3d182.png?imageMogr2/auto-orient/strip|imageView2/2/w/962/format/webp)
 
 ## 去应用商店安装Ubuntu
 
-![img](https:////upload-images.jianshu.io/upload_images/10973801-9573ef8b7a53022e.png?imageMogr2/auto-orient/strip|imageView2/2/w/800/format/webp)
+![img](https://upload-images.jianshu.io/upload_images/10973801-9573ef8b7a53022e.png?imageMogr2/auto-orient/strip|imageView2/2/w/800/format/webp)
 
-![img](https:////upload-images.jianshu.io/upload_images/10973801-51fda6ac8a4d1393.png?imageMogr2/auto-orient/strip|imageView2/2/w/793/format/webp)
+![img](https://upload-images.jianshu.io/upload_images/10973801-51fda6ac8a4d1393.png?imageMogr2/auto-orient/strip|imageView2/2/w/793/format/webp)
 
-![img](https:////upload-images.jianshu.io/upload_images/10973801-a71e6be035e7d24f.png?imageMogr2/auto-orient/strip|imageView2/2/w/793/format/webp)
+![img](https://upload-images.jianshu.io/upload_images/10973801-a71e6be035e7d24f.png?imageMogr2/auto-orient/strip|imageView2/2/w/793/format/webp)
 
 ## 打开Ubuntu，设置好账号密码
 
 
 
-![img](https:////upload-images.jianshu.io/upload_images/10973801-082bf8b4f0fdbaee.png?imageMogr2/auto-orient/strip|imageView2/2/w/321/format/webp)
+![img](https://upload-images.jianshu.io/upload_images/10973801-082bf8b4f0fdbaee.png?imageMogr2/auto-orient/strip|imageView2/2/w/321/format/webp)
 
 
 
 
 
-![img](https:////upload-images.jianshu.io/upload_images/10973801-f1c2e920442fbdab.png?imageMogr2/auto-orient/strip|imageView2/2/w/703/format/webp)
+![img](https://upload-images.jianshu.io/upload_images/10973801-f1c2e920442fbdab.png?imageMogr2/auto-orient/strip|imageView2/2/w/703/format/webp)
 
 
 
 ## 更换为国内源
 
- 国内几个主要的ubuntu软件源：[https://blog.csdn.net/qq_34889607/article/details/82500602?utm_source=blogxgwz0](https://links.jianshu.com/go?to=https%3A%2F%2Fblog.csdn.net%2Fqq_34889607%2Farticle%2Fdetails%2F82500602%3Futm_source%3Dblogxgwz0)
+ 国内几个主要的ubuntu软件源：[https:blog.csdn.net/qq_34889607/article/details/82500602?utm_source=blogxgwz0](https:links.jianshu.com/go?to=https%3A%2F%2Fblog.csdn.net%2Fqq_34889607%2Farticle%2Fdetails%2F82500602%3Futm_source%3Dblogxgwz0)
  在此使用的清华源
 
 
 
 ```cpp
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse
-deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse
-deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse
-deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse
-deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse
-deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse
+deb https:mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse
+deb-src https:mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse
+deb https:mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse
+deb-src https:mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse
+deb https:mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse
+deb-src https:mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse
+deb https:mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse
+deb-src https:mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse
+deb https:mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse
+deb-src https:mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse
 ```
 
 将/etc/apt/source.list文件备份并更改源
@@ -78,7 +78,7 @@ sudo vim /etc/apt/sources.list
 
 
 
-![img](https:////upload-images.jianshu.io/upload_images/10973801-aa27bd17d25a1443.png?imageMogr2/auto-orient/strip|imageView2/2/w/942/format/webp)
+![img](https://upload-images.jianshu.io/upload_images/10973801-aa27bd17d25a1443.png?imageMogr2/auto-orient/strip|imageView2/2/w/942/format/webp)
 
 
 
@@ -88,7 +88,7 @@ sudo vim /etc/apt/sources.list
 
 
 
-![img](https:////upload-images.jianshu.io/upload_images/10973801-d66d00d687a848c8.png?imageMogr2/auto-orient/strip|imageView2/2/w/874/format/webp)
+![img](https://upload-images.jianshu.io/upload_images/10973801-d66d00d687a848c8.png?imageMogr2/auto-orient/strip|imageView2/2/w/874/format/webp)
 
 执行(切记)
 
@@ -99,9 +99,9 @@ sudo apt-get update
 ## 迁移（针对有迁移需求的）
 
  将存储在C盘的Linux子系统迁移到别的盘符
- 1、下载[LxRunOffline](https://links.jianshu.com/go?to=https%3A%2F%2Fgithub.com%2FDDoSolitary%2FLxRunOffline%2Freleases)
+ 1、下载[LxRunOffline](https:links.jianshu.com/go?to=https%3A%2F%2Fgithub.com%2FDDoSolitary%2FLxRunOffline%2Freleases)
 
-![img](https:////upload-images.jianshu.io/upload_images/10973801-8e8c66e89a5c429c.png?imageMogr2/auto-orient/strip|imageView2/2/w/1136/format/webp)
+![img](https://upload-images.jianshu.io/upload_images/10973801-8e8c66e89a5c429c.png?imageMogr2/auto-orient/strip|imageView2/2/w/1136/format/webp)
  2、解压，打开PowerShell
 
 ```cpp
@@ -146,7 +146,7 @@ sudo cp /etc/xrdp/xrdp.ini /etc/xrdp/xrdp.ini.bak
 sudo vim /etc/xrdp/xrdp.ini
 ```
 
-![img](https:////upload-images.jianshu.io/upload_images/10973801-bf8ca2fc2cec3146.png?imageMogr2/auto-orient/strip|imageView2/2/w/625/format/webp)
+![img](https://upload-images.jianshu.io/upload_images/10973801-bf8ca2fc2cec3146.png?imageMogr2/auto-orient/strip|imageView2/2/w/625/format/webp)
 
 5、将xfce4的会话环境写入到默认的会话环境配置文件中去，命令是：
 
@@ -163,7 +163,7 @@ sudo /etc/init.d/xrdp restart
 启动完成后，ubuntu的桌面环境就配置好了。
  6、查看IP地址
 
-![img](https:////upload-images.jianshu.io/upload_images/10973801-869ce1be770cf677.png?imageMogr2/auto-orient/strip|imageView2/2/w/750/format/webp)
+![img](https://upload-images.jianshu.io/upload_images/10973801-869ce1be770cf677.png?imageMogr2/auto-orient/strip|imageView2/2/w/750/format/webp)
 
 
 
@@ -171,6 +171,6 @@ sudo /etc/init.d/xrdp restart
 
 
 
-![img](https:////upload-images.jianshu.io/upload_images/10973801-03e9ae4593be8e7d.png?imageMogr2/auto-orient/strip|imageView2/2/w/287/format/webp)
+![img](https://upload-images.jianshu.io/upload_images/10973801-03e9ae4593be8e7d.png?imageMogr2/auto-orient/strip|imageView2/2/w/287/format/webp)
 
-![img](https:////upload-images.jianshu.io/upload_images/10973801-62ed619c7558afb7.png?imageMogr2/auto-orient/strip|imageView2/2/w/482/format/webp)
+![img](https://upload-images.jianshu.io/upload_images/10973801-62ed619c7558afb7.png?imageMogr2/auto-orient/strip|imageView2/2/w/482/format/webp)
