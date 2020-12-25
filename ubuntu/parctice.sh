@@ -71,7 +71,34 @@ swapon /dev/sdb1
 # 取消激活交换分区
 swapoff /dev/sdb1
 
+# 压缩解压见 
 
+# 用户操作 
+adduser luna-1 # 添加用户 生成目录
+useradd luna-2 # 添加用户 生成目录
+
+# usermod 
+
+# 进程管理
+ps -aux | grep xxx
+# 杀死进程 参数 1 (HUP)：重新加载进程。9 (KILL)：杀死一个进程。 15 (TERM)：正常停止一个进程。
+kill -9 pid
+killall xxx
+# 进程启动后台执行 输出重定向
+# 后台执行echo "hello" 并将输出到pro.log 文件
+nohup echo "hello" > /tmp/pro.log &
+
+# 网络配置
+# 先ifconfig 查看网卡名称
+"
+auto ens33
+iface ens33 inet static　  # 设置静态IP，动态的是将static修改为dhcp，如果设置为动态IP无法设置虚拟网卡
+address 172.16.2.95　　　  # 如果为动态IP以下的都不用配置。
+netmask 255.255.255.0        # 子网掩码
+gateway 172.16.254.254     # 网关 ->上级路由
+"
+# 重启网卡
+/etc/init.d/networking restart
 
 echo "安装ssh"
 sudo apt-get install openssh-server -y
@@ -81,3 +108,35 @@ echo "开启root登陆"
 sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config
 sudo /etc/init.d/ssh restart
 
+# 免密登录 将客户端公钥放入服务器authorized_keys文件
+#客户端执行: scp ~/.ssh/id_rsa.pub  root@172.16.22.2:/tmp/id_rsa.pub 
+#服务端执行: cat /tmp/id_rsa.pub >> ~/.ssh/authorized_keys
+
+# systemctl
+# 启动
+systemctl  start sshd
+# 停止
+systemctl  stop sshd
+# 开机自启动
+systemctl enable sshd
+#取消开机运行
+systemctl disable sshd 
+# 创建自定义服务模仿 cat /etc/systemd/system/sshd.service
+
+# 网络安全
+# nmap 官网:http://www.nmap.com.cn/
+# 扫描端口 将指定ip 1-65535端口扫描结果保存到 /tmp/result.txt
+nmap -sS -O -p1-65535 ip -o /tmp/result.txt
+# iptables 限制ip访问22
+iptables -A INPUT -p tcp --dport 22 -s 192.168.100.1/24 -j DROP
+# 查看规则
+iptables -nL --line-number
+# 清除规则
+iptables -D INPUT 1
+
+
+# shell 编程 锁定用户id大于多少的用户 脚本地址:
+vim userlock.sh
+chmod +x ./userlock.sh
+# 锁定用户id大于100的用户
+./userlock.sh 1000
