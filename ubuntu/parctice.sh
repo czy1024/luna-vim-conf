@@ -71,9 +71,9 @@ swapon /dev/sdb1
 # 取消激活交换分区
 swapoff /dev/sdb1
 
-# 压缩解压见 
+# 压缩解压见  https://czy1024.github.io/blog/blog/linux_tar.html
 
-# 用户操作 
+# 用户操作  https://czy1024.github.io/blog/blog/linux_user_group.html
 adduser luna-1 # 添加用户 生成目录
 useradd luna-2 # 添加用户 生成目录
 
@@ -135,7 +135,7 @@ iptables -nL --line-number
 iptables -D INPUT 1
 
 
-# shell 编程 锁定用户id大于多少的用户 脚本地址:
+# shell 编程 锁定用户id大于多少的用户 脚本地址: https://github.com/czy1024/luna-linux-conf/blob/master/ubuntu/lockuser.sh
 vim userlock.sh
 chmod +x ./userlock.sh
 # 锁定用户id大于100的用户
