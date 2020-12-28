@@ -56,7 +56,7 @@ dumpe2fs -h /dev/sdb1
 # 　使用设备名称（/dev/sda)来挂载分区时是被固定死的，一旦磁盘的插槽顺序发生了变化，就会出现名称不对应的问题。因为这个名称是会改变的。
 #　　不过使用label挂载就不用担心插槽顺序方面的问题。不过要随时注意你的Label name。至于UUID，每个分区被格式化以后都会有一个UUID作为唯一的标识号。使用uuid挂载的话就不用担心会发生错乱的问题了。
 # 具体参数见 https://czy1024.github.io/blog/blog/autoMount.html
-
+vim /etc/fstab
 echo "eg: UUID=2ccac64a-01cc-4fc7-ae85-ad7ea1fca89c /music    ext4   defaults    0     0"
 # 重启后 执行 mountpoint  music/ 查看是否配置成功
 echo "此时的music只是45行创建的测试目录"
@@ -135,8 +135,38 @@ iptables -nL --line-number
 iptables -D INPUT 1
 
 
-# shell 编程 锁定用户id大于多少的用户 脚本地址: https://github.com/czy1024/luna-linux-conf/blob/master/ubuntu/lockuser.sh
+# shell 编程 锁定用户id大于多少的用户 脚本地址: https://github.com/czy1024/luna-linux-conf/blob/master/ubuntu/lockuser_if_userid_gt_x.sh
 vim userlock.sh
 chmod +x ./userlock.sh
 # 锁定用户id大于100的用户
 ./userlock.sh 1000
+
+
+# 用户计划
+at 16:00
+# 输入命令后 ctrl + D 结束
+# 使用脚本
+at 16:00 -f ~/luna
+# atq查看设置的计划
+# 删除计划
+atrm x # x为查询的任务编号
+
+apt-get install crontabs
+# crontab 三个文件
+# 系统管理 root用户: /etc/crontab 系统任务 /etc/cron.d 实际工作中与前一个地位相同
+# 用于每天,每小时,没星期等文件分别在 /etc/cron.xxxx
+# 普通用户的在 /var/spool/cron 目录 以用户名命名
+# 为普通用户安装crontab filename 为用户名
+crontab filename
+# -e 编辑器打开,完成编辑后保存提交 -l 列出用户的crontab文件的内容 -r 删除自己的crontab 文件
+# 管理员可建立 /etc/cron.allow 和 /etc/cron.deny 表示用户是否可以创建计划任务 并且 allow>deny
+# 并且管理员可用 -u 指定操作用户
+echo "eg: sudo crontab -u luna luna_make" # 给luna 指定crontab 文件 luna_make
+echo "eg: sudo crontab -u luna -r" # 删除luna 的crontab文件
+
+#实例：晚上11点到早上7点之间，每隔一小时重启smb 
+sudo cat > /etc/crontab <<EOF 
+* 23-7/1 * * * /etc/init.d/smb restart
+EOF
+# 详见 https://czy1024.github.io/blog/blog/linux_crontab.html
+# shell 编程 禁止用户id大于多少的用户提交计划 脚本地址: https://github.com/czy1024/luna-linux-conf/blob/master/ubuntu/uncrontab_if_user_gt_x.sh
