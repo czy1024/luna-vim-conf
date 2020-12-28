@@ -169,4 +169,5 @@ sudo cat > /etc/crontab <<EOF
 * 23-7/1 * * * /etc/init.d/smb restart
 EOF
 # 详见 https://czy1024.github.io/blog/blog/linux_crontab.html
-# shell 编程 禁止用户id大于多少的用户提交计划 脚本地址: https://github.com/czy1024/luna-linux-conf/blob/master/ubuntu/uncrontab_if_user_gt_x.sh
+# shell 编程 禁止用户id大于多少的用户提交计划 
+#脚本地址: https://github.com/czy1024/luna-linux-conf/blob/master/ubuntu/uncrontab_if_user_gt_x.sh
