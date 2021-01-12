@@ -1,4 +1,6 @@
-## initialize-insecure：初始化后默认无密码
+
+
+## 管理员启动终端----initialize-insecure：初始化后默认无密码
 
 ```
 若数据库不自动生成则  mysqld --no-defaults --initialize 
@@ -125,9 +127,9 @@ net start mysql
 
 ```sql
  # 若上面失效,则使用下面的语句
- update user set password=password("*******") where user="*******";
+ update user set password=password("xxx") where user="root";
  
- update mysql.user set authentication_string=password('*******') where user='*******'; 
+ update mysql.user set authentication_string=password('xxx') where user='root'; 
  
  flush privileges; 
  #立即生效
