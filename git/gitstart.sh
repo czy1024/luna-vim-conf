@@ -16,10 +16,13 @@ git config --global --unset https.proxy
 
 # git config --global http.sslVerify "false"
 
+git config http.postBuffer 524288000 # 修改下载大包限制
 
-  git config pull.rebase false  # 合并（缺省策略）
-  git config pull.rebase true   # 变基
-  git config pull.ff only       # 仅快进
+git config pull.rebase false  # 合并（缺省策略）
+
+git config pull.rebase true   # 变基
+
+git config pull.ff only       # 仅快进
 
 # 指定分支clone
 git clone -b [URL] 
