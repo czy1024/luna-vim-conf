@@ -1,0 +1,138 @@
+{
+	"info": {
+		"_postman_id": "3ec9a383-7874-474a-b546-ef3e1582f3f0",
+		"name": "api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "address",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "restapi.amap.com/v3/geocode/regeo?key=5df7fee749f489424dd417dfcb792b45&location=107.05036163330078%2C29.10732650756836&extensions=all&s=rsx&platform=WXJS&appname=5df7fee749f489424dd417dfcb792b45&sdkversion=1.2.0&logversion=2.0 HTTP/1.1",
+					"host": [
+						"restapi",
+						"amap",
+						"com"
+					],
+					"path": [
+						"v3",
+						"geocode",
+						"regeo"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "5df7fee749f489424dd417dfcb792b45"
+						},
+						{
+							"key": "location",
+							"value": "107.05036163330078%2C29.10732650756836"
+						},
+						{
+							"key": "extensions",
+							"value": "all"
+						},
+						{
+							"key": "s",
+							"value": "rsx"
+						},
+						{
+							"key": "platform",
+							"value": "WXJS"
+						},
+						{
+							"key": "appname",
+							"value": "5df7fee749f489424dd417dfcb792b45"
+						},
+						{
+							"key": "sdkversion",
+							"value": "1.2.0"
+						},
+						{
+							"key": "logversion",
+							"value": "2.0 HTTP/1.1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "mooc",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "course",
+							"value": "%E5%8E%86%E5%8F%B2",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "chapter",
+							"value": "%E3%80%8A%E6%B1%9F%E8%8B%8F%E7%9C%81%E5%86%9B%E5%8C%BA%E5%86%9B%E5%8F%B2%E3%80%8B%E6%98%AF%EF%BC%88%EF%BC%89%E5%86%9B%E5%8C%BA%E7%BC%96%E7%BA%82%E7%9A%84%E4%B8%80%E9%83%A8%E5%A4%A7%E5%9E%8B%E9%87%8D%E8%A6%81%E5%8F%B2%E6%96%99%EF%BC%8C%E5%AE%83%E6%88%90%E4%B8%BA%E5%AF%B9%E9%83%A8%E9%98%9F%EF%BC%8C%E6%B0%91%E5%85%B5%E8%BF%9B%E8%A1%8C%E9%9D%A9%E5%91%BD%E4%BC%A0%E7%BB%9F%E6%95%99%E8%82%B2%E7%9A%84%E5%A5%BD%E6%95%99%E6%9D%90%E3%80%82",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "question",
+							"value": "%E3%80%8A%E6%B1%9F%E8%8B%8F%E7%9C%81%E5%86%9B%E5%8C%BA%E5%86%9B%E5%8F%B2%E3%80%8B%E6%98%AF%EF%BC%88%EF%BC%89%E5%86%9B%E5%8C%BA%E7%BC%96%E7%BA%82%E7%9A%84%E4%B8%80%E9%83%A8%E5%A4%A7%E5%9E%8B%E9%87%8D%E8%A6%81%E5%8F%B2%E6%96%99%EF%BC%8C%E5%AE%83%E6%88%90%E4%B8%BA%E5%AF%B9%E9%83%A8%E9%98%9F%EF%BC%8C%E6%B0%91%E5%85%B5%E8%BF%9B%E8%A1%8C%E9%9D%A9%E5%91%BD%E4%BC%A0%E7%BB%9F%E6%95%99%E8%82%B2%E7%9A%84%E5%A5%BD%E6%95%99%E6%9D%90%E3%80%82",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "type",
+							"value": "-1",
+							"type": "text",
+							"disabled": true
+						}
+					],
+					"options": {
+						"urlencoded": {}
+					}
+				},
+				"url": {
+					"raw": "http://api.902000.xyz:88/wkapi.php?q=%E4%B8%BE%E5%A4%B4%E6%9C%9B%E6%98%8E%E6%9C%88",
+					"protocol": "http",
+					"host": [
+						"api",
+						"902000",
+						"xyz"
+					],
+					"port": "88",
+					"path": [
+						"wkapi.php"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "%E4%B8%BE%E5%A4%B4%E6%9C%9B%E6%98%8E%E6%9C%88"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

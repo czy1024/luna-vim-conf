@@ -1,38 +1,33 @@
-# 查看已打开的端口   
-netstat -anp
-#查看想开的端口是否已开  
-firewall-cmd --query-port=666/tcp
-#若此提示 
-FirewallD is not running 
-#表示为不可知的防火墙 需要查看状态并开启防火墙
+#进程与状态相关
+systemctl start firewalld.service            #启动防火墙
+systemctl stop firewalld.service             #停止防火墙
+systemctl status firewalld                   #查看防火墙状态
+systemctl enable firewalld             #设置防火墙随系统启动
+systemctl disable firewalld                #禁止防火墙随系统启动
+firewall-cmd --state                         #查看防火墙状态
+firewall-cmd --reload                        #更新防火墙规则
+firewall-cmd --list-ports                    #查看所有打开的端口
+firewall-cmd --list-services                 #查看所有允许的服务
+firewall-cmd --get-services                  #获取所有支持的服务
 
-#查看防火墙状态  # 
-systemctl status firewalld
-# running 状态即防火墙已经开启
-# dead 状态即防火墙未开启
-# 开启防火墙 
-systemctl start firewalld 
-# 没有任何提示即开启成功
-# 开启防火墙 # 
-service firewalld start  
-# 关闭防火墙 # 
-systemctl stop firewalld
-#  centos7.3 上述方式可能无法开启，可以先
-systemctl unmask firewalld.service  #然后
- systemctl start firewalld.service
+#区域相关
+firewall-cmd --list-all-zones                    #查看所有区域信息
+firewall-cmd --get-active-zones                  #查看活动区域信息
+firewall-cmd --set-default-zone=public           #设置public为默认区域
+firewall-cmd --get-default-zone                  #查看默认区域信息
 
-# 查看想开的端口是否已开 # 
-firewall-cmd --query-port=666/tcp    提示no表示未开
-# 开永久端口号 
-firewall-cmd --add-port=666/tcp --permanent 
-#  提示    success 表示成功
-# 重新载入配置  # 
-firewall-cmd --reload  
-#  比如添加规则之后，需要执行此命令
-# 再次查看想开的端口是否已开  #
- firewall-cmd --query-port=666/tcp 
-# 提示yes表示成功
-# 若移除端口 #
- firewall-cmd --permanent --remove-port=666/tcp
 
- 11#修改iptables  有些版本需要安装iptables-services # yum install iptables-services 然后修改进目录 /etc/sysconfig/iptables   修改内容
+#接口相关
+firewall-cmd --zone=public --add-interface=eth0  #将接口eth0加入区域public
+firewall-cmd --zone=public --remove-interface=eth0       #从区域public中删除接口eth0
+firewall-cmd --zone=default --change-interface=eth0      #修改接口eth0所属区域为default
+firewall-cmd --get-zone-of-interface=eth0                #查看接口eth0所属区域
+
+#端口控制
+firewall-cmd --query-port=8080/tcp             # 查询端口是否开放
+firewall-cmd --add-port=8080/tcp --permanent               #永久添加8080端口例外(全局)
+firewall-cmd --remove-port=8800/tcp --permanent            #永久删除8080端口例外(全局)
+firewall-cmd --add-port=65001-65010/tcp --permanent      #永久增加65001-65010例外(全局)
+firewall-cmd  --zone=public --add-port=8080/tcp --permanent            #永久添加8080端口例外(区域public)
+firewall-cmd  --zone=public --remove-port=8080/tcp --permanent         #永久删除8080端口例外(区域public)
+firewall-cmd  --zone=public --add-port=65001-65010/tcp --permanent   #永久增加65001-65010例外(区域public)

@@ -1,0 +1,451 @@
+{
+	"info": {
+		"_postman_id": "963adfa0-932e-4394-933f-7c3d7a64b1e3",
+		"name": "wednesday",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "获取所有资产",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.105:8083/wednesday/my/api/getProperty",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"105"
+					],
+					"port": "8083",
+					"path": [
+						"wednesday",
+						"my",
+						"api",
+						"getProperty"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获得用户中心的url",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/wednesday/my/api/getUserIndex",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"wednesday",
+						"my",
+						"api",
+						"getUserIndex"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "增加空闲的nicehash钱包",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"address\": \"39XeYtGmpjbxaXYGNmQsH1WBMhwt6xbUq6\",\n    \"apiKey\": \"e4ffd016-6122-4b56-b5b0-24b20e1fda5a\",\n    \"apiSecret\": \"f2ac2d53-b0a2-42ee-8d4a-23585a299dd3940e0e2e-0440-44ab-9065-36fc752f8d67\",\n    \"organizationId\": \"1a3f28ca-4ca9-49b2-bbad-0009022d1c31\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8083/wednesday/admin/api/addIdleNicehashBTC",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"wednesday",
+						"admin",
+						"api",
+						"addIdleNicehashBTC"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "增加hash",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"testhash3\",\n    \"hashSet\": [\n        \"82d1e255b0473c030f69eb8b3fbc5a31\"\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://f.xicc.cc:23293/wednesday/hash/api/add?sessionKey=7dbf54345a5349b4bcc11858ffbfa41d",
+					"protocol": "http",
+					"host": [
+						"f",
+						"xicc",
+						"cc"
+					],
+					"port": "23293",
+					"path": [
+						"wednesday",
+						"hash",
+						"api",
+						"add"
+					],
+					"query": [
+						{
+							"key": "sessionKey",
+							"value": "7dbf54345a5349b4bcc11858ffbfa41d"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "创建hashcat project",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"testproject2\",\n    \"mask\": \"?l?l?l?l?l?l?l\",\n    \"hashMode\": 0,\n    \"attackMode\": 3,\n    \"hashId\": 5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://f.xicc.cc:23293/wednesday/hashcat/api/createHashcatProject?sessionKey=7dbf54345a5349b4bcc11858ffbfa41d",
+					"protocol": "http",
+					"host": [
+						"f",
+						"xicc",
+						"cc"
+					],
+					"port": "23293",
+					"path": [
+						"wednesday",
+						"hashcat",
+						"api",
+						"createHashcatProject"
+					],
+					"query": [
+						{
+							"key": "sessionKey",
+							"value": "7dbf54345a5349b4bcc11858ffbfa41d"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获得一个nicehash钱包",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/wednesday/sweeney/api/getOneNicehashWallet?sessionKey=117c0803f0bc4f7a81c3a44bfc7b1543",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"wednesday",
+						"sweeney",
+						"api",
+						"getOneNicehashWallet"
+					],
+					"query": [
+						{
+							"key": "sessionKey",
+							"value": "117c0803f0bc4f7a81c3a44bfc7b1543"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取所有资产Asset",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.105:8083/wednesday/my/api/getAsset",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"105"
+					],
+					"port": "8083",
+					"path": [
+						"wednesday",
+						"my",
+						"api",
+						"getAsset"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "获取余额",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://192.168.1.102:8083/wednesday/my/api/getBalance",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"102"
+					],
+					"port": "8083",
+					"path": [
+						"wednesday",
+						"my",
+						"api",
+						"getBalance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "收益计算器",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/wednesday/profitCalc/api/listProfitCalcDevice",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"wednesday",
+						"profitCalc",
+						"api",
+						"listProfitCalcDevice"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "速度计算器",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/wednesday/hashcatSpeedPriceCalc/api/getHashSpeedVO",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"wednesday",
+						"hashcatSpeedPriceCalc",
+						"api",
+						"getHashSpeedVO"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "兑换申请",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"walletId\":\"10\",\n\t\"amount\":\"0.001\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://192.168.1.107:8083/wednesday/api/exchange",
+					"protocol": "http",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"107"
+					],
+					"port": "8083",
+					"path": [
+						"wednesday",
+						"api",
+						"exchange"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "心跳",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/wednesday/sweeney/api/heartbeat?sessionKey=7bba4d2c5821448bb5c438cd8d7b6407&agentId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"wednesday",
+						"sweeney",
+						"api",
+						"heartbeat"
+					],
+					"query": [
+						{
+							"key": "sessionKey",
+							"value": "7bba4d2c5821448bb5c438cd8d7b6407"
+						},
+						{
+							"key": "agentId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "分账",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cny\":\"10\",\r\n    \"walletExchangeIdList\":[\r\n        24,26\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/wednesday/walletExchange/api/finish",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"wednesday",
+						"walletExchange",
+						"api",
+						"finish"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "积分提现",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "credit",
+							"value": "3000",
+							"type": "text"
+						}
+					],
+					"options": {
+						"urlencoded": {}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/wednesday/propertyExchange/api/withdraw",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"wednesday",
+						"propertyExchange",
+						"api",
+						"withdraw"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
