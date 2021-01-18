@@ -1,0 +1,155 @@
+{
+  "uploaded": [
+    {
+      "fileName": "20210111223115.png",
+      "width": 550,
+      "height": 550,
+      "extname": ".png",
+      "imgUrl": "https://raw.githubusercontent.com/czy1024/luna-image-bed/master/img/20210111223115.png",
+      "type": "github",
+      "id": "0f6d0a30-032a-4fba-b249-46d4ecfa65c5"
+    },
+    {
+      "fileName": "20210111223748.png",
+      "width": 648,
+      "height": 180,
+      "extname": ".png",
+      "imgUrl": "https://raw.githubusercontent.com/czy1024/luna-image-bed/master/20210111223748.png",
+      "type": "github",
+      "id": "50f9056d-0a7e-4671-93a8-cb223227f667"
+    },
+    {
+      "fileName": "20210111224727.png",
+      "width": 550,
+      "height": 550,
+      "extname": ".png",
+      "imgUrl": "https://www.isczy.tk/luna-image-bed/img/20210111224727.png",
+      "type": "github",
+      "id": "7064099b-0123-46da-a503-37855a1bae58"
+    },
+    {
+      "fileName": "20210113232540.png",
+      "width": 512,
+      "height": 512,
+      "extname": ".png",
+      "imgUrl": "https://www.isczy.tk/luna-image-bed/img/20210113232540.png",
+      "type": "github",
+      "id": "ed84d2e9-aae3-4ac8-9f39-0819d7ca0d40"
+    },
+    {
+      "fileName": "20210113232541.png",
+      "width": 256,
+      "height": 256,
+      "extname": ".png",
+      "imgUrl": "https://www.isczy.tk/luna-image-bed/img/20210113232541.png",
+      "type": "github",
+      "id": "a693efc6-09b9-4659-8f83-9030c8e73fe1"
+    },
+    {
+      "fileName": "20210113232708.png",
+      "width": 512,
+      "height": 512,
+      "extname": ".png",
+      "imgUrl": "https://www.isczy.tk/luna-image-bed/img/20210113232708.png",
+      "type": "github",
+      "id": "74449ecf-3cfa-4f85-b9cd-b1b7f87db10c"
+    },
+    {
+      "fileName": "20210113232709.png",
+      "width": 256,
+      "height": 256,
+      "extname": ".png",
+      "imgUrl": "https://www.isczy.tk/luna-image-bed/img/20210113232709.png",
+      "type": "github",
+      "id": "134c0859-29ce-4bd4-8e03-1e996a08db7b"
+    },
+    {
+      "fileName": "20210119001858.png",
+      "width": 550,
+      "height": 550,
+      "extname": ".png",
+      "imgUrl": "https://www.isczy.tk/luna-image-bed/img/20210119001858.png",
+      "type": "github",
+      "id": "0c0cf729-eafb-4806-be33-891ac6481c88"
+    }
+  ],
+  "picBed": {
+    "current": "github",
+    "github": {
+      "branch": "master",
+      "customUrl": "https://www.isczy.tk/luna-image-bed",
+      "path": "img/",
+      "repo": "czy1024/luna-image-bed",
+      "token": "7086a4283759f2d159a364a403dd0baea72648a1"
+    },
+    "list": [
+      {
+        "name": "SM.MS图床",
+        "type": "smms",
+        "visible": true
+      },
+      {
+        "name": "腾讯云COS",
+        "type": "tcyun",
+        "visible": false
+      },
+      {
+        "name": "微博图床",
+        "type": "weibo",
+        "visible": false
+      },
+      {
+        "name": "GitHub图床",
+        "type": "github",
+        "visible": true
+      },
+      {
+        "name": "七牛图床",
+        "type": "qiniu",
+        "visible": false
+      },
+      {
+        "name": "Imgur图床",
+        "type": "imgur",
+        "visible": false
+      },
+      {
+        "name": "阿里云OSS",
+        "type": "aliyun",
+        "visible": false
+      },
+      {
+        "name": "又拍云图床",
+        "type": "upyun",
+        "visible": false
+      }
+    ],
+    "smms": {
+      "token": "NFfqBMvYH6RfXaqEgjo79oDfQ7Ckrchg"
+    }
+  },
+  "settings": {
+    "shortKey": {
+      "picgo:upload": {
+        "enable": true,
+        "key": "CommandOrControl+Shift+P",
+        "name": "upload",
+        "label": "快捷上传"
+      }
+    },
+    "server": {
+      "port": 36677,
+      "host": "127.0.0.1",
+      "enable": true
+    },
+    "showUpdateTip": true,
+    "pasteStyle": "URL",
+    "autoRename": true,
+    "rename": true,
+    "autoStart": false
+  },
+  "picgoPlugins": {},
+  "debug": true,
+  "PICGO_ENV": "GUI",
+  "needReload": false
+}
