@@ -1,0 +1,127 @@
+{
+	"info": {
+		"_postman_id": "cdc17831-b544-4019-8506-53fe1a4525b4",
+		"name": "fusion-message",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "发送消息-指定email",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"targetList\": [\n        \"pascalqq@126.com\"\n    ],\n    \"messageType\": \"email\",\n    \"templateId\": 14\n}",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/fusion-message/api/asyncSendMessage",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"fusion-message",
+						"api",
+						"asyncSendMessage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "发送消息-指定sessionKey",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"targetMap\": {\n        \"sessionKey\": \"ab7913813b5e406d9970d22672651ee2\",\n        \"site\": \"wednesday\"\n    },\n    \"targetType\": \"sessionKey\",\n    \"messageType\": \"email\",\n    \"templateId\": 4\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8082/fusion-message/api/asyncSendMessage",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"fusion-message",
+						"api",
+						"asyncSendMessage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "云片短信接口",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "apikey",
+							"value": "337972405d54aadb5a7051160faeab87",
+							"type": "text"
+						},
+						{
+							"key": "text",
+							"value": "【哈沐信息技术】您的验证码是123456。如非本人操作，请忽略本短信。",
+							"type": "text"
+						},
+						{
+							"key": "mobile",
+							"value": "17098044226",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://sms.yunpian.com/v2/sms/single_send.json",
+					"protocol": "https",
+					"host": [
+						"sms",
+						"yunpian",
+						"com"
+					],
+					"path": [
+						"v2",
+						"sms",
+						"single_send.json"
+					]
+				},
+				"description": "注意资损"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

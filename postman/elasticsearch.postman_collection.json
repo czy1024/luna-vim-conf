@@ -1,0 +1,987 @@
+{
+	"info": {
+		"_postman_id": "735503d4-bfa7-4feb-9ee9-1c902d9539dc",
+		"name": "elasticsearch",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "index",
+			"item": [
+				{
+					"name": "创建/索引/文档/id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"luna\",\r\n  \"age\": 18\r\n}",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://47.92.89.8:9200/luna/type1/1",
+							"protocol": "http",
+							"host": [
+								"47",
+								"92",
+								"89",
+								"8"
+							],
+							"port": "9200",
+							"path": [
+								"luna",
+								"type1",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "创建索引",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"mappings\": {\r\n    \"properties\": {\r\n      \"name\": {\r\n        \"type\": \"text\"\r\n      },\r\n      \"desc\": {\r\n        \"type\": \"keyword\"\r\n      }\r\n    }\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://47.92.89.8:9200/luna-db",
+							"protocol": "http",
+							"host": [
+								"47",
+								"92",
+								"89",
+								"8"
+							],
+							"port": "9200",
+							"path": [
+								"luna-db"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取索引信息",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://47.92.89.8:9200/luna1",
+							"protocol": "http",
+							"host": [
+								"47",
+								"92",
+								"89",
+								"8"
+							],
+							"port": "9200",
+							"path": [
+								"luna1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "创建索引默认指定类型等信息",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"luna\",\r\n  \"age\": 18,\r\n  \"birth\": \"1999-11-07\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://47.92.89.8:9200/luna2/_doc/1",
+							"protocol": "http",
+							"host": [
+								"47",
+								"92",
+								"89",
+								"8"
+							],
+							"port": "9200",
+							"path": [
+								"luna2",
+								"_doc",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "更新索引信息",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"doc\": {\r\n    \"name\": \"luna-update\",\r\n    \"age\": 18,\r\n    \"birth\": \"1999-11-07\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://47.92.89.8:9200/luna/_doc/1/_update",
+							"protocol": "http",
+							"host": [
+								"47",
+								"92",
+								"89",
+								"8"
+							],
+							"port": "9200",
+							"path": [
+								"luna",
+								"_doc",
+								"1",
+								"_update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除索引",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://47.92.89.8:9200/luna1",
+							"protocol": "http",
+							"host": [
+								"47",
+								"92",
+								"89",
+								"8"
+							],
+							"port": "9200",
+							"path": [
+								"luna1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "base",
+			"item": [
+				{
+					"name": "es字段内存分配情况",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "czy1024",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "luna",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://47.92.89.8:9200/_stats/fielddata?fields=*",
+							"protocol": "http",
+							"host": [
+								"47",
+								"92",
+								"89",
+								"8"
+							],
+							"port": "9200",
+							"path": [
+								"",
+								"_stats",
+								"fielddata"
+							],
+							"query": [
+								{
+									"key": "fields",
+									"value": "*"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "es防止单个request使用过多的内存",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "czy1024",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "luna",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"persistent\" : {\r\n      \"indices.breaker.request.limit\" : \"100%\" \r\n     }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://47.92.89.8:9200/_cluster/settings",
+							"protocol": "http",
+							"host": [
+								"47",
+								"92",
+								"89",
+								"8"
+							],
+							"port": "9200",
+							"path": [
+								"_cluster",
+								"settings"
+							]
+						},
+						"description": "es 单次访问量太大"
+					},
+					"response": []
+				},
+				{
+					"name": "es清理缓存",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://47.92.89.8:9200/_cache/clear",
+							"protocol": "http",
+							"host": [
+								"47",
+								"92",
+								"89",
+								"8"
+							],
+							"port": "9200",
+							"path": [
+								"_cache",
+								"clear"
+							]
+						},
+						"description": "清理缓存"
+					},
+					"response": []
+				},
+				{
+					"name": "es修改密码",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"password\" : \"czy1024\" }",
+							"options": {
+								"raw": {}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:9200/_xpack/security/user/elastic/_password",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "9200",
+							"path": [
+								"_xpack",
+								"security",
+								"user",
+								"elastic",
+								"_password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "es删除所有索引",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://47.92.89.8:9200/_all",
+							"protocol": "http",
+							"host": [
+								"47",
+								"92",
+								"89",
+								"8"
+							],
+							"port": "9200",
+							"path": [
+								"_all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查看健康信息",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://47.92.89.8:9200/_cat/health",
+							"protocol": "http",
+							"host": [
+								"47",
+								"92",
+								"89",
+								"8"
+							],
+							"port": "9200",
+							"path": [
+								"_cat",
+								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "es查看",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "czy1024",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "luna",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://47.92.89.8:9200",
+							"protocol": "http",
+							"host": [
+								"47",
+								"92",
+								"89",
+								"8"
+							],
+							"port": "9200"
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查看记录条目",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://47.92.89.8:9200/_cat/count",
+							"protocol": "http",
+							"host": [
+								"47",
+								"92",
+								"89",
+								"8"
+							],
+							"port": "9200",
+							"path": [
+								"_cat",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查看版本信息",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://47.92.89.8:9200/_cat/indices?v",
+							"protocol": "http",
+							"host": [
+								"47",
+								"92",
+								"89",
+								"8"
+							],
+							"port": "9200",
+							"path": [
+								"_cat",
+								"indices"
+							],
+							"query": [
+								{
+									"key": "v",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "doc",
+			"item": [
+				{
+					"name": "添加数据",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"陈章月学JAVA\",\r\n    \"desc\": \"陈章月学JAVA desc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://47.92.89.8:9200/luna-db/_doc/2",
+							"protocol": "http",
+							"host": [
+								"47",
+								"92",
+								"89",
+								"8"
+							],
+							"port": "9200",
+							"path": [
+								"luna-db",
+								"_doc",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取数据-通过ID查询",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://47.92.89.8:9200/luna-user/user/1",
+							"protocol": "http",
+							"host": [
+								"47",
+								"92",
+								"89",
+								"8"
+							],
+							"port": "9200",
+							"path": [
+								"luna-user",
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "更新数据-替换更新",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"李四\",\r\n    \"age\": 18,\r\n    \"birth\": \"1999-11-08\",\r\n    \"desc\": \"又菜又爱玩\",\r\n    \"tags\": [\r\n        \"游戏\",\r\n        \"电影\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://47.92.89.8:9200/luna-user/user/3",
+							"protocol": "http",
+							"host": [
+								"47",
+								"92",
+								"89",
+								"8"
+							],
+							"port": "9200",
+							"path": [
+								"luna-user",
+								"user",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "指定更新",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"doc\": {\r\n        \"name\": \"小李呀\",\r\n        \"age\": 20,\r\n        \"birth\": \"1999-11-07\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://47.92.89.8:9200/luna-user/user/3/_update",
+							"protocol": "http",
+							"host": [
+								"47",
+								"92",
+								"89",
+								"8"
+							],
+							"port": "9200",
+							"path": [
+								"luna-user",
+								"user",
+								"3",
+								"_update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "简单搜索-条件查询",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://47.92.89.8:9200/luna-user/_search?q=name:陈章月",
+							"protocol": "http",
+							"host": [
+								"47",
+								"92",
+								"89",
+								"8"
+							],
+							"port": "9200",
+							"path": [
+								"luna-user",
+								"_search"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "name:陈章月"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "复杂搜索",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"query\": {\r\n    \"match\": {\r\n      \"name\": \"陈章月\"\r\n    }\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://47.92.89.8:9200/luna-user/user/_search",
+							"protocol": "http",
+							"host": [
+								"47",
+								"92",
+								"89",
+								"8"
+							],
+							"port": "9200",
+							"path": [
+								"luna-user",
+								"user",
+								"_search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "复杂搜索 指定显示字段 排序 分页",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"query\": {\r\n    \"match\": {\r\n      \"name\": \"陈章月\"\r\n    }\r\n  },\r\n  \"_source\":[\"name\"],\r\n  \"sort\":[\r\n      {\r\n          \"age\":{\r\n              \"order\" : \"asc\"\r\n          }\r\n      }\r\n  ],\r\n  \"from\": 0,\r\n  \"size\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://47.92.89.8:9200/luna-user/user/_search",
+							"protocol": "http",
+							"host": [
+								"47",
+								"92",
+								"89",
+								"8"
+							],
+							"port": "9200",
+							"path": [
+								"luna-user",
+								"user",
+								"_search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "复杂搜索 定向搜索 多条件查询",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"query\": {\r\n        \"bool\": {\r\n            \"must\": [\r\n                {\r\n                    \"match\": {\r\n                        \"age\": \"18\"\r\n                    }\r\n                },\r\n                {\r\n                    \"match\": {\r\n                        \"name\": \"陈章月\"\r\n                    }\r\n                }\r\n            ]\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://47.92.89.8:9200/luna-user/user/_search",
+							"protocol": "http",
+							"host": [
+								"47",
+								"92",
+								"89",
+								"8"
+							],
+							"port": "9200",
+							"path": [
+								"luna-user",
+								"user",
+								"_search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "复杂搜索 定向搜索 过滤条件",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"query\": {\r\n        \"match\": {\r\n            \"tags\": \"旅游 电影\"\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://47.92.89.8:9200/luna-user/user/_search",
+							"protocol": "http",
+							"host": [
+								"47",
+								"92",
+								"89",
+								"8"
+							],
+							"port": "9200",
+							"path": [
+								"luna-user",
+								"user",
+								"_search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "复杂搜索 倒排索引精确查询",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"query\": {\r\n        \"term\": {\r\n            \"desc\": \"陈章月学JAVA desc\"\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://47.92.89.8:9200/luna-db/_search",
+							"protocol": "http",
+							"host": [
+								"47",
+								"92",
+								"89",
+								"8"
+							],
+							"port": "9200",
+							"path": [
+								"luna-db",
+								"_search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "复杂搜索 多值匹配查询",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"query\": {\r\n        \"bool\": {\r\n            \"should\": [\r\n                {\r\n                    \"term\": {\r\n                        \"age\": \"18\"\r\n                    }\r\n                },\r\n                {\r\n                    \"term\": {\r\n                        \"name\": \"陈章月\"\r\n                    }\r\n                }\r\n            ]\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://47.92.89.8:9200/luna-user/_search",
+							"protocol": "http",
+							"host": [
+								"47",
+								"92",
+								"89",
+								"8"
+							],
+							"port": "9200",
+							"path": [
+								"luna-user",
+								"_search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "复杂搜索  高亮查询 自定义高亮条件",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"query\": {\r\n    \"match\": {\r\n      \"name\": \"陈章月\"\r\n    }\r\n  }\r\n  , \"highlight\": {\r\n    \"pre_tags\": \"<p class='key' style='color:red'>\",\r\n    \"post_tags\": \"</p>\", \r\n    \"fields\": {\r\n      \"name\":{}\r\n    }\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://47.92.89.8:9200/luna-user/user/_search",
+							"protocol": "http",
+							"host": [
+								"47",
+								"92",
+								"89",
+								"8"
+							],
+							"port": "9200",
+							"path": [
+								"luna-user",
+								"user",
+								"_search"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "analyze",
+			"item": [
+				{
+					"name": "按照keyword分词查询",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"analyzer\":\"keyword\",\r\n    \"text\":\"陈章月学JAVA desc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://47.92.89.8:9200/_analyze",
+							"protocol": "http",
+							"host": [
+								"47",
+								"92",
+								"89",
+								"8"
+							],
+							"port": "9200",
+							"path": [
+								"_analyze"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "按照中文标准分词查询",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"analyzer\":\"standard\",\r\n    \"text\":\"陈章月学JAVA desc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://47.92.89.8:9200/_analyze",
+							"protocol": "http",
+							"host": [
+								"47",
+								"92",
+								"89",
+								"8"
+							],
+							"port": "9200",
+							"path": [
+								"_analyze"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "分词搜索",
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

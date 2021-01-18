@@ -1,0 +1,309 @@
+{
+	"info": {
+		"_postman_id": "ff71a236-6a81-4a31-9f60-2d93be0962cb",
+		"name": "fusion-user",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "用户登录",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userMark\": \"15696756584\",\n    \"password\": \"222222222\",\n    \"site\": \"wednesday\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/fusion-user/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"fusion-user",
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "用户注册",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userMark\": \"15696756584\",\n    \"password\": \"22222222\",\n    \"site\": \"wednesday\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/fusion-user/api/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"fusion-user",
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sessionKey换userDO",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/fusion-user/api/getUserDTOBySessionKey?site=wednesday",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"fusion-user",
+						"api",
+						"getUserDTOBySessionKey"
+					],
+					"query": [
+						{
+							"key": "sessionKey",
+							"value": "9130136400fd43c0992596d0c39e34c6",
+							"disabled": true
+						},
+						{
+							"key": "site",
+							"value": "wednesday"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "外标校验用户是否已经存在",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/fusion-user/api/checkUserExist?userMark=15696756582@qq.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"fusion-user",
+						"api",
+						"checkUserExist"
+					],
+					"query": [
+						{
+							"key": "userMark",
+							"value": "15696756582@qq.com"
+						}
+					]
+				},
+				"description": "账户校验"
+			},
+			"response": []
+		},
+		{
+			"name": "sessionKey换userId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/fusion-user/api/getUserIdBySessionKey?site=wednesday",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"fusion-user",
+						"api",
+						"getUserIdBySessionKey"
+					],
+					"query": [
+						{
+							"key": "sessionKey",
+							"value": "9130136400fd43c0992596d0c39e34c6",
+							"disabled": true
+						},
+						{
+							"key": "site",
+							"value": "wednesday"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "判断用户标志是否存在",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"IS_ADMIN\"\n}",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/fusion-user/api/hasTag?site=wednesday",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"fusion-user",
+						"api",
+						"hasTag"
+					],
+					"query": [
+						{
+							"key": "sessionKey",
+							"value": "9130136400fd43c0992596d0c39e34c6",
+							"disabled": true
+						},
+						{
+							"key": "site",
+							"value": "wednesday"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "去除用户标志",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"IS_ADMIN\"\n}",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/fusion-user/api/removeTag?site=wednesday",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"fusion-user",
+						"api",
+						"removeTag"
+					],
+					"query": [
+						{
+							"key": "sessionKey",
+							"value": "9130136400fd43c0992596d0c39e34c6",
+							"disabled": true
+						},
+						{
+							"key": "site",
+							"value": "wednesday"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "加上用户标志",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"IS_ADMIN\"\n}",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/fusion-user/api/addTag?site=wednesday",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"fusion-user",
+						"api",
+						"addTag"
+					],
+					"query": [
+						{
+							"key": "sessionKey",
+							"value": "9130136400fd43c0992596d0c39e34c6",
+							"disabled": true
+						},
+						{
+							"key": "site",
+							"value": "wednesday"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
