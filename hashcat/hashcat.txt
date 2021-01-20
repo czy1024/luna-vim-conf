@@ -3,3 +3,7 @@ hashcat64  -a 3 --hash-type 0 8743b52063cd84097a65d1633f5c74f5  ?l?l?l?l?l?l?l  
 hashcat64  -a 3 --hash-type 0 b5c0b187fe309af0f4d35982fd961d7e  ?l?l?l?l  --force (love)
 
 hashcat64  -a 3 -m 0 ba8a48b0e34226a2992d871c65600a7c  ?l?l?l?l  --force (luna)
+?d?d?d?d?d?d?d?d?d?d
+hashcat64  -a 3 -m 0 82d1e255b0473c030f69eb8b3fbc5a31  --increment --increment-min 19 --increment-max 19  ?d?d?d?d?d?d?d?d?d?d?l?l?l?l?l?l?l?l?l  --force (1772249015sinaweibo) 
+
+hashcat64  -a 3 -m 0 e28c32958a44e096fd37447ea776615b  ?d?d?d?d?d?d?d?d?d?d  --force (1772249015)
