@@ -18,7 +18,7 @@ docker network create \
 docker network ls
 # 启动zookeeper容器
 echo "2181->2181 ip:172.18.0.2"
-docker run -d -p 2181:2181 --name zookeeper_nodeI --privileged --restart always --network zoonet --ip 172.18.0.2 \
+docker run -d -p 2181:2181 --name zookeeper_nodeI --privileged=true --restart always --network zoonet --ip 172.18.0.2 \
 -v ~/zookeeper/nodeI/volumes/data:/data \
 -v ~/zookeeper/nodeI/volumes/datalog:/datalog \
 -v ~/zookeeper/nodeI/volumes/logs:/logs \
@@ -26,7 +26,7 @@ docker run -d -p 2181:2181 --name zookeeper_nodeI --privileged --restart always 
 -e "ZOO_SERVERS=server.1=172.18.0.2:2888:3888;2181 server.2=172.18.0.3:2888:3888;2181 server.3=172.18.0.4:2888:3888;2181" zookeeper
 
 echo "2181->2181 ip:172.18.0.3"
-docker run -d -p 2182:2181 --name zookeeper_nodeII --privileged --restart always --network zoonet --ip 172.18.0.3 \
+docker run -d -p 2182:2181 --name zookeeper_nodeII --privileged=true --restart always --network zoonet --ip 172.18.0.3 \
 -v ~/zookeeper/nodeII/volumes/data:/data \
 -v ~/zookeeper/nodeII/volumes/datalog:/datalog \
 -v ~/zookeeper/nodeII/volumes/logs:/logs \
@@ -34,7 +34,7 @@ docker run -d -p 2182:2181 --name zookeeper_nodeII --privileged --restart always
 -e "ZOO_SERVERS=server.1=172.18.0.2:2888:3888;2181 server.2=172.18.0.3:2888:3888;2181 server.3=172.18.0.4:2888:3888;2181" zookeeper
 
 echo "2181->2181 ip:172.18.0.4"
-docker run -d -p 2183:2181 --name zookeeper_nodeIII --privileged --restart always --network zoonet --ip 172.18.0.4 \
+docker run -d -p 2183:2181 --name zookeeper_nodeIII --privileged=true --restart always --network zoonet --ip 172.18.0.4 \
 -v ~/zookeeper/nodeIII/volumes/data:/data \
 -v ~/zookeeper/nodeIII/volumes/datalog:/datalog \
 -v ~/zookeeper/nodeIII/volumes/logs:/logs \
