@@ -32,3 +32,6 @@ git config --list
 
 git config --global http.proxy http://192.168.31.225:10822
 git config --global https.proxy http://192.168.31.225:10822
+
+# 修改地址
+git remote set-url origin xxx
