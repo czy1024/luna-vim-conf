@@ -23,7 +23,7 @@ docker network create \
 	--gateway=172.20.0.1 consulnet
 	
 echo "consul-server-node-I 172.20.0.2"
-docker run -d --name=consul-server-node-I --net=consulnet\
+docker run -d --name=consul-server-node-I --net=consulnet --restart always\
 			 -p 8300:8300 \
              -p 8301:8301 \
              -p 8301:8301/udp \
@@ -42,7 +42,7 @@ docker run -d --name=consul-server-node-I --net=consulnet\
 	-bootstrap-expect=1 -ui 
 			 
 echo "consul-server-node-II 172.20.0.3"
-docker run -d --name=consul-server-node-II  --net=consulnet\
+docker run -d --name=consul-server-node-II  --net=consulnet --restart always\
 			 -p 8310:8300 \
              -p 8311:8301 \
              -p 8311:8301/udp \
@@ -61,7 +61,7 @@ docker run -d --name=consul-server-node-II  --net=consulnet\
 	-bootstrap-expect=2 -ui 
 			 
 echo "consul-server-node-III 172.20.0.4"
-docker run -d --name=consul-server-node-III --net=consulnet\
+docker run -d --name=consul-server-node-III --net=consulnet --restart always\
 			 -p 8320:8300 \
              -p 8321:8301 \
              -p 8321:8301/udp \

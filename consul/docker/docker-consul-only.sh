@@ -11,7 +11,7 @@ echo "
 8600 : dns 端口，用于已注册的服务发现；"
 
 echo "8300>8300 8301>8301 8302>8302 8400>8400 8500>8600 8600>8600 "
-docker run -d --name=consul \
+docker run -d --name=consul --restart always\
 			 -p 8300:8300 \
              -p 8301:8301 \
              -p 8301:8301/udp \
