@@ -2,7 +2,7 @@
 
 docker pull haproxy
 
-mkdir ~/haproxy
+sudo mkdir ~/haproxy/etc/haproxy
 
 sudo cat > ~/haproxy/etc/haproxy/haproxy.cfg <<EOF
 
