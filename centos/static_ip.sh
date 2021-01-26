@@ -13,3 +13,6 @@ DNS1=192.168.7.1 #DNS 配置
 service network restart 
 # 重启网卡 centos8
 systemctl restart NetworkManager
+
+# 获取ip地址
+# ifconfig eth0 | grep "inet addr" | awk '{ print $2}' | awk -F: '{print $2}'
