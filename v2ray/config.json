@@ -1,0 +1,378 @@
+{
+  "log": {
+    "error": "",
+    "loglevel": "info",
+    "access": ""
+  },
+  "inbounds": [
+    {
+      "listen": "0.0.0.0",
+      "protocol": "socks",
+      "settings": {
+        "udp": false,
+        "auth": "noauth"
+      },
+      "port": "10821"
+    },
+    {
+      "listen": "0.0.0.0",
+      "protocol": "http",
+      "settings": {
+        "timeout": 360
+      },
+      "port": "10822"
+    }
+  ],
+  "outbounds": [
+    {
+      "mux": {
+        "enabled": false,
+        "concurrency": 8
+      },
+      "protocol": "vmess",
+      "streamSettings": {
+        "wsSettings": {
+          "path": "/ys3457",
+          "headers": {
+            "host": ""
+          }
+        },
+        "tlsSettings": {
+          "allowInsecure": true
+        },
+        "security": "none",
+        "network": "ws"
+      },
+      "tag": "proxy",
+      "settings": {
+        "vnext": [
+          {
+            "address": "v3e.cn2.hk.a.aoot.buzz",
+            "users": [
+              {
+                "id": "397f5577-6d6e-3a5b-8b84-3b195fa43d6e",
+                "alterId": 1,
+                "level": 0,
+                "security": "aes-128-gcm"
+              }
+            ],
+            "port": 6552
+          }
+        ]
+      }
+    },
+    {
+      "tag": "direct",
+      "protocol": "freedom",
+      "settings": {
+        "domainStrategy": "UseIP",
+        "redirect": "",
+        "userLevel": 0
+      }
+    },
+    {
+      "tag": "block",
+      "protocol": "blackhole",
+      "settings": {
+        "response": {
+          "type": "none"
+        }
+      }
+    }
+  ],
+  "dns": {
+    "log": {
+      "access": "none",
+      "error": "/tmp/syslog.log",
+      "loglevel": "error"
+    },
+    "inbounds": [
+      {
+        "port": 1088,
+        "listen": "0.0.0.0",
+        "protocol": "socks",
+        "settings": {
+          "auth": "noauth",
+          "udp": true,
+          "ip": "127.0.0.1"
+        },
+        "tag": "local_1088",
+        "sniffing": {
+          "enabled": true,
+          "destOverride": [
+            "http",
+            "tls"
+          ]
+        }
+      },
+      {
+        "port": "1099",
+        "listen": "0.0.0.0",
+        "protocol": "dokodemo-door",
+        "settings": {
+          "network": "tcp,udp",
+          "timeout": 30,
+          "followRedirect": true
+        },
+        "tag": "redir_1099",
+        "sniffing": {
+          "enabled": true,
+          "destOverride": [
+            "http",
+            "tls"
+          ]
+        }
+      },
+      {
+        "port": 8053,
+        "tag": "dns_in",
+        "protocol": "dokodemo-door",
+        "settings": {
+          "address": "8.8.8.8",
+          "port": 53,
+          "network": "tcp,udp"
+        }
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "freedom",
+        "settings": {},
+        "tag": "direct",
+        "streamSettings": {
+          "sockopt": {
+            "mark": 255
+          }
+        }
+      },
+      {
+        "protocol": "vmess",
+        "settings": {
+          "vnext": [
+            {
+              "address": "75.2.73.41",
+              "port": 10010,
+              "users": [
+                {
+                  "id": "397f5577-6d6e-3a5b-8b84-3b195fa43d6e",
+                  "alterId": 2,
+                  "security": "auto"
+                }
+              ]
+            }
+          ]
+        },
+        "tag": "outbound_1",
+        "streamSettings": {
+          "network": "ws",
+          "security": "",
+          "tlsSettings": {
+            "allowInsecure": true,
+            "allowInsecureCiphers": true
+          },
+          "tcpSettings": {
+            "type": "none",
+            "request": {
+              "path": [
+                "/"
+              ],
+              "headers": {
+                "Host": []
+              }
+            }
+          },
+          "kcpSettings": {
+            "header": {
+              "type": "none"
+            }
+          },
+          "wsSettings": {
+            "path": "/yu236e",
+            "headers": {}
+          },
+          "httpSettings": {
+            "host": [
+              "v2ray.com"
+            ],
+            "path": "/"
+          },
+          "dsSettings": {},
+          "quicSettings": {
+            "security": "none",
+            "key": "",
+            "header": {
+              "type": "none"
+            }
+          },
+          "sockopt": {
+            "mark": 255
+          }
+        }
+      },
+      {
+        "protocol": "blackhole",
+        "settings": {},
+        "tag": "blocked",
+        "streamSettings": {
+          "sockopt": {
+            "mark": 255
+          }
+        }
+      },
+      {
+        "protocol": "dns",
+        "tag": "dns_out"
+      }
+    ],
+    "dns": {
+      "servers": [
+        {
+          "address": "8.8.8.8",
+          "port": 53,
+          "domains": [
+            "domain:cn2qq.com",
+            "geosite:google",
+            "geosite:geolocation-!cn",
+            "domain:youtube.com",
+            "domain:appspot.com",
+            "domain:telegram.com",
+            "domain:facebook.com",
+            "domain:twitter.com",
+            "domain:blogger.com",
+            "domain:gmail.com",
+            "domain:gvt1.com"
+          ]
+        },
+        {
+          "address": "223.5.5.5",
+          "port": 53,
+          "domains": [
+            "geosite:cn"
+          ]
+        },
+        "8.8.8.8",
+        "8.8.4.4"
+      ]
+    },
+    "routing": {
+      "domainStrategy": "AsIs",
+      "balancers": [],
+      "rules": [
+        {
+          "inboundTag": [
+            "dns_in"
+          ],
+          "outboundTag": "dns_out",
+          "type": "field"
+        },
+        {
+          "type": "field",
+          "outboundTag": "blocked",
+          "domain": [
+            "geosite:category-ads-all"
+          ]
+        },
+        {
+          "type": "field",
+          "ip": [
+            "127.0.0.0/8",
+            "::1/128"
+          ],
+          "outboundTag": "blocked"
+        },
+        {
+          "type": "field",
+          "ip": [
+            "8.8.8.8",
+            "8.8.4.4",
+            "208.67.222.222",
+            "208.67.220.220",
+            "1.1.1.1",
+            "1.0.0.1"
+          ],
+          "outboundTag": "outbound_1"
+        },
+        {
+          "type": "field",
+          "ip": [
+            "1.2.3.4",
+            "1.2.3.4",
+            "1.2.3.4",
+            "75.2.73.41",
+            "geoip:private",
+            "100.100.100.100/32",
+            "188.188.188.188/32",
+            "110.110.110.110/32"
+          ],
+          "outboundTag": "direct"
+        },
+        {
+          "type": "field",
+          "domain": [
+            "gfwall.com",
+            "cn2qq.com",
+            "geosite:google",
+            "geosite:facebook",
+            "geosite:geolocation-!cn"
+          ],
+          "outboundTag": "outbound_1"
+        },
+        {
+          "type": "field",
+          "ip": [
+            "149.154.160.1/32",
+            "149.154.160.2/31",
+            "149.154.160.4/30",
+            "149.154.160.8/29",
+            "149.154.160.16/28",
+            "149.154.160.32/27",
+            "149.154.160.64/26",
+            "149.154.160.128/25",
+            "149.154.161.0/24",
+            "149.154.162.0/23",
+            "149.154.164.0/22",
+            "149.154.168.0/21",
+            "91.108.4.0/22",
+            "91.108.56.0/24",
+            "109.239.140.0/24",
+            "67.198.55.0/24",
+            "91.108.56.172",
+            "149.154.175.50",
+            "149.154.160.0/20"
+          ],
+          "outboundTag": "outbound_1"
+        }
+      ]
+    }
+  },
+  "routing": {
+    "settings": {
+      "domainStrategy": "AsIs",
+      "rules": [
+        {
+          "type": "field",
+          "outboundTag": "proxy",
+          "domain": [
+            "nicehash.com",
+            "||github.com"
+          ]
+        },
+        {
+          "type": "field",
+          "outboundTag": "direct",
+          "domain": [
+            "geosite:cn"
+          ]
+        },
+        {
+          "type": "field",
+          "ip": [
+            "geoip:cn"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  "transport": {}
+}

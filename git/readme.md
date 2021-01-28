@@ -281,9 +281,3 @@ git remote add origin [git@github.com](https://link.jianshu.com?t=mailto:git@git
 
 上面的命令会增加URL地址为'[git@github.com](https://link.jianshu.com?t=mailto:git@github.com):daixu/WebApp.git'，名称为origin的远程服务器库，以后提交代码的时候只需要使用 origin别名即可
 
-
-
-作者：子疯zp
-链接：https://www.jianshu.com/p/d220c88bb516
-来源：简书
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
