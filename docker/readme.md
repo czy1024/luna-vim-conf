@@ -1,6 +1,5 @@
 # Docker 学习新手笔记：从入门到放弃
-# centos=>> sh -c "$(curl -x 192.168.31.225 -fsSL https://raw.githubusercontent.com/czy1024/luna-linux-conf/master/docker/centos.sh)"
-# ubuntu=>> sh -c "$(curl -x 192.168.31.225 -fsSL https://raw.githubusercontent.com/czy1024/luna-linux-conf/master/docker/ubuntu.sh)"
+
 全文较长，大致需要半小时左右时间阅读，若你已经有所基础，可以根据自己的了解程度选择从何处看起。
 
 本文记录的是作为一个新手，从了解 Docker 是什么、Docker 技术包含哪些概念到上手使用、安装以及发布 Docker 镜像的整个过程。作者在学习过程中参阅了诸多文档和教程，在此一并感谢，与此同时本文结尾也列出了参考文献的链接，供读者进一步参考。遵循简介、入门、上手到深入的顺序，本文根据个人学习实践过程进行书写，结构如下：

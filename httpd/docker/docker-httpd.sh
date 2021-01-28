@@ -9,10 +9,32 @@ sudo docker run \
 	-d httpd
 # 拷贝工作目录	
 echo "拷贝工作目录"
-sudo mkdir ~/httpd
-sudo docker cp  httpd:/usr/local/apache2/conf ~/httpd/conf
+sudo mkdir -p ~/httpd/home/luna
+sudo mkdir ~/httpd/root
 
-# 开机webdav
+# 上传文件临时目录
+touch ~/httpd/root/DavLock
+chmod 777 ~/httpd/root/DavLock
+
+# 上传文件目录
+sudo mkdir ~/httpd/root/uploads
+chmod 777  ~/httpd/root/uploads
+chmod 777  ~/httpd/home/luna
+
+sudo docker cp  httpd:/usr/local/apache2/conf ~/httpd/conf
+cd ~/
+wget http://cute.vaiwan.com/chfs/shared/luna-linux-conf/httpd/docker/httpd.conf 
+mv httpd.conf ~/httpd/conf/
+
+sudo cat >> ~/httpd/conf/httpd.conf <<EOF
+<Directory "/home/luna">
+	Options Indexes FollowSymLinks  
+	Allowoverride AuthConfig
+	#Require all granted
+</Directory>
+EOF
+
+# 开启webdav
 sudo cat >> ~/httpd/conf/extra/httpd-dav.conf <<EOF
 <Directory "/home/luna">
     Dav On
@@ -20,16 +42,11 @@ sudo cat >> ~/httpd/conf/extra/httpd-dav.conf <<EOF
 EOF
 
 # 认证配置
-sudo cat >> ~/httpd/home/luna/.htaccess <<EOF
+sudo cat > ~/httpd/home/luna/.htaccess <<EOF
 AuthName "password, sir!"
 AuthType basic
-AuthUserFile ~/httpd/home/luna/.htppasswd
+AuthUserFile /home/luna/.htppasswd
 require valid-user
-EOF
-
-# 密码文件
-sudo cat >> ~/httpd/home/luna/.htppasswd <<EOF
-luna:$apr1$oyDGqCbQ$KGD91VGYzTlYJcCeVEd6Q1
 EOF
 
 # 停止
@@ -49,4 +66,4 @@ sudo docker run \
    -d httpd
 
 
-
+docker exec -it httpd htpasswd -bc /home/luna/.htppasswd luna czy1024
