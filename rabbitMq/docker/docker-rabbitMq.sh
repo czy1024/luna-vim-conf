@@ -40,8 +40,8 @@ docker run -d \
  --hostname rabbitmq \
  --name rabbitmq \
  --restart=always \
- -e RABBITMQ_DEFAULT_USER=admin \
- -e RABBITMQ_DEFAULT_PASS=admin \
+ -e RABBITMQ_DEFAULT_USER=luna \
+ -e RABBITMQ_DEFAULT_PASS=czy1024 \
  -v ~/rabbitmq/mnesia:/var/lib/rabbitmq/mnesia \
  -p 15672:15672 \
  -p 5672:5672 \
