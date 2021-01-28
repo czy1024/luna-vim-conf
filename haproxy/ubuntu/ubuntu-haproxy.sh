@@ -1,11 +1,10 @@
 #!/bin/bash
 
-docker pull haproxy
+apt-get install haproxy -y
 
-sudo mkdir -p ~/haproxy/etc/haproxy
-
-echo "8084 /status admin:admin"
-sudo cat > ~/haproxy/etc/haproxy/haproxy.cfg <<EOF
+ /usr/local/haproxy
+ echo "8084 /status admin:admin"
+sudo cat > /usr/local/haproxy/haproxy.cfg <<EOF
 
 
 global
@@ -36,7 +35,7 @@ defaults
 
 ########统计页面配置########  
 listen admin_status  
-		bind 0.0.0.0:8888                #监听端口  
+		bind 0.0.0.0:8084                #监听端口  
 		mode http                        #http的7层模式  
 		option httplog                   #采用http日志格式  
 		maxconn 10  
@@ -47,14 +46,3 @@ listen admin_status
 		stats hide-version               #隐藏统计页面上HAProxy的版本信息  
 
 EOF
-
-docker run -d --name haproxy \
-	-p 8082:80 -p 8083:443 -p 8084:8888\
-	-v ~/haproxy/etc/haproxy:/usr/local/etc/haproxy/ \
-	--privileged=true \
-	--restart always \
-	haproxy
-	
-# 修改生效	 
-# docker kill -s HUP haproxy
-docker exec -it haproxy cat /usr/local/etc/haproxy/haproxy.cfg
