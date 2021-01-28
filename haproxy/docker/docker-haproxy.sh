@@ -2,8 +2,9 @@
 
 docker pull haproxy
 
-sudo mkdir ~/haproxy/etc/haproxy
+sudo mkdir -p ~/haproxy/etc/haproxy
 
+echo "8084 /status admin:admin"
 sudo cat > ~/haproxy/etc/haproxy/haproxy.cfg <<EOF
 
 global
@@ -47,18 +48,17 @@ listen admin_status
 		stats refresh 30s                #统计页面自动刷新时间  
 		stats uri /status                #统计页面url  
 		stats realm Haproxy \ statistic  #统计页面密码框上提示文本  
-		stats auth admin:admin         #统计页面用户名和密码设置  
+		stats auth admin:admin           #统计页面用户名和密码设置  
 		stats hide-version               #隐藏统计页面上HAProxy的版本信息  
-
-
 EOF
 
-docker run -d --name haproxy -m 1024M \
+docker run -d --name haproxy \
 	-p 8082:80 -p 8083:443 -p 8084:8888\
-	-v ~/haproxy/etc/haproxy:/usr/local/etc/haproxy \
-	-v ~/haproxy/var/lib/haproxy:/var/lib/haproxy \
+	-v ~/haproxy/etc/haproxy:/usr/local/etc/haproxy/ \
 	--privileged=true \
 	--restart always \
 	haproxy
 	
-		 
+# 修改生效	 
+# docker kill -s HUP haproxy
+docker exec -it haproxy cat /usr/local/etc/haproxy/haproxy.cfg
