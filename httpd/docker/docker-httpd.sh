@@ -11,6 +11,27 @@ sudo docker run \
 echo "拷贝工作目录"
 sudo mkdir ~/httpd
 sudo docker cp  httpd:/usr/local/apache2/conf ~/httpd/conf
+
+# 开机webdav
+sudo cat >> ~/httpd/conf/extra/httpd-dav.conf <<EOF
+<Directory "/home/luna">
+    Dav On
+</Directory>
+EOF
+
+# 认证配置
+sudo cat >> ~/httpd/home/luna/.htaccess <<EOF
+AuthName "password, sir!"
+AuthType basic
+AuthUserFile ~/httpd/home/luna/.htppasswd
+require valid-user
+EOF
+
+# 密码文件
+sudo cat >> ~/httpd/home/luna/.htppasswd <<EOF
+luna:$apr1$oyDGqCbQ$KGD91VGYzTlYJcCeVEd6Q1
+EOF
+
 # 停止
 docker stop httpd
 # 移除
@@ -21,16 +42,11 @@ sudo docker run \
    -p 8089:80 -p 18089:443 \
    --restart always \
    --name httpd \
+   -v ~/httpd/home/luna:/home/luna \
    -v ~/httpd/root:/usr/local/apache2/root \
    -v ~/httpd/conf:/usr/local/apache2/conf \
    -v ~/httpd/logs:/usr/local/apache2/logs \
    -d httpd
-
-sed -i 's/htdocs/root/g' ~/httpd/conf/httpd.conf
-echo "更换验证"
-sed -i 's/Require all granted/Allowoverride AuthConfig/g' ~/httpd/conf/httpd.conf
-echo "添加验证文件"
-sudo cp .htppasswd .htaccess /usr/local/apache2/root
 
 
 
