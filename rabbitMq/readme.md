@@ -10,7 +10,7 @@ rabbitMQ是一个在AMQP协议标准基础上完整的，可服用的企业消�
 
 有的选择其他的安装方式，可能需要添加一下系统环境变量（正常安装的也要检查下）：
 
-![img](http://images2015.cnblogs.com/blog/784082/201609/784082-20160923235447637-1807926011.png)
+![img](https://i.loli.net/2021/01/29/rPNn6SghdmfvHtu.png)
 
 有最好，没有的话就手动添加嘛。
 
@@ -38,7 +38,7 @@ rabbitMQ是一个在AMQP协议标准基础上完整的，可服用的企业消�
 "C:\Program Files\RabbitMQ Server\rabbitmq_server-3.6.5\sbin\rabbitmq-plugins.bat" enable rabbitmq_management
 ```
 
-![img](http://images2015.cnblogs.com/blog/784082/201609/784082-20160924000520059-1488931520.png)
+![img](https://i.loli.net/2021/01/29/pKRy4mQU9Poz6lC.png)
 
 这样，就安装好插件了，是不是能使用了呢？别急，需要重启服务才行，使用命令：
 
@@ -48,7 +48,7 @@ net stop RabbitMQ && net start RabbitMQ
 
 这时候的，也许会出现这种结果：
 
-![img](http://images2015.cnblogs.com/blog/784082/201609/784082-20160924001111465-1934628397.png)
+![img](https://i.loli.net/2021/01/29/S8awjq2sGLDTx34.png)
 
 “发生错误：发生系统错误 *5。 \*拒绝访问。”**
 
@@ -56,7 +56,7 @@ net stop RabbitMQ && net start RabbitMQ
 
 问题解决方案：使用管理员打开*cmd再执行此命令：*
 
-*![img](http://images2015.cnblogs.com/blog/784082/201609/784082-20160924001344449-518927811.png)*
+*![img](https://i.loli.net/2021/01/29/DLEyYBsRPrktW4f.png)*
 
 这样就结束了吗？当然没有。
 
@@ -82,13 +82,13 @@ rabbitmqctl.bat list_users
 rabbitmqctl.bat add_user username password
 ```
 
-![img](http://images2015.cnblogs.com/blog/784082/201609/784082-20160924002317996-1750317042.png)
+![img](https://i.loli.net/2021/01/29/OoEbayLInpQUScR.png)
 
  
 
 此时来看下我们当前用户哈：
 
-![img](http://images2015.cnblogs.com/blog/784082/201609/784082-20160924002417481-667312419.png)
+![img](https://i.loli.net/2021/01/29/gUsbYMQkIi9zleX.png)
 
 eric 后面没有“[administrator]”
 
@@ -124,11 +124,11 @@ eric 后面没有“[administrator]”
 rabbitmqctl.bat set_user_tags username administrator
 ```
 
-![img](http://images2015.cnblogs.com/blog/784082/201609/784082-20160924003014246-2015422375.png)
+![img](https://i.loli.net/2021/01/29/2xHaJfvYmrkg3pt.png)
 
 再看下结果哈：
 
-![img](http://images2015.cnblogs.com/blog/784082/201609/784082-20160924003047621-1862534375.png)
+![img](https://i.loli.net/2021/01/29/ovjVFKL2hAsRXEJ.png)
 
 当然，除了上面的administrator 还有 monitoring、policymaker、management、自定义名称 ，对应上面介绍到的不同的角色。
 
@@ -138,7 +138,7 @@ rabbitmqctl.bat set_user_tags username administrator
 rabbitmqctl.bat  set_user_tags  username tag1 tag2 ...
 ```
 
-![img](http://images2015.cnblogs.com/blog/784082/201609/784082-20160924005224668-1215172795.png)
+![img](https://i.loli.net/2021/01/29/YMh9Kr4EnumZbQs.png)
 
  
 
@@ -150,7 +150,7 @@ rabbitmqctl.bat  set_user_tags  username tag1 tag2 ...
 rabbitmqctl change_password userName newPassword
 ```
 
-![img](http://images2015.cnblogs.com/blog/784082/201609/784082-20160924003352168-1350202979.png)
+![img](https://i.loli.net/2021/01/29/rdyDgh3YJ26wfaO.png)
 
  
 
@@ -160,7 +160,7 @@ rabbitmqctl change_password userName newPassword
 rabbitmqctl.bat delete_user username
 ```
 
-![img](http://images2015.cnblogs.com/blog/784082/201609/784082-20160924003722731-332310837.png)
+![img](https://i.loli.net/2021/01/29/1UJQxXdPzy9rTkR.png)
 
  
 
@@ -170,9 +170,9 @@ rabbitmqctl.bat delete_user username
 
 使用浏览器打开[ http://localhost:15672](http://localhost:15672/) 访问Rabbit Mq的管理控制台，使用刚才创建的账号登陆系统：
 
- ![img](http://images2015.cnblogs.com/blog/784082/201609/784082-20160924004023387-110874920.png)
+ ![img](https://i.loli.net/2021/01/29/enjUqDQdfGZIMvz.png)
 
-![img](http://images2015.cnblogs.com/blog/784082/201609/784082-20160924004035121-53385779.png)
+![img](https://i.loli.net/2021/01/29/TMWnJjqCZdKfe3O.png)
 
  
 
