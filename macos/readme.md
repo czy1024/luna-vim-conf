@@ -40,7 +40,7 @@ ruby brew_install.rb
 
 这样就可以安装好brew_install.rb文件
 
-![img](https://img-blog.csdnimg.cn/20200816162906500.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjQ5ODA1MA==,size_16,color_FFFFFF,t_70)
+![img](https://i.loli.net/2021/01/29/I1EuxSVXnNWaisP.png)
 
  
 
@@ -75,13 +75,13 @@ https://blog.csdn.net/sinat_27741463/article/details/102950077
 
 /bin/zsh -c "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"
 
-![img](https://img-blog.csdnimg.cn/20200822233432997.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjQ5ODA1MA==,size_16,color_FFFFFF,t_70)
+![img](https://i.loli.net/2021/01/29/6e2cTJQNVqBjAuH.png)
 
-![img](https://img-blog.csdnimg.cn/20200805214751748.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjQ5ODA1MA==,size_16,color_FFFFFF,t_70)
+![img](https://i.loli.net/2021/01/29/Yj16uqSt9CPfdJw.png)
 
 安装完后的样子如下
 
-![img](https://img-blog.csdnimg.cn/20200822234002440.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjQ5ODA1MA==,size_16,color_FFFFFF,t_70)
+![img](https://i.loli.net/2021/01/29/FTxqyPK7YbLJHk3.png)
 
 2> wget
 
@@ -95,7 +95,7 @@ brew install wget
 
 下载地址：http://rpm.pbone.net/index.php3/stat/4/idpl/31936885/dir/scientific_linux_6/com/wget-1.12-8.el6.x86_64.rpm.html
 
-![img](https://img-blog.csdnimg.cn/20200816160849427.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjQ5ODA1MA==,size_16,color_FFFFFF,t_70)
+![img](https://i.loli.net/2021/01/29/k4xOVfJ8cMnw2E6.png)
 
  
 
@@ -105,15 +105,15 @@ brew install wget
 
 安装完毕 java -version
 
-![img](https://img-blog.csdnimg.cn/20200330113803446.png)
+![img](https://i.loli.net/2021/01/29/vpzOLn2RHqPkBjd.png)
 
 3.安装maven，brew install maven 安装完毕 mvn -version
 
-![img](https://img-blog.csdn.net/20181024120117342?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjQ5ODA1MA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![img](https://i.loli.net/2021/01/29/Sg29smA1tUybZLp.png)
 
 查找Java_home路径的命令/usr/libexec/java_home
 
-![img](https://img-blog.csdn.net/20181025165936494?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjQ5ODA1MA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![img](https://i.loli.net/2021/01/29/VkupbJRyIe5E3hQ.png)
 
 objc[6704]: Class JavaLaunchHelper is implemented in both /Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/bin/java (0x1026804c0) and /Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home/jre/lib/libinstrument.dylib (0x1027044e0). One of the two will be used. Which one is undefined.
 
@@ -139,13 +139,13 @@ idea.no.launcher=true
 
 https://www.cnblogs.com/whycxb/p/7126116.html
 
-![img](https://img-blog.csdnimg.cn/20181115151235829.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjQ5ODA1MA==,size_16,color_FFFFFF,t_70)
+![img](https://i.loli.net/2021/01/29/t14bUgvipT2YueC.png)
 
 Chrome浏览器安装Set Character Encoding
 
 https://jingyan.baidu.com/article/5552ef47974e5f518ffbc9f8.html
 
-![img](https://img-blog.csdnimg.cn/20181115150737753.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjQ5ODA1MA==,size_16,color_FFFFFF,t_70)
+![img](https://i.loli.net/2021/01/29/uAVyTIieXFDd3Jt.png)
 
  
 
@@ -153,7 +153,7 @@ https://jingyan.baidu.com/article/5552ef47974e5f518ffbc9f8.html
 
 http://tool.chinaz.com/tools/urlencode.aspx
 
-![img](https://img-blog.csdnimg.cn/20181107145612467.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjQ5ODA1MA==,size_16,color_FFFFFF,t_70)
+![img](https://i.loli.net/2021/01/29/LHTeohJap4QXANs.png)
 
  
 
@@ -169,7 +169,7 @@ https://zhuanlan.zhihu.com/p/64024555
 
 个人选择的是"robbyrussell"主题，当然也有选ys主题的，看个人爱好吧
 
-![img](https://img-blog.csdnimg.cn/20190701110642212.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjQ5ODA1MA==,size_16,color_FFFFFF,t_70)
+![img](https://i.loli.net/2021/01/29/Qaz6igkbFeRlZVp.png)
 
  
 
@@ -198,7 +198,7 @@ ServerAliveInterval 60
 
 保存后在iterm2-Perferences-Profiles配置跳板机-服务器username@ip
 
-![img](https://img-blog.csdnimg.cn/20200821142141790.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjQ5ODA1MA==,size_16,color_FFFFFF,t_70)
+![img](https://i.loli.net/2021/01/29/6H3QbEAyJXncsDp.png)
 
 ##  
 
@@ -208,7 +208,7 @@ Mac ITerm2连接服务器自动断开解决办法
 
 iTerm2-Preferences-Profiles-Session修改when idle,send ASCII code 0 every 9999 seconds
 
-![img](https://img-blog.csdnimg.cn/20200826203412444.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjQ5ODA1MA==,size_16,color_FFFFFF,t_70)
+![img](https://i.loli.net/2021/01/29/2tXmRjWIKfYwGzP.png)
 
 或者 vim ~/.ssh/config
 
@@ -235,7 +235,7 @@ sudo vi /etc/hosts
 进入编辑模式，在最下面添加 13.229.188.59 github.com
 再次尝试在终端 ping github.com，发现已经成功了。
 
-![img](https://img-blog.csdnimg.cn/20200805164737532.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjQ5ODA1MA==,size_16,color_FFFFFF,t_70)
+![img](https://i.loli.net/2021/01/29/uHtRbZNhW5aJoCA.png)
 
 ------
 
@@ -243,7 +243,7 @@ sudo vi /etc/hosts
 
 安装完乱码
 
-![img](https://img-blog.csdnimg.cn/20200806174400797.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjQ5ODA1MA==,size_16,color_FFFFFF,t_70)
+![img](https://i.loli.net/2021/01/29/5b4HhDRuKBvnSmc.png)
 
  
 
@@ -313,7 +313,7 @@ vim .zshrc
 
 效果如下
 
-![img](https://img-blog.csdnimg.cn/20200817113644365.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjQ5ODA1MA==,size_16,color_FFFFFF,t_70)
+![img](https://i.loli.net/2021/01/29/ZXKgJlabHu6P2SY.png)
 
 [zsh 配置] zsh命令自动补全插件
 
@@ -335,13 +335,13 @@ plugins=(git zsh-autosuggestions)
 
 记得source .zshrc 
 
-![img](https://img-blog.csdnimg.cn/20200822224005450.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjQ5ODA1MA==,size_16,color_FFFFFF,t_70)
+![img](https://i.loli.net/2021/01/29/vLI7j6Ck5XMxOAy.png)
 
 效果如上图最后一行
 
-![img](https://img-blog.csdnimg.cn/20200821235758979.png)
+![img](https://i.loli.net/2021/01/29/WQ3plmnsE2yeYZC.png)
 
-![img](https://img-blog.csdnimg.cn/20200822223850956.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjQ5ODA1MA==,size_16,color_FFFFFF,t_70)
+![img](https://i.loli.net/2021/01/29/mstvxj9bJzoKdVi.png)
 
 输入vim 向右的键盘填充联想的内容 按下tab展示多个以xx开头的文件选择
 
@@ -349,17 +349,17 @@ plugins=(git zsh-autosuggestions)
 
 个人认为字体设置为Monaco Regular 14号最好看
 
-![img](https://img-blog.csdnimg.cn/20200817213510901.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjQ5ODA1MA==,size_16,color_FFFFFF,t_70)
+![img](https://i.loli.net/2021/01/29/IJYdDpoay2VTvWh.png)
 
 其他字体设置
 
  
 
-![img](https://img-blog.csdnimg.cn/20200822233618263.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjQ5ODA1MA==,size_16,color_FFFFFF,t_70)
+![img](https://i.loli.net/2021/01/29/ho5T2NH7cmfwWvV.png)
 
  
 
-![img](https://img-blog.csdnimg.cn/20200822233723384.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjQ5ODA1MA==,size_16,color_FFFFFF,t_70)
+![img](https://i.loli.net/2021/01/29/Tx5FcmjEVZ4yNRi.png)
 
  
 
@@ -375,7 +375,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 
 plugins=(zsh-autosuggestions)
 
-![img](https://img-blog.csdnimg.cn/20200816164533690.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjQ5ODA1MA==,size_16,color_FFFFFF,t_70)
+![img](https://i.loli.net/2021/01/29/78YFs61RCqLHvnE.png)
 
 参考https://www.jianshu.com/p/26c0f83f5c0c
 
@@ -396,9 +396,9 @@ iterm2-zmodem-recv
 iterm2-zmodem-send
 
 一定要赋予执行权限：sudo chmod +x /usr/local/bin/iterm2*
- 
 
-![img](https://img-blog.csdnimg.cn/20200817212555441.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjQ5ODA1MA==,size_16,color_FFFFFF,t_70)
+
+![img](https://i.loli.net/2021/01/29/58gsCEkAiuj2DBN.png)
 
 配置
 
@@ -416,7 +416,7 @@ Parameters: /usr/local/bin/iterm2-zmodem-recv
 
 我这里绝对是最靠谱的版本，参考的博客写的不对哈2020年8月17日。1 是/不是\ 2 没有sh
 
-![img](https://img-blog.csdnimg.cn/20200817220508918.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjQ5ODA1MA==,size_16,color_FFFFFF,t_70)
+![img](https://i.loli.net/2021/01/29/g7RqEr4NpIMyGSb.png)
 
  
 
@@ -436,7 +436,7 @@ https://github.com/jbtule/cdto/releases/tag/2_6_0
 
  解压后选择如下目录：iterm下的cdto
 
-![img](https://img-blog.csdnimg.cn/20200806114008899.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjQ5ODA1MA==,size_16,color_FFFFFF,t_70)
+![img](https://i.loli.net/2021/01/29/o7z3LHwDiJVkm9j.png)
 
  
 
@@ -516,15 +516,15 @@ Preference- Editor- FileEncodings
 
 修改Global Encoding、Project Encoding、Default encoding for properties files都为UTF-8
 
-![img](https://img-blog.csdnimg.cn/20181219143906741.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjQ5ODA1MA==,size_16,color_FFFFFF,t_70)
+![img](https://i.loli.net/2021/01/29/7cs3OdpmEJTfRKb.png)
 
 解决idea控制台输出乱码的问题：
 
-![img](https://img-blog.csdnimg.cn/20200709230641419.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjQ5ODA1MA==,size_16,color_FFFFFF,t_70)
+![img](https://i.loli.net/2021/01/29/JBSbQZlWrCAmOXM.png)
 
 以及Run -Edit Configuration编辑VMoptions -Dfile.encoding=UTF-8 最后重启idea
 
-![img](https://img-blog.csdnimg.cn/20200709230756878.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MjQ5ODA1MA==,size_16,color_FFFFFF,t_70)
+![img](https://i.loli.net/2021/01/29/gr6PbsJuZE8IQlA.png)
 
 https://www.jianshu.com/p/ea31b8676190
 
