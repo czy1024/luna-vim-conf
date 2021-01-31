@@ -1,8 +1,4 @@
 #! /bin/bash
-
-echo "设置密码"
-sudo passwd 
-
 # 备份原文件
 cp /etc/apt/sources.list /etc/apt/sources.list.copy
 
@@ -26,17 +22,7 @@ EOF
 
 # 更新源
 sudo apt-get update
-
-sudo apt-get install redis
-# redis密码配置
-echo -n "please enter the password:"
-read passwd
-echo "your password is =>>>>> $passwd please remember"
-sed -i 's/# requirepass foobared/requirepass '"$passwd"'/g' /etc/redis/redis.conf
-# 取消端口绑定
-sed -i 's/bind 127.0.0.1 ::1/#bind 127.0.0.1 ::1/g' /etc/redis/redis.conf
-
-
+sudo apt-get install zsh vim wegt net-tools -y
 sudo apt-get install git -y
 echo "git 配置用户邮箱:"
 echo -n "please enter the username:"
@@ -106,15 +92,3 @@ EOF
 echo "安装nscd"
 sudo apt-get install nscd -y
 sudo systemctl restart nscd 
-
-sudo apt-get install npm -y
-echo "npm 配置淘宝镜像"
-sudo npm config set registry https://registry.npm.taobao.org
-
-echo "安装python3"
-sudo apt-get install python3 -y
-
-echo "安装java"
-sudo apt install openjdk-8-jre-headless -y
-
-echo "安装docker"
