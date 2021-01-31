@@ -30,7 +30,7 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 #执行安装命令
 apt-get install -y docker-ce
 
-#如果还是不行 就再跑一次update然后执行安装命令。我的环境就是这么装起来的。
+#如果还是不行 就再跑一次update然后执行安装命令。
 
 # 配置镜像加速器
 sudo mkdir -p /etc/docker
@@ -55,3 +55,11 @@ sudo systemctl enable docker
 sudo groupadd docker
 sudo gpasswd -a ${USER} docker
 sudo systemctl restart docker
+
+# docker-compose 
+curl -L "https://get.daocloud.io/docker/compose/releases/download/1.27.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+chmod +x /usr/local/bin/docker-compose
+
+docker --version
+docker-compose --version
