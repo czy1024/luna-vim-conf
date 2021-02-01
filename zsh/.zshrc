@@ -1,4 +1,4 @@
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="agnoster"
 export EDITOR='nvim'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
