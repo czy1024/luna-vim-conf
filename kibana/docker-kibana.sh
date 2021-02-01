@@ -21,8 +21,8 @@ sudo cat > ~/kibana/config/kibana.yml <<EOF
 
 # Default Kibana configuration for docker target
 server.name: kibana
-server.host: "0"
-elasticsearch.hosts: [ "http://192.168.1.108:9200" ]
+server.host: "0.0.0.0"
+elasticsearch.hosts: [ "http://192.168.1.104:9200" ]
 xpack.monitoring.ui.container.elasticsearch.enabled: true
 elasticsearch.username: "elastic"
 elasticsearch.password: "czy1024"

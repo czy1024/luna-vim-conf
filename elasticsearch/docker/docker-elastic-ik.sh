@@ -17,6 +17,8 @@ sudo docker cp es:/usr/share/elasticsearch/config ~/elasticsearch/
 
 # 修改配置文件
 sudo cp ~/elasticsearch/config/elasticsearch.yml ~/elasticsearch/config/elasticsearch.yml.bak
+
+
 sudo cat > ~/elasticsearch/config/elasticsearch.yml <<EOF 
 # 加入跨域配置
 cluster.name: "docker-cluster"
@@ -41,6 +43,9 @@ EOF
 sudo mkdir ~/elasticsearch/data
 sudo chmod 777 ~/elasticsearch/data
 
+# JVM 配置
+sed -i 's/-Xms1g/-Xms256m/g' ~/elasticsearch/config/jvm.options
+sed -i 's/-Xmx1g/-Xmx256m/g' ~/elasticsearch/config/jvm.options
 
 sudo cat > /etc/sysctl.conf << EOF 
 vm.max_map_count=655360
