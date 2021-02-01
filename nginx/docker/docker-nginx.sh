@@ -52,8 +52,7 @@ docker stop nginx
 docker rm nginx
 # 运行
 echo "运行mysql -p 80:80 -p 443:443 "
-docker run -d \
-      --name nginx --restart=always \
+docker run -d  --net=example_default --ip=172.18.0.6 --name nginx --restart=always  \
       -p 80:80 -p 443:443 \
       --restart always \
       -v ~/nginx/html:/usr/share/nginx/html \
