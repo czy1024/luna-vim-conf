@@ -1,0 +1,1 @@
+elasticsearch-setup-passwords interactive # 设置密码
