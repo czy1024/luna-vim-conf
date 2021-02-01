@@ -65,7 +65,7 @@ and so on....
 | picgo          | [picgo](./picgo) | pic for auto upload                                |
 | postman        | [postman](./postman) | My api config for json file                        |
 | proxy          | [proxy](./proxy) | Some software for porxy                            |
-| pyhton         | [pyhton](./pyhton) | install pyhton                                     |
+| python       | [python](./python) | install pyhton                                     |
 | rabbitMq       | [rabbitMq](./rabbitMq) | install rabbitMq for docker  and windows           |
 | rdp            | [rdp](./rdp) | My remote desktop config file                      |
 | redis          | [redis](./redis) | install redis for docker ubuntu and windows        |

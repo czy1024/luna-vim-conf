@@ -37,6 +37,9 @@ xpack.security.transport.ssl.enabled: true
 # elasticsearch-setup-passwords interactive
 EOF
 
+# JVM 配置
+sed -i 's/-Xms1g/-Xms256m/g' ~/elasticsearch/config/jvm.options
+sed -i 's/-Xmx1g/-Xmx256m/g' ~/elasticsearch/config/jvm.options
 # 新建数据目录
 sudo mkdir ~/elasticsearch/data
 sudo chmod 777 ~/elasticsearch/data
