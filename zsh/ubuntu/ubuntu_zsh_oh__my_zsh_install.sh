@@ -11,10 +11,13 @@ sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="agnoster"/g' ~/.zshrc
 #sed -i 's/ZSH_THEME="agnoster"/ZSH_THEME="robbyrussell"/g' ~/.zshrc
 
 # 安装字体 不然会乱码
-wget https_proxy=http://192.168.1.100:10822 https://raw.githubusercontent.com/powerline/powerline/develop/font/10-powerline-symbols.conf
+#wget https_proxy=http://192.168.1.100:10822 https://raw.githubusercontent.com/powerline/powerline/develop/font/10-powerline-symbols.conf
  
-wget https_proxy=http://192.168.1.100:10822 https://raw.githubusercontent.com/powerline/powerline/develop/font/PowerlineSymbols.otf
+#wget https_proxy=http://192.168.1.100:10822 https://raw.githubusercontent.com/powerline/powerline/develop/font/PowerlineSymbols.otf
  
+wget  https://raw.githubusercontent.com/powerline/powerline/develop/font/10-powerline-symbols.conf
+wget  https://raw.githubusercontent.com/powerline/powerline/develop/font/PowerlineSymbols.otf
+
 sudo mkdir /usr/share/fonts/OTF
  
 sudo cp 10-powerline-symbols.conf /usr/share/fonts/OTF/
