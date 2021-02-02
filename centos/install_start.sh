@@ -16,7 +16,7 @@ yum makecache
 yum update -y
 
 # 安装软件
-yum install redis openssh-server git nscd zsh vim -y
+yum install redis openssh-server git nscd zsh vim curl net-tools wegt-y
 
 echo "git 配置用户邮箱:"
 echo -n "please enter the username:"
@@ -25,6 +25,8 @@ git config --global user.name "$username"
 echo -n "please enter the email:"
 read email
 git config --global user.email "$email"
+git config http.postBuffer 524288000 # 修改下载大包限制
+
 # 查看配置
 git config --list
 

@@ -82,8 +82,6 @@ cd ~/elasticsearch
 sudo curl -LJO https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.6.2/elasticsearch-analysis-ik-7.6.2.zip
 sudo cp ~/elasticsearch/elasticsearch-analysis-ik-7.6.2.zip ~/elasticsearch/plugins/ik
 
-apt-get zip unzip 
-yum install unzip
 # 解压
 sudo unzip ~/elasticsearch/plugins/ik/elasticsearch-analysis-ik-7.6.2.zip  -d  ~/elasticsearch/plugins/ik/
 rm -rf  ~/elasticsearch/elasticsearch-analysis-ik-7.6.2.zip

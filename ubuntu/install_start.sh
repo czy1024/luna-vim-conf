@@ -22,8 +22,7 @@ EOF
 
 # 更新源
 sudo apt-get update
-sudo apt-get install zsh vim wegt net-tools -y
-sudo apt-get install git -y
+sudo apt-get install redis zsh git vim openssh-server wegt net-tools curl -y
 echo "git 配置用户邮箱:"
 echo -n "please enter the username:"
 read username
@@ -31,6 +30,8 @@ git config --global user.name "$username"
 echo -n "please enter the email:"
 read email
 git config --global user.email "$email"
+git config http.postBuffer 524288000 # 修改下载大包限制
+
 # 查看配置
 git config --list
 
