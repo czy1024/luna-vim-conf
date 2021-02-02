@@ -85,6 +85,7 @@ and so on....
 
 ## 目录结构
 
+```bash
 .
 ├── LICENSE
 ├── README.md
@@ -414,6 +415,7 @@ and so on....
     ├── windows
     │   └── PowerlineSymbols.otf
     └── zsh_start.sh
+```
 
 
 
