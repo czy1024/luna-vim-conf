@@ -26,7 +26,8 @@ docker rm seata
 
 # 启动容器
 docker run --name seata --restart=always \
-        -p 8091:8091 -d \
-        -e SEATA_PORT=8091 \
+        -p 23414:23414 -d \
+        -e SEATA_PORT=23414 \
+        -e SEATA_IP=212.64.78.154 \
         -v ~/seata:/seata-server \
         seataio/seata-server:latest
