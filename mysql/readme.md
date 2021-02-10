@@ -127,9 +127,9 @@ net start mysql
 
 ```sql
  # 若上面失效,则使用下面的语句
- update user set password=password("czy1024") where user="root";
+ update user set password=password("luna") where user="luna";
  
- update mysql.user set authentication_string=password('czy1024') where user='root'; 
+ update mysql.user set authentication_string=password('luna') where user='luna'; 
  
  flush privileges; 
  #立即生效
