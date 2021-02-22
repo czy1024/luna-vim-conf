@@ -5,7 +5,7 @@ docker pull redis
 sudo mkdir ~/redis
 
 # 运行
-echo "运行mysql 16379:6379 "
+echo "运行redis 16379:6379 "
 sudo docker run -p 16379:6379 \
    --name redis \
    --restart always \
