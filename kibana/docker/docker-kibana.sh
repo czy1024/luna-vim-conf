@@ -24,7 +24,7 @@ server.name: kibana
 server.host: "0.0.0.0"
 elasticsearch.hosts: [ "http://192.168.1.104:9200" ]
 xpack.monitoring.ui.container.elasticsearch.enabled: true
-elasticsearch.username: "elastic"
+elasticsearch.username: "kibana"
 elasticsearch.password: "czy1024"
 i18n.locale: "zh-CN"
 EOF
