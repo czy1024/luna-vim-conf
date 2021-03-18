@@ -7,3 +7,8 @@ hashcat64  -a 3 -m 0 ba8a48b0e34226a2992d871c65600a7c  ?l?l?l?l  --force (luna)
 hashcat64  -a 3 -m 0 82d1e255b0473c030f69eb8b3fbc5a31  --increment --increment-min 19 --increment-max 19  ?d?d?d?d?d?d?d?d?d?d?l?l?l?l?l?l?l?l?l  --force (1772249015sinaweibo) 
 
 hashcat64  -a 3 -m 0 e28c32958a44e096fd37447ea776615b  ?d?d?d?d?d?d?d?d?d?d  --force (1772249015)
+
+- keyspace
+    hashcat -m 0 -a 3 '?a?a?a?a?a?a' --keyspace // 81450625
+    81450625*0.1 8145062.5 
+     hashcat -m 0 -a 3  -s 0 -l 10000 ba8a48b0e34226a2992d871c65600a7c '?a?a?a?a'
