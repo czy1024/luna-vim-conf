@@ -118,16 +118,16 @@ under the License.
           
         
         -->
-        
+
         <proxy>
-          <id>socks</id>
-          <active>true</active>
-          <protocol>socks5</protocol>
-          <username></username>
-          <password></password>
-          <host>127.0.0.1</host>
-          <port>7890</port>
-          <nonProxyHosts>127.0.0.1</nonProxyHosts>
+            <id>socks</id>
+            <active>true</active>
+            <protocol>socks5</protocol>
+            <username></username>
+            <password></password>
+            <host>127.0.0.1</host>
+            <port>7890</port>
+            <nonProxyHosts>127.0.0.1</nonProxyHosts>
         </proxy>
     </proxies>
 
@@ -169,6 +169,12 @@ under the License.
           <username>luna</username>
           <password>!czy1024BACF</password>
         </server>
+        <server>
+            <id>ossrh</id>
+            <username>luna</username>
+            <password>!czy1024BACF</password>
+        </server>
+
         <!-- Another sample, using keys to authenticate.
         <server>
           <id>siteServer</id>
@@ -182,7 +188,7 @@ under the License.
           <passphrase>czy1024</passphrase>
         </server>
         -->
-		
+
     </servers>
 
     <!-- mirrors
@@ -205,7 +211,7 @@ under the License.
             </url>
             <mirrorOf>central</mirrorOf>
         </mirror>-->
-    
+
         <!-- mirror
          | Specifies a repository mirror site to use instead of a given repository. The repository that
          | this mirror serves has an ID that matches the mirrorOf element of this mirror. IDs are used
@@ -219,7 +225,6 @@ under the License.
         </mirror>
          -->
     </mirrors>
-    
 
 
     <!-- profiles
@@ -308,56 +313,82 @@ under the License.
           </properties>
         </profile>
         -->
-      <profile> 
-        <id>boundlessgeo</id>  
-        <repositories> 
-          <repository> 
-            <id>boundlessgeo</id>  
-            <url>https://repo.boundlessgeo.com/main/</url>  
-            <releases> 
-              <enabled>true</enabled> 
-            </releases>  
-            <snapshots> 
-              <enabled>true</enabled>  
-              <updatePolicy>always</updatePolicy> 
-            </snapshots> 
-          </repository> 
-        </repositories> 
-      </profile> 
-      <profile> 
-        <id>aliyun</id>  
-        <repositories> 
-          <repository> 
-            <id>aliyun</id>  
-            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>  
-            <releases> 
-              <enabled>true</enabled> 
-            </releases>  
-            <snapshots> 
-              <enabled>true</enabled>  
-              <updatePolicy>always</updatePolicy> 
-            </snapshots> 
-          </repository> 
-        </repositories> 
-      </profile>  
-      <profile> 
-        <id>maven-central</id>  
-        <repositories> 
-          <repository> 
-            <id>maven-central</id>  
-            <url>http://central.maven.org/maven2/</url>  
-            <releases> 
-              <enabled>true</enabled> 
-            </releases>  
-            <snapshots> 
-              <enabled>true</enabled>  
-              <updatePolicy>always</updatePolicy> 
-            </snapshots> 
-          </repository> 
-        </repositories> 
-      </profile> 
+        <profile>
+            <id>ossrh</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <gpg.executable>gpg</gpg.executable>
+                <gpg.passphrase>88CF1DCE4886FB27E66F9ACFE653B2F836E0A216</gpg.passphrase>
+            </properties>
+        </profile>
+        <profile>
+            <id>boundlessgeo</id>
+            <repositories>
+                <repository>
+                    <id>boundlessgeo</id>
+                    <url>https://repo.boundlessgeo.com/main/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy>
+                    </snapshots>
+                </repository>
+            </repositories>
+        </profile>
+        <profile>
+            <id>aliyun</id>
+            <repositories>
+                <repository>
+                    <id>aliyun</id>
+                    <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy>
+                    </snapshots>
+                </repository>
+            </repositories>
+        </profile>
+        <profile>
+            <id>maven-central</id>
+            <repositories>
+                <repository>
+                    <id>maven-central</id>
+                    <url>http://central.maven.org/maven2/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy>
+                    </snapshots>
+                </repository>
+            </repositories>
+        </profile>
+        <profile>
+            <id>maven-net</id>
+            <repositories>
+                <repository>
+                    <id>maven-net</id>
+                    <url> http://maven.net.cn/content/groups/public/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy>
+                    </snapshots>
+                </repository>
+            </repositories>
+        </profile>
     </profiles>
-    
+
     <!-- activeProfiles
      | List of profiles that are active for all builds.
      |
@@ -367,8 +398,9 @@ under the License.
     </activeProfiles>
     -->
     <activeProfiles>
-      <activeProfile>boundlessgeo</activeProfile>
-      <activeProfile>aliyun</activeProfile>
-      <activeProfile>maven-central</activeProfile>
-  </activeProfiles>
+        <activeProfile>boundlessgeo</activeProfile>
+        <activeProfile>aliyun</activeProfile>
+        <activeProfile>maven-central</activeProfile>
+        <activeProfile>maven-net</activeProfile>
+    </activeProfiles>
 </settings>
