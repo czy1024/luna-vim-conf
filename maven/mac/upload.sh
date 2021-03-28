@@ -32,11 +32,11 @@ gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 88CF1DCE4886FB27E66F9A
 
 mvn versions:set -DnewVersion=1.0.0
 
-mvn clean deploy -P release  -Dmaven.test.skip=true -Darguments=gpg.passphrase="luna"
+mvn clean deploy -P ossrh  -Dmaven.test.skip=true -Darguments=gpg.passphrase="luna"
 
 mvn versions:set -DnewVersion=1.0-SNAPSHOT
 
-mvn clean deploy -P release  -Dmaven.test.skip=true
+mvn clean deploy -P ossrh  -Dmaven.test.skip=true
 
 gpg --keyserver hkp://pool.sks-keyservers.net --send-keys 88CF1DCE4886FB27E66F9ACFE653B2F836E0A216
 gpg --keyserver hkp://keyserver.ubuntu.com:11371 --send-keys 88CF1DCE4886FB27E66F9ACFE653B2F836E0A216
