@@ -3,7 +3,7 @@
 该程序是一个控制台程序，可直接双击运行，或在控制台/命令行中运行。可通过命令行参数进行相关配置，如使用'chfs --help'来查看帮助：
 
 ```bash
-usage: chfs.exe []
+usage: chfs.exe [http://iscute.cn/chfs]
 
 Flags:
   --help              Show context-sensitive help (also try --help-long and
