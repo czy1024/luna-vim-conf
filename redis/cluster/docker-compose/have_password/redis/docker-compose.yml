@@ -1,0 +1,30 @@
+version: '3.4'
+services:
+  master:
+    image: redis
+    container_name: redis-master
+    restart: always
+    command: redis-server --port 6379 --requirepass czy1024
+#    network_mode: "host"
+    ports:
+      - 6379:6379
+
+  slave1:
+    image: redis
+    container_name: redis-slave-1
+    restart: always
+    command: redis-server --slaveof 172.16.81.145 6379 --port 6380 --requirepass czy1024 --masterauth czy1024
+#    network_mode: "host"
+    ports:
+      - 6380:6379
+
+
+  slave2:
+    image: redis
+    container_name: redis-slave-2
+    restart: always
+    command: redis-server --slaveof 172.16.81.145 6379 --port 6381 --requirepass czy1024 --masterauth 1234
+#    network_mode: "host"
+    ports:
+      - 6381:6379
+
