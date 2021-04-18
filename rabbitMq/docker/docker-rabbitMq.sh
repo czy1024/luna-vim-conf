@@ -46,7 +46,7 @@ docker run -d \
  -p 15672:15672 \
  -p 5672:5672 \
  -p 25672:25672 \
- -p 61613:61613 \
- -p 1883:1883 rabbitmq
+ rabbitmq
 
-  docker exec -it rabbitmq rabbitmq-plugins enable rabbitmq_management
+# 开启web页面管理
+docker exec -it rabbitmq rabbitmq-plugins enable rabbitmq_management
