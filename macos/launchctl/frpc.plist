@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>KeepAlive</key>
+	<dict>
+		<key>SuccessfulExit</key>
+		<false/>
+	</dict>
+	<key>Label</key>
+	<string>frpc</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/Users/luna_mac/Documents/luna/frp/frpc</string>
+		<string>-c</string>
+		<string>/Users/luna_mac/Documents/luna/frp/frpc.ini</string>
+	</array>
+	<key>StandardErrorPath</key>
+	<string>/tmp/shelltask.err</string>
+	<key>StandardOutPath</key>
+	<string>/tmp/shelltask.log</string>
+	<key>WorkingDirectory</key>
+	<string>/Users/luna_mac/Documents/luna/frp</string>
+</dict>
+</plist>

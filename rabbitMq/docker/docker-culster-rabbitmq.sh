@@ -82,3 +82,13 @@ docker exec -it rabbitmq-III rabbitmqctl start_app
 #docker rm rabbitmq-I rabbitmq-II rabbitmq-III
 
 docker exec -it rabbitmq-I rabbitmqctl cluster_status
+
+# 1.查看当前策略
+docker exec -it rabbitmq-I  rabbitmqctl list_policies
+
+# 2.添加策略
+docker exec -it rabbitmq-I  rabbitmqctl set_policy ha-all '^luna' '{"ha-mode":"all","ha-sync-mode":"automatic"}' 
+#说明:策略正则表达式为 “^” 表示所有匹配所有队列名称  ^luna:匹配luna开头队列
+
+# 3.删除策略
+# rabbitmqctl clear_policy ha-all
