@@ -7,4 +7,4 @@
 	rabbitmqctl  help  # 可以查看更多命令
 
 # 3.插件管理命令行
-	rabbitmq-plugins enable|list|disable 
+	rabbitmq-plugins enable|list|disable|set 

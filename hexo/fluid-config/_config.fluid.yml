@@ -31,7 +31,7 @@ tab_title_separator: " - "
 # 强制所有链接升级为 HTTPS（适用于图片等资源出现 HTTP 混入报错）
 # Force all links to be HTTPS (applicable to HTTP mixed error)
 force_https: false
-
+all_minifier: true
 # 代码块的增强配置
 # Enhancements to code blocks
 code:
@@ -106,7 +106,7 @@ fun_features:
     # Options: hover | always | touch
     visible: hover
     # Option：§ | # | ❡
-    icon: "❡"
+    icon: "#"
 
   # 加载进度条
   # Progress bar when loading
@@ -115,7 +115,7 @@ fun_features:
     height_px: 3
     color: "#29d"
     # See: https://github.com/rstacruz/nprogress
-    options: { showSpinner: false, trickleSpeed: 100 }
+    options: { showSpinner: true, trickleSpeed: 100 }
 
 # 主题暗色模式，开启后菜单中会出现切换按钮，用户浏览器会存储切换选项，并且会遵循 prefers-color-scheme 自动切换
 # Theme dark mode. If enable, a switch button will appear on the menu, each of the visitor's browser will store his switch option
@@ -196,7 +196,7 @@ font:
 
 # 指定自定义 .js 文件路径，支持列表；路径是相对 source 目录，如 /js/custom.js 对应存放目录 source/js/custom.js
 # Specify the path of your custom js file, support list. The path is relative to the source directory, such as `/js/custom.js` corresponding to the directory `source/js/custom.js`
-custom_js:
+custom_js: 
 
 # 指定自定义 .css 文件路径，用法和 custom_js 相同
 # The usage is the same as custom_js
@@ -204,12 +204,15 @@ custom_css:
 
 # 自定义 <head> 节点中的 HTML 内容
 # Customize <head> HTML content
-custom_head: ''
+custom_head: '<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas><script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>'
 
 # 自定义底部 HTML 内容（位于 footer 上方），注意不要和 `post: custom` 配置冲突
 # Customize the HTML content at the bottom (located above the footer), be careful not to conflict with `post: custom`
-custom_html: "<script src='https://api.vvhan.com/api/snow'>"
-
+custom_html: '<script src="https://g.joyinshare.com/hc/ribbon.min.js"></script><script src="/js/fireworks.js"></script><script src="https://api.vvhan.com/api/snow"></script>'
+# <script src="https://api.vvhan.com/api/snow"></script>
+# <script src="https://g.joyinshare.com/hc/ribbon.min.js"></script>
+# </script><script src="/js/funnytitle.js"></script>
+# </script><script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js/"> </script>
 # 网页访问统计
 # Analysis of website visitors
 web_analytics:  # 网页访问统计
@@ -250,11 +253,11 @@ web_analytics:  # 网页访问统计
   # LeanCloud 计数统计，可用于 PV UV 展示，如果 `web_analytics: enable` 没有开启，PV UV 展示只会查询不会增加
   # LeanCloud count statistics, which can be used for PV UV display. If `web_analytics: enable` is false, PV UV display will only query and not increase
   leancloud:
-    app_id:
-    app_key:
+    app_id: 1WlABYJFX3ooWNnixAEsUHg2-gzGzoHsz
+    app_key: 4HAsQYXea2QPsxkF5wOFFpbH
     # REST API 服务器地址，国际版不填
     # Only the Chinese mainland users need to set
-    server_url:
+    server_url: https://cn-n1-cell1.leancloud.cn
 
 # 对页面中的图片和评论插件进行懒加载处理，可见范围外的元素不会提前加载
 # Lazy loading of images and comment plugin on the page
@@ -450,7 +453,7 @@ index:
 
       # 请求地址
       # Request url
-      url: ""
+      url: "https://api.eatrice.top/reading/"
 
       # 请求方法
       # Request method
@@ -463,7 +466,7 @@ index:
 
       # 从请求结果获取字符串的取值字段，最终必须是一个字符串，例如返回结果为 {"data": {"author": "fluid", "content": "An elegant theme"}}, 则取值字段为 ['data', 'content']；如果返回是列表则自动选择第一项
       # The value field of the string obtained from the response. For example, the response content is {"data": {"author": "fluid", "content": "An elegant theme"}}, the expected `keys: ['data','content']`; if the return is a list, the first item is automatically selected
-      keys: []
+      keys: ['Content']
 
   # 自动截取文章摘要
   # Auto extract post
@@ -473,7 +476,7 @@ index:
   # 打开文章的标签方式
   # The browser tag to open the post
   # Available: _blank | _self
-  post_url_target: _self
+  post_url_target: _blank
 
   # 是否显示文章信息（时间、分类、标签）
   # Meta information of post
@@ -543,7 +546,7 @@ post:
       # 统计数据来源
       # Data Source
       # Options: busuanzi | leancloud
-      source: "busuanzi"
+      source: "leancloud"
       format: "{} 次"
 
   # 在文章开头显示文章更新时间，该时间默认是 md 文件更新时间，可通过 front-matter 中 `updated` 手动指定（和 date 一样格式）
@@ -979,3 +982,5 @@ static_prefix:
   twikoo: https://cdn.jsdelivr.net/npm/twikoo@1.3.0/dist/
 
   hint: /lib/hint/
+
+
