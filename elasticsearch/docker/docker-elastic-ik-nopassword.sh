@@ -33,8 +33,9 @@ http.cors.enabled: true
 # 跨域访问允许的域名地址，(允许所有域名)以上使用正则
 http.cors.allow-origin: /.*/ 
 http.cors.allow-headers: Authorization,X-Requested-With,Content-Length,Content-Type
-xpack.security.enabled: false
-xpack.security.transport.ssl.enabled: false
+xpack.security.enabled: true
+xpack.security.transport.ssl.enabled: true
+
 # elasticsearch-setup-passwords interactive
 EOF
 

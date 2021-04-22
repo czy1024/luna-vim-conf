@@ -10,7 +10,7 @@ docker run -p 3306:3306 --name mysql \
 # 拷贝工作目录	
 echo "拷贝工作目录"
 sudo mkdir ~/mysql
-sudo docker cp mysql:/etc/mysql/     ~/mysql/luna-conf/
+sudo docker cp mysql:/etc/mysql/     ~/mysql/conf/
 # 停止
 docker stop mysql
 # 移除
@@ -21,11 +21,12 @@ sudo docker run -d -p 3306:3306 \
  --name mysql \
  --restart always \
  --privileged=true \
- 	-e MYSQL_ROOT_PASSWORD=czy1024 \
-    -v ~/mysql/log:/var/log/mysql \
-	-v ~/mysql/data/mysql:/var/lib/mysql \
-	-v ~/mysql/luna-conf:/etc/mysql \
+ -e MYSQL_ROOT_PASSWORD=czy1024 \
+ -v ~/mysql/log:/var/log/mysql \
+ -v ~/mysql/data/mysql:/var/lib/mysql \
+ -v ~/mysql/conf:/etc/mysql \
  mysql:5.7 \
  --default-authentication-plugin mysql_native_password \
  --character-set-server utf8 \
  --collation-server utf8_general_ci 
+

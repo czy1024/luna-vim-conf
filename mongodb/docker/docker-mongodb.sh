@@ -1,26 +1,31 @@
 #!/bin/bash
-echo "拉取镜像mongo"
-docker pull mongo
+echo "拉取镜像mongo:4.2.5"
+docker pull mongo:4.2.5
 
-docker run -itd --name mongo -p 27017:27017 mongo 
+docker run -itd --name mongo -p 27017:27017 mongo:4.2.5 
 
 sudo mkdir ~/mongo
 
 sudo docker cp mongo:/data/configdb ~/mongo
-
 sudo docker cp mongo:/data/db ~/mongo
 
 docker stop mongo
-
 docker rm mongo
+ 
+docker run -p 27017:27017 --name mongo \
+--restart always \
+-v ~/mongo/db:/data/db \
+-d mongo:4.2.5
 # 运行
-echo "运行mysql 17017:27017 "
-docker run -d -p 17017:27017 \
+echo "运行mysql 27017:27017 "
+docker run -d -p 27017:27017 \
+   --name mongo \
    --restart always \
    -v ~/mongo/configdb:/data/configdb \
    -v ~/mongo/db:/data/db \
    -v ~/mongo/log:/var/log/mongodb \
-   --name mongo mongo --auth
+   mongo:4.2.5 --auth 
+
 
 sudo docker exec -it mongo mongo admin
     

@@ -1,12 +1,6 @@
 #!/bin/bash
-echo "拉取镜像rabbitmq"
-docker pull rabbitmq
-
-# 创建内部网络 用用于结点间通讯
-docker network create \
-	--driver bridge \
-	--subnet=172.20.3.0/24 \
-	--gateway=172.20.3.1 rabbitmqnet
+echo "拉取镜像rabbitmq:3.7.15"
+docker pull rabbitmq:3.7.15
 
 docker run -d  \
  --hostname rabbitmq \
@@ -16,25 +10,14 @@ docker run -d  \
  -e RABBITMQ_DEFAULT_PASS=guest \
  -p 15672:15672 \
  -p 5672:5672 \
- -p 25672:25672 rabbitmq 
-sudo mkdir ~/rabbitmq
+ -p 25672:25672 rabbitmq:3.7.15 
+
+sudo mkdir -p ~/rabbitmq/conf
 sudo docker cp rabbitmq:/var/lib/rabbitmq/mnesia  ~/rabbitmq
 docker stop rabbitmq
 docker rm rabbitmq
 
-sudo docker cp rabbitmq:/etc/rabbitmq/rabbitmq.conf ~/rabbitmq
-# 说明：
-
-#-d 后台运行容器；
-
-#--name 指定容器名；
-
-#-p 指定服务运行的端口（5672：应用访问端口；15672：控制台Web端口号）；
-
-#-v 映射目录或文件；
-
 #--hostname  主机名（RabbitMQ的一个重要注意事项是它根据所谓的 “节点名称” 存储数据，默认为主机名）；
-
 #-e 指定环境变量；（RABBITMQ_DEFAULT_VHOST：默认虚拟机名；RABBITMQ_DEFAULT_USER：默认的用户名；RABBITMQ_DEFAULT_PASS：默认用户名的密码）
 # 运行
 echo " 15672:15672  5672:5672  25672:25672  "
@@ -42,14 +25,14 @@ docker run -d \
  --hostname rabbitmq \
  --name rabbitmq \
  --restart=always \
- -e RABBITMQ_DEFAULT_USER=luna \
- -e RABBITMQ_DEFAULT_PASS=czy1024 \
+ -e RABBITMQ_DEFAULT_USER=mall \
+ -e RABBITMQ_DEFAULT_PASS=mall \
  -e RABBITMQ_DEFAULT_VHOST=ems \
  -v ~/rabbitmq/mnesia:/var/lib/rabbitmq/mnesia \
  -p 15672:15672 \
  -p 5672:5672 \
  -p 25672:25672 \
- rabbitmq
+ rabbitmq:3.7.15 
 
 # 开启web页面管理
 docker exec -it rabbitmq rabbitmq-plugins enable rabbitmq_management

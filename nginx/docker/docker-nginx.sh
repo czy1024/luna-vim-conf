@@ -1,15 +1,15 @@
 #!/bin/bash
-echo "拉取镜像nginx"
-docker pull nginx
+echo "拉取镜像nginx:1.10"
+docker pull nginx:1.10
 # 启动工作目录
 echo "启动工作目录"
 docker run   --name nginx \
       -d -p 80:80 -p 443:443 \
-	nginx
+	nginx:1.10
 # 拷贝工作目录	
 echo "拷贝工作目录"
 sudo mkdir ~/nginx
-sudo docker cp nginx:/etc/nginx  ~/nginx/luna-nginx
+sudo docker cp nginx:/etc/nginx  ~/nginx/conf
 
 mkdir -p ~/nginx/html
 
@@ -52,12 +52,12 @@ docker stop nginx
 docker rm nginx
 # 运行
 echo "运行mysql -p 80:80 -p 443:443 "
-docker run -d  --net=example_default --ip=172.18.0.6 --name nginx --restart=always  \
+docker run -d  --name nginx --restart=always  \
       -p 80:80 -p 443:443 \
       --restart always \
       -v ~/nginx/html:/usr/share/nginx/html \
-      -v ~/nginx/luna-nginx:/etc/nginx  \
+      -v ~/nginx/conf:/etc/nginx  \
       -v ~/nginx/log:/var/log/nginx \
-        nginx 
+      nginx:1.10 
 
 # docker exec -it nginx service nginx reload 
