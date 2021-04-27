@@ -44,19 +44,10 @@ sudo  systemctl  restart sshd
 #scp root@%IP%:/tmp/id_rsa ~/Documents/id_rsa 
 #客户端执行: scp ~/.ssh/id_rsa.pub  root@192.168.123.164:/tmp/id_rsa.pub 
 #服务端执行: cat /tmp/id_rsa.pub >> ~/.ssh/authorized_keys
-
-98
-scp ~/.ssh/id_rsa.pub  root@192.168.123.98:/tmp/id_rsa.pub 
-cat /tmp/id_rsa.pub >> ~/.ssh/authorized_keys
-scp ~/.ssh/id_rsa.pub  root@192.168.123.164:/tmp/id_rsa.pub 
-cat /tmp/id_rsa.pub >> ~/.ssh/authorized_keys
-scp ~/.ssh/id_rsa.pub  root@192.168.123.221:/tmp/id_rsa.pub 
-cat /tmp/id_rsa.pub >> ~/.ssh/authorized_keys
-scp ~/.ssh/id_rsa.pub  root@192.168.123.98:/tmp/id_rsa.pub 
-cat /tmp/id_rsa.pub >> ~/.ssh/authorized_keys
+scp ~/.ssh/id_rsa.pub  root@106.14.30.12:/tmp/id_rsa.pub 
 # 清空hostname
 echo -n ""> /etc/hostname
-#!/bin/bash
+
 echo "输入主机名 =>>>>>>>"
 read hostname
 echo -n "$hostname"> /etc/hostname

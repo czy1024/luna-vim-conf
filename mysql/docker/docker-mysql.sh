@@ -16,12 +16,12 @@ docker stop mysql
 # 移除
 docker rm mysql
 # 运行
-echo "运行mysql 端口3306 密码czy1024"
+echo "运行mysql 端口3306 密码root"
 sudo docker run -d -p 3306:3306 \
  --name mysql \
  --restart always \
  --privileged=true \
- -e MYSQL_ROOT_PASSWORD=czy1024 \
+ -e MYSQL_ROOT_PASSWORD=root \
  -v ~/mysql/log:/var/log/mysql \
  -v ~/mysql/data/mysql:/var/lib/mysql \
  -v ~/mysql/conf:/etc/mysql \

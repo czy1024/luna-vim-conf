@@ -27,7 +27,7 @@ sudo ufw enable | disable
 
 # 下面是ufw命令行的一些示例：
 
-ufw enable/disable：打开/关闭ufw
+ufw enable/disable # ：打开/关闭ufw
 
 ufw status #：查看已经定义的ufw规则
 

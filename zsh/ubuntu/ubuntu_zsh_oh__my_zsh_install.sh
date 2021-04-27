@@ -4,6 +4,8 @@ sudo apt-get install -y zsh
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+sudo chsh -s /bin/zsh root
+
 # 主题更改
 sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="agnoster"/g' ~/.zshrc
 

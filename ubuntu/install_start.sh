@@ -22,7 +22,8 @@ EOF
 
 # 更新源
 sudo apt-get update
-sudo apt-get install redis zsh git vim openssh-server wegt net-tools curl -y
+sudo apt-get install zsh git -y
+sudo apt-get install  vim openssh-server wegt net-tools curl -y
 echo "git 配置用户邮箱:"
 echo -n "please enter the username:"
 read username
@@ -52,6 +53,15 @@ sudo /etc/init.d/ssh restart
 #scp root@%IP%:/tmp/id_rsa ~/Documents/id_rsa 
 #客户端执行: scp ~/.ssh/id_rsa.pub  root@172.16.22.2:/tmp/id_rsa.pub 
 #服务端执行: cat /tmp/id_rsa.pub >> ~/.ssh/authorized_keys
+
+# 清空hostname
+echo -n ""> /etc/hostname
+
+echo "输入主机名 =>>>>>>>"
+read hostname
+echo -n "$hostname"> /etc/hostname
+echo -n "127.0.0.1 $hostname" >> /etc/hosts 
+
 
 sudo cat >> /etc/hosts <<EOF 
 # Github Hosts
