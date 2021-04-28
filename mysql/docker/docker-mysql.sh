@@ -5,7 +5,7 @@ docker pull mysql:5.7
 # 启动工作目录
 echo "启动工作目录"
 docker run -p 3306:3306 --name mysql \
- 	-e MYSQL_ROOT_PASSWORD=czy1024 \
+ 	-e MYSQL_ROOT_PASSWORD=luna \
 	-d mysql:5.7
 # 拷贝工作目录	
 echo "拷贝工作目录"

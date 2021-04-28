@@ -38,3 +38,12 @@ ufw allow/deny 20 #：允许/拒绝访问20端口，20后可跟/tcp或/udp，表
 sudo ufw allow proto tcp from 192.168.0.0/24 to any port 22 #：允许自192.168.0.0/24的tcp封包访问本机的22端口。
 
 ufw delete allow/deny 20 #：删除以前定义的"允许/拒绝访问20端口"的规则
+
+# 查看占用高的进程
+ps -eo pid,pcpu | sort -n -k 2 
+
+# 进入进程目录
+cd /proc/23347
+    
+# 查看软链接
+ls -all
