@@ -1,7 +1,7 @@
 #!/bin/bash
-rm -rf /usr/bin/frp
-rm -rf /etc/frp
-sudo cp /root/frp/frps /usr/bin/frp
+rm -rf /usr/bin/frps
+rm -rf /etc/frps
+sudo cp /root/frp/frps /usr/bin/frps
 sudo chmod -R 777 /usr/bin/frps
 sudo mkdir /etc/frp
 sudo cp /root/frp/frps.ini /etc/frp/frps.ini
