@@ -11,7 +11,7 @@
  Target Server Version : 50731
  File Encoding         : 65001
 
- Date: 24/02/2021 20:02:20
+ Date: 11/05/2021 22:38:12
 */
 
 SET NAMES utf8mb4;
@@ -54,67 +54,56 @@ CREATE TABLE `tb_calculation_object` (
   `create_time` datetime NOT NULL,
   `modified_time` datetime NOT NULL,
   `version` int(10) unsigned NOT NULL,
-  `name` varchar(63) NOT NULL,
   `type` varchar(15) NOT NULL,
-  `content` mediumtext,
-  PRIMARY KEY (`id`) USING BTREE,
-  UNIQUE KEY `uk_name` (`name`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+  `content` mediumtext NOT NULL,
+  `remarks` text,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of tb_calculation_object
 -- ----------------------------
 BEGIN;
-INSERT INTO `tb_calculation_object` VALUES (4, '2020-05-05 22:50:06', '2020-06-24 22:28:54', 4, 'testhash2', '', NULL);
-INSERT INTO `tb_calculation_object` VALUES (5, '2020-12-29 21:20:34', '2020-12-29 21:20:34', 0, 'testhash3', '', '[\"82d1e255b0473c030f69eb8b3fbc5a31\"]');
-INSERT INTO `tb_calculation_object` VALUES (6, '2021-01-19 16:11:23', '2021-01-25 15:14:31', 1, 'testhash1', '', NULL);
-INSERT INTO `tb_calculation_object` VALUES (7, '2021-01-19 16:25:45', '2021-01-25 15:15:11', 1, 'testhash4', '', NULL);
+INSERT INTO `tb_calculation_object` VALUES (13, '2021-03-09 13:25:50', '2021-03-09 13:25:50', 0, 'sha256', '{\"found\":[{\"hash\":\"fsdkjfldskjfljaslfjsdljf\",\"plain\":\"1123\"}],\"left\":[\"12312\",\"23123\"]}', NULL);
 COMMIT;
 
 -- ----------------------------
--- Table structure for tb_hashcat_status
+-- Table structure for tb_download
 -- ----------------------------
-DROP TABLE IF EXISTS `tb_hashcat_status`;
-CREATE TABLE `tb_hashcat_status` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `create_time` datetime NOT NULL,
-  `modified_time` datetime NOT NULL,
-  `version` int(10) unsigned NOT NULL,
-  `agent_id` bigint(20) unsigned NOT NULL,
-  `content` mediumtext NOT NULL,
-  PRIMARY KEY (`id`) USING BTREE,
-  UNIQUE KEY `uk_agent_id` (`agent_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+DROP TABLE IF EXISTS `tb_download`;
+CREATE TABLE `tb_download` (
+  `id` bigint(20) unsigned DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  `modified_time` datetime DEFAULT NULL,
+  `version` int(11) DEFAULT NULL,
+  `name` varchar(63) DEFAULT NULL,
+  `url_map` varchar(511) DEFAULT NULL,
+  `manual` varchar(127) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
--- Records of tb_hashcat_status
+-- Records of tb_download
 -- ----------------------------
 BEGIN;
-INSERT INTO `tb_hashcat_status` VALUES (1, '2020-05-06 11:51:12', '2020-05-06 11:52:19', 1, 1, '{\"attempted\":\"218162483680\",\"speedList\":[\"116555125\"],\"status\":\"running\",\"total\":\"235294112000\"}');
+INSERT INTO `tb_download` VALUES (2, '2020-04-03 15:39:58', '2020-04-03 15:40:00', 0, 'NiceHash Miner 3.x', '{\"下载地址1\":\"https://github.com/nicehash/NiceHashMiner/releases/download/3.0.0.4/nhm_windows_3.0.0.4.zip\",\"下载地址2\":\"https://note.youdao.com/ynoteshare1/index.html?id=df49e414c72c2b7d79607b72f8c7112e\"}', 'https://note.youdao.com/ynoteshare1/index.html?id=df49e414c72c2b7d79607b72f8c7112e');
 COMMIT;
 
 -- ----------------------------
--- Table structure for tb_hashcat_task
+-- Table structure for tb_idle_wallet
 -- ----------------------------
-DROP TABLE IF EXISTS `tb_hashcat_task`;
-CREATE TABLE `tb_hashcat_task` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `task_id` bigint(20) DEFAULT NULL,
-  `create_time` datetime NOT NULL,
-  `modified_time` datetime NOT NULL,
-  `version` int(11) unsigned NOT NULL,
-  `skip` bigint(20) unsigned NOT NULL,
-  `limit` bigint(20) unsigned NOT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=19274 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+DROP TABLE IF EXISTS `tb_idle_wallet`;
+CREATE TABLE `tb_idle_wallet` (
+  `id` bigint(20) unsigned DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  `type` varchar(63) DEFAULT NULL,
+  `address` varchar(511) DEFAULT NULL,
+  `extra_info` varchar(511) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
--- Records of tb_hashcat_task
+-- Records of tb_idle_wallet
 -- ----------------------------
 BEGIN;
-INSERT INTO `tb_hashcat_task` VALUES (19271, NULL, '2020-12-29 21:25:39', '2020-12-29 21:30:08', 2, 0, 456976);
-INSERT INTO `tb_hashcat_task` VALUES (19272, NULL, '2021-01-19 16:52:20', '2021-01-25 15:14:30', 450, 0, 456976);
-INSERT INTO `tb_hashcat_task` VALUES (19273, NULL, '2021-01-19 16:52:21', '2021-01-25 15:15:10', 444, 0, 10000000);
 COMMIT;
 
 -- ----------------------------
@@ -126,26 +115,92 @@ CREATE TABLE `tb_project` (
   `create_time` datetime NOT NULL COMMENT '创建时间',
   `modified_time` datetime NOT NULL COMMENT '修改时间',
   `version` int(11) unsigned NOT NULL COMMENT '版本',
-  `name` varchar(63) NOT NULL COMMENT '项目名',
+  `type` varchar(15) NOT NULL,
+  `calculation_object_id` bigint(20) unsigned NOT NULL,
   `status` varchar(31) NOT NULL COMMENT '状态',
   `content` text NOT NULL COMMENT '扩展',
+  `remarks` text,
   PRIMARY KEY (`id`) USING BTREE,
-  UNIQUE KEY `uk_name` (`name`) USING BTREE,
   KEY `idx_status` (`status`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of tb_project
 -- ----------------------------
 BEGIN;
-INSERT INTO `tb_project` VALUES (12, '2021-01-19 16:12:49', '2021-01-25 15:14:31', 5, 'testproject1', 'finish', '');
-INSERT INTO `tb_project` VALUES (16, '2021-02-04 15:05:59', '2021-02-04 15:05:59', 0, '32323', '123', '');
-INSERT INTO `tb_project` VALUES (18, '2021-02-04 15:07:40', '2021-02-04 15:07:40', 0, '32324', '123', '');
-INSERT INTO `tb_project` VALUES (19, '2021-02-04 15:08:20', '2021-02-04 15:08:20', 0, '32325', '123', '');
-INSERT INTO `tb_project` VALUES (23, '2021-02-04 15:19:52', '2021-02-04 15:19:52', 0, 'q', '123', '');
-INSERT INTO `tb_project` VALUES (24, '2021-02-04 15:19:52', '2021-02-04 15:19:52', 0, 'w', '123', '');
-INSERT INTO `tb_project` VALUES (29, '2021-02-04 15:23:04', '2021-02-04 15:23:04', 0, 'e', '123', '');
-INSERT INTO `tb_project` VALUES (30, '2021-02-04 15:23:04', '2021-02-04 15:23:04', 0, 'r', '123', '');
+COMMIT;
+
+-- ----------------------------
+-- Table structure for tb_property
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_property`;
+CREATE TABLE `tb_property` (
+  `id` bigint(20) unsigned DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  `modified_time` datetime DEFAULT NULL,
+  `version` int(10) unsigned DEFAULT NULL,
+  `user_id` bigint(20) unsigned DEFAULT NULL,
+  `type` varchar(31) DEFAULT NULL,
+  `amount` varchar(63) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of tb_property
+-- ----------------------------
+BEGIN;
+INSERT INTO `tb_property` VALUES (5, '2020-03-10 17:05:02', '2020-03-10 17:05:02', 0, 10050, 'oldPlatformBTCAmount', '999');
+INSERT INTO `tb_property` VALUES (6, '2020-03-17 15:17:54', '2020-03-17 15:17:54', 0, 10062, 'oldPlatformBTCAmount', '888');
+INSERT INTO `tb_property` VALUES (8, '2020-03-22 16:08:33', '2020-11-10 20:45:32', 47, 10050, 'credit', '49999700108322.58020000');
+INSERT INTO `tb_property` VALUES (9, '2020-04-03 15:34:25', '2020-04-03 15:34:25', 0, 10032, 'credit', '0');
+INSERT INTO `tb_property` VALUES (10, '2020-04-07 11:27:45', '2020-04-07 11:27:45', 0, 10062, 'credit', '0');
+INSERT INTO `tb_property` VALUES (11, '2020-05-20 01:07:33', '2020-05-20 01:07:33', 0, 10099, 'oldPlatformBTCAmount', '999');
+INSERT INTO `tb_property` VALUES (12, '2020-07-04 22:33:19', '2020-07-04 22:40:42', 1, 10049, 'credit', '9677.41940000');
+COMMIT;
+
+-- ----------------------------
+-- Table structure for tb_property_exchange
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_property_exchange`;
+CREATE TABLE `tb_property_exchange` (
+  `id` bigint(20) unsigned DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  `modified_time` datetime DEFAULT NULL,
+  `version` int(10) unsigned DEFAULT NULL,
+  `property_id` bigint(20) unsigned DEFAULT NULL,
+  `amount` varchar(63) DEFAULT NULL,
+  `type` varchar(31) DEFAULT NULL,
+  `status` varchar(31) DEFAULT NULL,
+  `price` varchar(63) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of tb_property_exchange
+-- ----------------------------
+BEGIN;
+INSERT INTO `tb_property_exchange` VALUES (12, '2020-07-01 17:41:04', '2020-07-01 17:41:04', 0, 8, '5000000000', 'income', 'finish', '4E-7');
+INSERT INTO `tb_property_exchange` VALUES (13, '2020-07-01 17:41:05', '2020-07-01 17:41:05', 0, 8, '5000000000', 'income', 'finish', '4E-7');
+INSERT INTO `tb_property_exchange` VALUES (14, '2020-07-01 17:41:05', '2020-07-01 17:41:05', 0, 8, '5000000000', 'income', 'finish', '4E-7');
+INSERT INTO `tb_property_exchange` VALUES (15, '2020-07-01 21:55:00', '2020-07-01 21:55:00', 0, 8, '5000000000', 'income', 'finish', '4E-7');
+INSERT INTO `tb_property_exchange` VALUES (16, '2020-07-01 21:55:01', '2020-07-01 21:55:01', 0, 8, '5000000000', 'income', 'finish', '4E-7');
+INSERT INTO `tb_property_exchange` VALUES (17, '2020-07-01 21:55:02', '2020-07-01 21:55:02', 0, 8, '5000000000', 'income', 'finish', '4E-7');
+INSERT INTO `tb_property_exchange` VALUES (18, '2020-07-01 21:56:07', '2020-07-01 21:56:07', 0, 8, '5000000000', 'income', 'finish', '4E-7');
+INSERT INTO `tb_property_exchange` VALUES (19, '2020-07-01 21:56:08', '2020-07-01 21:56:08', 0, 8, '5000000000', 'income', 'finish', '4E-7');
+INSERT INTO `tb_property_exchange` VALUES (20, '2020-07-01 21:56:08', '2020-07-01 21:56:08', 0, 8, '5000000000', 'income', 'finish', '4E-7');
+INSERT INTO `tb_property_exchange` VALUES (21, '2020-07-01 21:56:27', '2020-07-01 21:56:27', 0, 8, '5000000000', 'income', 'finish', '4E-7');
+INSERT INTO `tb_property_exchange` VALUES (22, '2020-07-01 21:56:27', '2020-07-01 21:56:27', 0, 8, '5000000000', 'income', 'finish', '4E-7');
+INSERT INTO `tb_property_exchange` VALUES (23, '2020-07-01 21:56:28', '2020-07-01 21:56:28', 0, 8, '5000000000', 'income', 'finish', '4E-7');
+INSERT INTO `tb_property_exchange` VALUES (24, '2020-07-01 22:34:19', '2020-07-01 22:34:19', 0, 8, '5000000000', 'income', 'finish', '4E-7');
+INSERT INTO `tb_property_exchange` VALUES (25, '2020-07-01 22:34:19', '2020-07-01 22:34:19', 0, 8, '5000000000', 'income', 'finish', '4E-7');
+INSERT INTO `tb_property_exchange` VALUES (26, '2020-07-04 22:40:42', '2020-07-04 22:40:42', 0, 8, '5000000000', 'income', 'finish', '4E-7');
+INSERT INTO `tb_property_exchange` VALUES (27, '2020-07-04 22:40:42', '2020-07-04 22:40:42', 0, 12, '5000000000', 'income', 'finish', '4E-7');
+INSERT INTO `tb_property_exchange` VALUES (28, '2020-07-07 23:02:48', '2020-07-07 23:02:48', 0, 8, '5000000000', 'withdraw', 'finish', '4E-7');
+INSERT INTO `tb_property_exchange` VALUES (29, '2020-07-07 23:08:57', '2020-07-07 23:08:57', 0, 8, '5000000000', 'withdraw', 'finish', '4E-7');
+INSERT INTO `tb_property_exchange` VALUES (39, '2020-11-09 23:09:31', '2020-11-09 23:09:31', 0, 8, '50000000', 'withdraw', 'wait', '4E-7');
+INSERT INTO `tb_property_exchange` VALUES (40, '2020-11-09 23:09:47', '2020-11-09 23:09:47', 0, 8, '50000000', 'withdraw', 'wait', '4E-7');
+INSERT INTO `tb_property_exchange` VALUES (41, '2020-11-09 23:34:21', '2020-11-09 23:34:21', 0, 8, '50000000', 'withdraw', 'wait', '4E-7');
+INSERT INTO `tb_property_exchange` VALUES (42, '2020-11-09 23:37:58', '2020-11-09 23:37:58', 0, 8, '50000000', 'withdraw', 'wait', '4E-7');
+INSERT INTO `tb_property_exchange` VALUES (43, '2020-11-10 20:26:10', '2020-11-10 20:26:10', 0, 8, '50000000', 'withdraw', 'wait', '4E-7');
+INSERT INTO `tb_property_exchange` VALUES (44, '2020-11-10 20:45:32', '2020-11-10 20:45:32', 0, 8, '50000000', 'withdraw', 'wait', '4E-7');
 COMMIT;
 
 -- ----------------------------
@@ -183,15 +238,16 @@ CREATE TABLE `tb_status` (
   `version` int(10) unsigned NOT NULL,
   `agent_id` bigint(20) unsigned NOT NULL,
   `content` mediumtext NOT NULL,
+  `type` varchar(255) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE,
-  UNIQUE KEY `uk_agent_id` (`agent_id`) USING BTREE
+  UNIQUE KEY `uk_status` (`agent_id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of tb_status
 -- ----------------------------
 BEGIN;
-INSERT INTO `tb_status` VALUES (1, '2020-05-06 11:51:12', '2020-05-06 11:52:19', 1, 1, '{\"attempted\":\"218162483680\",\"speedList\":[\"116555125\"],\"status\":\"running\",\"total\":\"235294112000\"}');
+INSERT INTO `tb_status` VALUES (1, '2020-05-06 11:51:12', '2020-05-06 11:52:19', 1, 1, '{\"attempted\":\"218162483680\",\"speedList\":[\"116555125\"],\"status\":\"running\",\"total\":\"235294112000\"}', '');
 COMMIT;
 
 -- ----------------------------
@@ -202,6 +258,7 @@ CREATE TABLE `tb_status_log` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `create_time` datetime NOT NULL,
   `agent_id` bigint(20) unsigned NOT NULL,
+  `type` varchar(15) NOT NULL,
   `content` mediumtext NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
@@ -210,19 +267,19 @@ CREATE TABLE `tb_status_log` (
 -- Records of tb_status_log
 -- ----------------------------
 BEGIN;
-INSERT INTO `tb_status_log` VALUES (1, '2020-05-06 11:51:12', 1, '{\"attempted\":\"209466348000\",\"speedList\":[\"109595169\"],\"status\":\"running\",\"total\":\"235294112000\"}');
-INSERT INTO `tb_status_log` VALUES (2, '2020-05-06 11:52:19', 1, '{\"attempted\":\"218162483680\",\"speedList\":[\"116555125\"],\"status\":\"running\",\"total\":\"235294112000\"}');
-INSERT INTO `tb_status_log` VALUES (3, '2020-05-09 00:32:02', 1, '{\"attempted\":\"269089579040\",\"speedList\":[\"113213316\"],\"status\":\"running\",\"total\":\"294117640000\"}');
-INSERT INTO `tb_status_log` VALUES (4, '2020-05-09 00:33:02', 1, '{\"attempted\":\"275959390240\",\"speedList\":[\"117102347\"],\"status\":\"running\",\"total\":\"294117640000\"}');
-INSERT INTO `tb_status_log` VALUES (5, '2020-05-09 00:34:22', 1, '{\"attempted\":\"285391003680\",\"speedList\":[\"117124540\"],\"status\":\"running\",\"total\":\"294117640000\"}');
-INSERT INTO `tb_status_log` VALUES (6, '2020-05-09 00:37:03', 1, '{\"attempted\":\"300587681600\",\"speedList\":[\"120056767\"],\"status\":\"running\",\"total\":\"323529404000\"}');
-INSERT INTO `tb_status_log` VALUES (7, '2020-05-09 00:38:03', 1, '{\"attempted\":\"307601835840\",\"speedList\":[\"114843394\"],\"status\":\"running\",\"total\":\"323529404000\"}');
-INSERT INTO `tb_status_log` VALUES (8, '2020-05-09 00:39:03', 1, '{\"attempted\":\"314774095680\",\"speedList\":[\"119762932\"],\"status\":\"running\",\"total\":\"323529404000\"}');
-INSERT INTO `tb_status_log` VALUES (9, '2020-05-09 00:40:03', 1, '{\"attempted\":\"321970440000\",\"speedList\":[\"119917165\"],\"status\":\"running\",\"total\":\"323529404000\"}');
-INSERT INTO `tb_status_log` VALUES (10, '2020-05-09 00:49:11', 1, '{\"attempted\":\"384833469600\",\"speedList\":[\"119829075\"],\"status\":\"running\",\"total\":\"411764696000\"}');
-INSERT INTO `tb_status_log` VALUES (11, '2020-05-09 00:50:11', 1, '{\"attempted\":\"391943961760\",\"speedList\":[\"119894021\"],\"status\":\"running\",\"total\":\"411764696000\"}');
-INSERT INTO `tb_status_log` VALUES (12, '2020-05-09 00:51:11', 1, '{\"attempted\":\"399132277920\",\"speedList\":[\"119388356\"],\"status\":\"running\",\"total\":\"411764696000\"}');
-INSERT INTO `tb_status_log` VALUES (13, '2020-05-09 00:52:11', 1, '{\"attempted\":\"406346972320\",\"speedList\":[\"120817741\"],\"status\":\"running\",\"total\":\"411764696000\"}');
+INSERT INTO `tb_status_log` VALUES (1, '2020-05-06 11:51:12', 1, '', '{\"attempted\":\"209466348000\",\"speedList\":[\"109595169\"],\"status\":\"running\",\"total\":\"235294112000\"}');
+INSERT INTO `tb_status_log` VALUES (2, '2020-05-06 11:52:19', 1, '', '{\"attempted\":\"218162483680\",\"speedList\":[\"116555125\"],\"status\":\"running\",\"total\":\"235294112000\"}');
+INSERT INTO `tb_status_log` VALUES (3, '2020-05-09 00:32:02', 1, '', '{\"attempted\":\"269089579040\",\"speedList\":[\"113213316\"],\"status\":\"running\",\"total\":\"294117640000\"}');
+INSERT INTO `tb_status_log` VALUES (4, '2020-05-09 00:33:02', 1, '', '{\"attempted\":\"275959390240\",\"speedList\":[\"117102347\"],\"status\":\"running\",\"total\":\"294117640000\"}');
+INSERT INTO `tb_status_log` VALUES (5, '2020-05-09 00:34:22', 1, '', '{\"attempted\":\"285391003680\",\"speedList\":[\"117124540\"],\"status\":\"running\",\"total\":\"294117640000\"}');
+INSERT INTO `tb_status_log` VALUES (6, '2020-05-09 00:37:03', 1, '', '{\"attempted\":\"300587681600\",\"speedList\":[\"120056767\"],\"status\":\"running\",\"total\":\"323529404000\"}');
+INSERT INTO `tb_status_log` VALUES (7, '2020-05-09 00:38:03', 1, '', '{\"attempted\":\"307601835840\",\"speedList\":[\"114843394\"],\"status\":\"running\",\"total\":\"323529404000\"}');
+INSERT INTO `tb_status_log` VALUES (8, '2020-05-09 00:39:03', 1, '', '{\"attempted\":\"314774095680\",\"speedList\":[\"119762932\"],\"status\":\"running\",\"total\":\"323529404000\"}');
+INSERT INTO `tb_status_log` VALUES (9, '2020-05-09 00:40:03', 1, '', '{\"attempted\":\"321970440000\",\"speedList\":[\"119917165\"],\"status\":\"running\",\"total\":\"323529404000\"}');
+INSERT INTO `tb_status_log` VALUES (10, '2020-05-09 00:49:11', 1, '', '{\"attempted\":\"384833469600\",\"speedList\":[\"119829075\"],\"status\":\"running\",\"total\":\"411764696000\"}');
+INSERT INTO `tb_status_log` VALUES (11, '2020-05-09 00:50:11', 1, '', '{\"attempted\":\"391943961760\",\"speedList\":[\"119894021\"],\"status\":\"running\",\"total\":\"411764696000\"}');
+INSERT INTO `tb_status_log` VALUES (12, '2020-05-09 00:51:11', 1, '', '{\"attempted\":\"399132277920\",\"speedList\":[\"119388356\"],\"status\":\"running\",\"total\":\"411764696000\"}');
+INSERT INTO `tb_status_log` VALUES (13, '2020-05-09 00:52:11', 1, '', '{\"attempted\":\"406346972320\",\"speedList\":[\"120817741\"],\"status\":\"running\",\"total\":\"411764696000\"}');
 COMMIT;
 
 -- ----------------------------
@@ -236,8 +293,7 @@ CREATE TABLE `tb_task` (
   `version` int(11) unsigned NOT NULL COMMENT '版本',
   `project_id` bigint(20) unsigned NOT NULL COMMENT '项目id',
   `status` varchar(31) NOT NULL COMMENT 'task状态',
-  `skip` bigint(20) unsigned NOT NULL,
-  `limit` bigint(20) unsigned NOT NULL,
+  `content` text NOT NULL COMMENT '扩展',
   PRIMARY KEY (`id`) USING BTREE,
   KEY `idx_project_id` (`project_id`) USING BTREE,
   KEY `idx_status` (`status`) USING BTREE
@@ -272,6 +328,77 @@ CREATE TABLE `tb_task_result` (
 -- Records of tb_task_result
 -- ----------------------------
 BEGIN;
+COMMIT;
+
+-- ----------------------------
+-- Table structure for tb_user_info
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_user_info`;
+CREATE TABLE `tb_user_info` (
+  `id` bigint(20) unsigned DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  `modified_time` datetime DEFAULT NULL,
+  `version` int(11) DEFAULT NULL,
+  `user_id` bigint(20) DEFAULT NULL,
+  `collection_code_url` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of tb_user_info
+-- ----------------------------
+BEGIN;
+INSERT INTO `tb_user_info` VALUES (6, '2020-06-25 19:54:06', '2020-06-27 12:00:23', 5, 10050, 'https://s1.ax1x.com/2020/06/27/NyWnrn.png');
+COMMIT;
+
+-- ----------------------------
+-- Table structure for tb_wallet
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_wallet`;
+CREATE TABLE `tb_wallet` (
+  `id` bigint(20) unsigned DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  `user_id` bigint(20) unsigned DEFAULT NULL,
+  `type` varchar(255) DEFAULT NULL,
+  `address` varchar(511) DEFAULT NULL,
+  `extra_info` varchar(511) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of tb_wallet
+-- ----------------------------
+BEGIN;
+INSERT INTO `tb_wallet` VALUES (10, '2020-02-04 16:05:37', 10050, 'NH_BTC', '39XeYtGmpjbxaXYGNmQsH1WBMhwt6xbUq6', '{\"apiKey\":\"e4ffd016-6122-4b56-b5b0-24b20e1fda5a\",\"apiSecret\":\"f2ac2d53-b0a2-42ee-8d4a-23585a299dd3940e0e2e-0440-44ab-9065-36fc752f8d67\",\"organizationId\":\"1a3f28ca-4ca9-49b2-bbad-0009022d1c31\"}');
+INSERT INTO `tb_wallet` VALUES (11, '2020-02-04 16:05:37', 10049, 'NH_BTC', '	35SrdMsdjofQtXxCjcroyeJUiKYNHbG9gR', '{\"apiKey\":\"4bd4fe90-300e-44cd-82bd-cd2d779891ab\",\"apiSecret\":\"aa1e219b-31fb-4906-9222-1d218707339847dce540-720e-4eae-ad0f-32ccd7f43935\",\"organizationId\":\"37f206e1-62d4-4577-9b2c-e0ba040b6f84\"}');
+COMMIT;
+
+-- ----------------------------
+-- Table structure for tb_wallet_exchange
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_wallet_exchange`;
+CREATE TABLE `tb_wallet_exchange` (
+  `id` bigint(20) unsigned DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  `modified_time` datetime DEFAULT NULL,
+  `version` int(10) unsigned DEFAULT NULL,
+  `wallet_id` bigint(20) unsigned DEFAULT NULL,
+  `amount` varchar(63) DEFAULT NULL,
+  `status` varchar(31) DEFAULT NULL,
+  `price` varchar(63) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of tb_wallet_exchange
+-- ----------------------------
+BEGIN;
+INSERT INTO `tb_wallet_exchange` VALUES (12, '2020-05-24 11:48:03', '2020-06-13 13:46:19', 6, 10, '0.1', 'finish', '76967');
+INSERT INTO `tb_wallet_exchange` VALUES (15, '2020-06-13 13:31:05', '2020-06-13 13:46:20', 3, 10, '0.00001', 'finish', '76967');
+INSERT INTO `tb_wallet_exchange` VALUES (24, '2020-06-13 17:55:07', '2020-07-01 22:34:19', 1, 10, '0.001', 'finish', '76967');
+INSERT INTO `tb_wallet_exchange` VALUES (26, '2020-06-13 17:59:14', '2020-07-01 22:34:19', 1, 10, '0.001', 'finish', '76967');
+INSERT INTO `tb_wallet_exchange` VALUES (28, '2020-06-15 14:00:17', '2020-07-01 21:56:27', 4, 10, '0.001', 'finish', '76967');
+INSERT INTO `tb_wallet_exchange` VALUES (31, '2020-06-18 11:34:03', '2020-07-01 21:56:28', 4, 10, '0.001', 'finish', '76967');
+INSERT INTO `tb_wallet_exchange` VALUES (32, '2020-07-04 22:28:25', '2020-07-04 22:40:42', 1, 10, '0.001', 'finish', '76967');
+INSERT INTO `tb_wallet_exchange` VALUES (33, '2020-07-04 22:39:12', '2020-07-04 22:40:42', 1, 11, '0.03', 'finish', '76967');
+INSERT INTO `tb_wallet_exchange` VALUES (39, '2020-11-11 10:01:10', '2020-11-11 10:01:10', 0, 10, '0.001', 'wait', NULL);
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;
