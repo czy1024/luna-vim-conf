@@ -13,7 +13,6 @@ sudo docker cp nginx:/etc/nginx  ~/nginx/conf
 
 mkdir -p ~/nginx/html
 
-wget http://cute.vaiwan.com/chfs/shared/nginx/html/index.html -o ~/nginx/html/index.html
 sudo cat > ~/nginx/html/index.html <<EOF
 
 <!DOCTYPE html>

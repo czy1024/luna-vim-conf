@@ -17,7 +17,7 @@ sudo docker run -p 6379:6379 \
    --appendonly yes \
    --requirepass "czy1024" 
 
-
+# docker exec -it redis redis-cli
 
     
    
