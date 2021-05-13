@@ -1,7 +1,0 @@
-﻿<service>
-  <id>cute</id>
-  <name>cute</name>
-  <description>启动cute</description>
-  <executable>run.bat</executable>
-  <logmode>reset</logmode>
-</service>

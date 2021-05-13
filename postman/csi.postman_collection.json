@@ -1,0 +1,3349 @@
+{
+	"info": {
+		"_postman_id": "c609c857-dd36-4c6d-9d8d-4c048042bc7f",
+		"name": "csi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "插入",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"username\": \"luna2\",\n        \"password\": \"1234445\",\n        \"gender\": \"1\",\n        \"cellphone\": \"15696756582\",\n        \"email\": \"15696756582@163.com\",\n        \"faceurl\": null,\n        \"facedata\": null\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/user/api/insert",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"user",
+								"api",
+								"insert"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "批量插入",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n     {\n        \"username\": \"luna1\",\n        \"password\": \"123444\",\n        \"gender\": \"1\",\n        \"cellphone\": \"15696756582\",\n        \"email\": \"15696756582@163.com\",\n        \"faceurl\": null,\n        \"facedata\": null\n    },\n     {\n        \"username\": \"luna2\",\n        \"password\": \"123444\",\n        \"gender\": \"1\",\n        \"cellphone\": \"15696756582\",\n        \"email\": \"15696756582@163.com\",\n        \"faceurl\": null,\n        \"facedata\": null\n    },\n     {\n        \"username\": \"luna3\",\n        \"password\": \"123444\",\n        \"gender\": \"1\",\n        \"cellphone\": \"15696756582\",\n        \"email\": \"15696756582@163.com\",\n        \"faceurl\": null,\n        \"facedata\": null\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/user/api/insertBatch",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"user",
+								"api",
+								"insertBatch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查询",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/csi/user/api/get/0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"user",
+								"api",
+								"get",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "条件查询单条记录",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/user/api/get?username=admin123",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"user",
+								"api",
+								"get"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "26",
+									"disabled": true
+								},
+								{
+									"key": "username",
+									"value": "admin123"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "更新",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"id\": 26,\n        \"username\": \"luna\",\n        \"password\": \"1234\",\n        \"gender\": \"1\",\n        \"cellphone\": \"15696756582\",\n        \"email\": \"15696756582@163.com\",\n        \"status\": 0,\n        \"faceurl\": null,\n        \"facedata\": null,\n        \"createTime\": \"2021-04-28T08:45:58.000+0000\",\n        \"modifiedTime\": \"2021-04-28T08:46:00.000+0000\",\n        \"version\": 0\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/user/api/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"user",
+								"api",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "条件批量更新",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"id\": 33,\n        \"username\": \"luna\",\n        \"password\": \"123444\",\n        \"gender\": \"1\",\n        \"cellphone\": \"15696756582\",\n        \"email\": \"15696756582@163.com\",\n        \"status\": 0,\n        \"faceurl\": null,\n        \"facedata\": null,\n        \"createTime\": \"2021-04-28T08:45:58.000+0000\",\n        \"modifiedTime\": \"2021-04-28T08:46:00.000+0000\",\n        \"version\": 0\n    },\n    {\n        \"id\": 34,\n        \"username\": \"luna\",\n        \"password\": \"123444\",\n        \"gender\": \"1\",\n        \"cellphone\": \"15696756582\",\n        \"email\": \"15696756582@163.com\",\n        \"status\": 0,\n        \"faceurl\": null,\n        \"facedata\": null,\n        \"createTime\": \"2021-04-28T08:45:58.000+0000\",\n        \"modifiedTime\": \"2021-04-28T08:46:00.000+0000\",\n        \"version\": 0\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/user/api/updateBatch",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"user",
+								"api",
+								"updateBatch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/user/api/delete/28",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"user",
+								"api",
+								"delete",
+								"28"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "条件删除",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"username\": \"luna\",\n        \"password\": \"1234\",\n        \"gender\": \"1\",\n        \"cellphone\": \"15696756582\",\n        \"email\": \"15696756582@163.com\",\n        \"faceurl\": null,\n        \"facedata\": null,\n        \"version\": 1\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/user/api/deleteByEntity",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"user",
+								"api",
+								"deleteByEntity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ID List 删除",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\"20\",\"21\",22]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/user/api/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"user",
+								"api",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "统计",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/csi/user/api/account",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"user",
+								"api",
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "条件统计",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"username\": \"luna\",\n        \"password\": \"123\",\n        \"gender\": \"1\",\n        \"cellphone\": \"15696756582\",\n        \"email\": \"15696756582@163.com\",\n        \"faceurl\": null,\n        \"facedata\": null\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/user/api/account",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"user",
+								"api",
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "条件查询列表",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/user/api/list?username=luna&password=123",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"user",
+								"api",
+								"list"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "26",
+									"disabled": true
+								},
+								{
+									"key": "username",
+									"value": "luna"
+								},
+								{
+									"key": "password",
+									"value": "123"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "分页条件查询列表",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/user/api/pageListByEntity/1/5?username=luna",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"user",
+								"api",
+								"pageListByEntity",
+								"1",
+								"5"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "26",
+									"disabled": true
+								},
+								{
+									"key": "username",
+									"value": "luna"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "分页查询列表",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/user/api/pageList/1/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"user",
+								"api",
+								"pageList",
+								"1",
+								"5"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "26",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "dept",
+			"item": [
+				{
+					"name": "插入",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"deptName\": \"市场部\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/dept/api/insert",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"dept",
+								"api",
+								"insert"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "批量插入",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"deptName\": \"市场部\"\n    },\n    {\n        \"deptName\": \"市场部\"\n    },\n    {\n        \"deptName\": \"市场部\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/dept/api/insertBatch",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"dept",
+								"api",
+								"insertBatch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查询",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/csi/dept/api/get/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"dept",
+								"api",
+								"get",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "更新",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"6\",\n    \"deptName\": \"市场部\",\n    \"deptRemark\": \"1231231231\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/dept/api/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"dept",
+								"api",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "条件批量更新",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"id\": 6,\n        \"deptName\": \"市场部\",\n        \"version\": 0\n    },\n    {\n        \"id\": 8,\n        \"deptName\": \"销售部\",\n        \"deptRemark\": \"备注\",\n        \"version\": 3\n    },\n    {\n        \"id\": 9,\n        \"deptName\": \"市场部\",\n        \"version\": 3\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/dept/api/updateBatch",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"dept",
+								"api",
+								"updateBatch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/dept/api/delete/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"dept",
+								"api",
+								"delete",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "条件删除",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 3,\n    \"deptName\": \"销售部\",\n    \"version\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/dept/api/deleteByEntity",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"dept",
+								"api",
+								"deleteByEntity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ID List 删除",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[20,21,22]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/dept/api/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"dept",
+								"api",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "统计",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/csi/dept/api/account",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"dept",
+								"api",
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "条件统计",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/csi/dept/api/accountByEntity?deptName=%E9%94%80%E5%94%AE%E9%83%A8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"dept",
+								"api",
+								"accountByEntity"
+							],
+							"query": [
+								{
+									"key": "deptName",
+									"value": "%E9%94%80%E5%94%AE%E9%83%A8"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "条件查询单条记录",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/dept/api/get?id=3&deptName=销售部",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"dept",
+								"api",
+								"get"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								},
+								{
+									"key": "deptName",
+									"value": "销售部"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "条件查询列表",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/dept/api/list?deptName=销售部",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"dept",
+								"api",
+								"list"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "26",
+									"disabled": true
+								},
+								{
+									"key": "id",
+									"value": "3",
+									"disabled": true
+								},
+								{
+									"key": "deptName",
+									"value": "销售部"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "分页条件查询列表",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/dept/api/pageListByEntity/1/5?deptName=市场部",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"dept",
+								"api",
+								"pageListByEntity",
+								"1",
+								"5"
+							],
+							"query": [
+								{
+									"key": "deptName",
+									"value": "市场部"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "分页查询列表",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/dept/api/pageList/1/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"dept",
+								"api",
+								"pageList",
+								"1",
+								"5"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "26",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "emp",
+			"item": [
+				{
+					"name": "插入",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"deptId\": 1,\n    \"jobId\": 1,\n    \"empName\": \"小明\",\n    \"cardId\": \"95001\",\n    \"empAddress\": \"江苏南通\",\n    \"postCode\": \"10001\",\n    \"empTel\": \"15696756583\",\n    \"empPhone\": \"15696756583\",\n    \"qqNum\": \"1173282254\",\n    \"empEmail\": \"15696756582@163.com\",\n    \"empSex\": 1,\n    \"empParty\": \"共青团员\",\n    \"empBirthday\": \"1999-11-06T16:00:00.000+0000\",\n    \"empRace\": \"汉族\",\n    \"empEdu\": \"本科\",\n    \"empMajor\": null,\n    \"empHobby\": \"乒乓球\",\n    \"empRemark\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/emp/api/insert",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"emp",
+								"api",
+								"insert"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "批量插入",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"deptId\": 1,\n        \"jobId\": 1,\n        \"empName\": \"小明\",\n        \"cardId\": \"95001\",\n        \"empAddress\": \"江苏南通\",\n        \"postCode\": \"10001\",\n        \"empTel\": \"15696756583\",\n        \"empPhone\": \"15696756583\",\n        \"qqNum\": \"1173282254\",\n        \"empEmail\": \"15696756582@163.com\",\n        \"empSex\": 1,\n        \"empParty\": \"共青团员\",\n        \"empBirthday\": \"1999-11-06T16:00:00.000+0000\",\n        \"empRace\": \"汉族\",\n        \"empEdu\": \"本科\",\n        \"empMajor\": null,\n        \"empHobby\": \"乒乓球\",\n        \"empRemark\": null\n    },\n    {\n        \"deptId\": 1,\n        \"jobId\": 1,\n        \"empName\": \"小明\",\n        \"cardId\": \"95001\",\n        \"empAddress\": \"江苏南通\",\n        \"postCode\": \"10001\",\n        \"empTel\": \"15696756583\",\n        \"empPhone\": \"15696756583\",\n        \"qqNum\": \"1173282254\",\n        \"empEmail\": \"15696756582@163.com\",\n        \"empSex\": 1,\n        \"empParty\": \"共青团员\",\n        \"empBirthday\": \"1999-11-06T16:00:00.000+0000\",\n        \"empRace\": \"汉族\",\n        \"empEdu\": \"本科\",\n        \"empMajor\": null,\n        \"empHobby\": \"乒乓球\",\n        \"empRemark\": null\n    },\n    {\n        \"deptId\": 1,\n        \"jobId\": 1,\n        \"empName\": \"小明\",\n        \"cardId\": \"95001\",\n        \"empAddress\": \"江苏南通\",\n        \"postCode\": \"10001\",\n        \"empTel\": \"15696756583\",\n        \"empPhone\": \"15696756583\",\n        \"qqNum\": \"1173282254\",\n        \"empEmail\": \"15696756582@163.com\",\n        \"empSex\": 1,\n        \"empParty\": \"共青团员\",\n        \"empBirthday\": \"1999-11-06T16:00:00.000+0000\",\n        \"empRace\": \"汉族\",\n        \"empEdu\": \"本科\",\n        \"empMajor\": null,\n        \"empHobby\": \"乒乓球\",\n        \"empRemark\": null\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/emp/api/insertBatch",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"emp",
+								"api",
+								"insertBatch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查询",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/csi/emp/api/get/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"emp",
+								"api",
+								"get",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "更新",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 9,\n    \"deptId\": 1,\n    \"jobId\": 1,\n    \"empName\": \"小明\",\n    \"cardId\": \"95001\",\n    \"empAddress\": \"江苏南通\",\n    \"postCode\": \"10001\",\n    \"empTel\": \"15696756583\",\n    \"empPhone\": \"15696756583\",\n    \"qqNum\": \"1173282254\",\n    \"empEmail\": \"15696756582@163.com\",\n    \"empSex\": 1,\n    \"empParty\": \"共青团员\",\n    \"empBirthday\": \"1999-11-06T16:00:00.000+0000\",\n    \"empRace\": \"汉族\",\n    \"empEdu\": \"本科\",\n    \"empMajor\": null,\n    \"empHobby\": \"乒乓球\",\n    \"empRemark\": null,\n    \"version\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/emp/api/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"emp",
+								"api",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "条件批量更新",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"id\": 3,\n        \"deptId\": 1,\n        \"jobId\": 1,\n        \"empName\": \"小明\",\n        \"cardId\": \"95001\",\n        \"empAddress\": \"江苏南通\",\n        \"postCode\": \"10001\",\n        \"empTel\": \"15696756583\",\n        \"empPhone\": \"15696756583\",\n        \"qqNum\": \"1173282254\",\n        \"empEmail\": \"15696756582@163.com\",\n        \"empSex\": 1,\n        \"empParty\": \"共青团员\",\n        \"empBirthday\": \"1999-11-06T16:00:00.000+0000\",\n        \"empRace\": \"汉族\",\n        \"empEdu\": \"本科\",\n        \"empMajor\": null,\n        \"empHobby\": \"乒乓球\",\n        \"empRemark\": null,\n        \"version\": 0\n    },\n    {\n        \"id\": 4,\n        \"deptId\": 1,\n        \"jobId\": 1,\n        \"empName\": \"小明\",\n        \"cardId\": \"95001\",\n        \"empAddress\": \"江苏南通\",\n        \"postCode\": \"10001\",\n        \"empTel\": \"15696756583\",\n        \"empPhone\": \"15696756583\",\n        \"qqNum\": \"1173282254\",\n        \"empEmail\": \"15696756582@163.com\",\n        \"empSex\": 1,\n        \"empParty\": \"共青团员\",\n        \"empBirthday\": \"1999-11-06T16:00:00.000+0000\",\n        \"empRace\": \"汉族\",\n        \"empEdu\": \"本科\",\n        \"empMajor\": null,\n        \"empHobby\": \"乒乓球\",\n        \"empRemark\": null,\n        \"version\": 0\n    },\n    {\n        \"id\": 5,\n        \"deptId\": 1,\n        \"jobId\": 1,\n        \"empName\": \"小明\",\n        \"cardId\": \"95001\",\n        \"empAddress\": \"江苏南通\",\n        \"postCode\": \"10001\",\n        \"empTel\": \"15696756583\",\n        \"empPhone\": \"15696756583\",\n        \"qqNum\": \"1173282254\",\n        \"empEmail\": \"15696756582@163.com\",\n        \"empSex\": 1,\n        \"empParty\": \"共青团员\",\n        \"empBirthday\": \"1999-11-06T16:00:00.000+0000\",\n        \"empRace\": \"汉族\",\n        \"empEdu\": \"本科\",\n        \"empMajor\": null,\n        \"empHobby\": \"乒乓球\",\n        \"empRemark\": null,\n        \"version\": 0\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/emp/api/updateBatch",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"emp",
+								"api",
+								"updateBatch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/emp/api/delete/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"emp",
+								"api",
+								"delete",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "条件删除",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 9,\n    \"deptId\": 1,\n    \"jobId\": 1,\n    \"empName\": \"小明\",\n    \"cardId\": \"95001\",\n    \"empAddress\": \"江苏南通\",\n    \"postCode\": \"10001\",\n    \"empTel\": \"15696756583\",\n    \"empPhone\": \"15696756583\",\n    \"qqNum\": \"1173282254\",\n    \"empEmail\": \"15696756582@163.com\",\n    \"empSex\": 1,\n    \"empParty\": \"共青团员\",\n    \"empBirthday\": \"1999-11-06T16:00:00.000+0000\",\n    \"empRace\": \"汉族\",\n    \"empEdu\": \"本科\",\n    \"empMajor\": null,\n    \"empHobby\": \"乒乓球\",\n    \"empRemark\": null,\n    \"version\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/emp/api/deleteByEntity",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"emp",
+								"api",
+								"deleteByEntity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ID List 删除",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[20,21,22]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/emp/api/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"emp",
+								"api",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "统计",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/csi/emp/api/account",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"emp",
+								"api",
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "条件统计",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/csi/emp/api/accountByEntity?empName=小明",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"emp",
+								"api",
+								"accountByEntity"
+							],
+							"query": [
+								{
+									"key": "empName",
+									"value": "小明"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "条件查询单条记录",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/emp/api/get?id=3&empName=小明",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"emp",
+								"api",
+								"get"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								},
+								{
+									"key": "empName",
+									"value": "小明"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "条件查询列表",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/emp/api/list?empName=小明",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"emp",
+								"api",
+								"list"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "26",
+									"disabled": true
+								},
+								{
+									"key": "id",
+									"value": "3",
+									"disabled": true
+								},
+								{
+									"key": "empName",
+									"value": "小明"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "分页条件查询列表",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/emp/api/pageListByEntity/1/5?empName=小明",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"emp",
+								"api",
+								"pageListByEntity",
+								"1",
+								"5"
+							],
+							"query": [
+								{
+									"key": "empName",
+									"value": "小明"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "分页查询列表",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/emp/api/pageList/1/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"emp",
+								"api",
+								"pageList",
+								"1",
+								"5"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "26",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "job",
+			"item": [
+				{
+					"name": "插入",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"jobName\": \"JAVA程序员\",\n    \"jobRemark\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/job/api/insert",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"job",
+								"api",
+								"insert"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "批量插入",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n     {\n        \"jobName\": \"C++程序员\",\n        \"jobRemark\": null\n    },\n     {\n        \"jobName\": \"Python程序员\",\n        \"jobRemark\": null\n    },\n     {\n        \"jobName\": \"C程序员\",\n        \"jobRemark\": null\n    },\n     {\n        \"jobName\": \"C#程序员\",\n        \"jobRemark\": null\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/job/api/insertBatch",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"job",
+								"api",
+								"insertBatch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查询",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/csi/job/api/get/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"job",
+								"api",
+								"get",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "更新",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"jobName\": \"JAVA程序员\",\n    \"jobRemark\": \"[]\",\n    \"version\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/job/api/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"job",
+								"api",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "条件批量更新",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"id\": 6,\n        \"jobName\": \"JAVA程序员\",\n        \"jobRemark\": \"[]\",\n        \"version\": 0\n    },\n    {\n        \"id\": 7,\n        \"jobName\": \"JAVA程序员\",\n        \"jobRemark\": \"[]\",\n        \"version\": 0\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/job/api/updateBatch",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"job",
+								"api",
+								"updateBatch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/job/api/delete/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"job",
+								"api",
+								"delete",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "条件删除",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 6,\n    \"jobName\": \"JAVA程序员\",\n    \"jobRemark\": \"[]\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/job/api/deleteByEntity",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"job",
+								"api",
+								"deleteByEntity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ID List 删除",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[20,21,22]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/job/api/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"job",
+								"api",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "统计",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/csi/dept/api/account",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"dept",
+								"api",
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "条件统计",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/csi/dept/api/accountByEntity?deptName=%E9%94%80%E5%94%AE%E9%83%A8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"dept",
+								"api",
+								"accountByEntity"
+							],
+							"query": [
+								{
+									"key": "deptName",
+									"value": "%E9%94%80%E5%94%AE%E9%83%A8"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "条件查询单条记录",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/dept/api/get?id=3&deptName=销售部",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"dept",
+								"api",
+								"get"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								},
+								{
+									"key": "deptName",
+									"value": "销售部"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "条件查询列表",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/dept/api/list?deptName=销售部",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"dept",
+								"api",
+								"list"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "26",
+									"disabled": true
+								},
+								{
+									"key": "id",
+									"value": "3",
+									"disabled": true
+								},
+								{
+									"key": "deptName",
+									"value": "销售部"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "分页条件查询列表",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/job/api/pageListByEntity/1/5?jobName=JAVA程序员",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"job",
+								"api",
+								"pageListByEntity",
+								"1",
+								"5"
+							],
+							"query": [
+								{
+									"key": "jobName",
+									"value": "JAVA程序员"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "分页查询列表",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/job/api/pageList/1/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"job",
+								"api",
+								"pageList",
+								"1",
+								"5"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "26",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "role_user",
+			"item": [
+				{
+					"name": "插入",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"roleName\": \"管理员\",\n    \"userId\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/roleUser/api/insert",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"roleUser",
+								"api",
+								"insert"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "批量插入",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"roleName\": \"管理员\",\n        \"userId\": 3\n    },\n    {\n        \"roleName\": \"管理员\",\n        \"userId\": 4\n    },\n    {\n        \"roleName\": \"管理员\",\n        \"userId\": 5\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/roleUser/api/insertBatch",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"roleUser",
+								"api",
+								"insertBatch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查询",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/csi/roleUser/api/get/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"roleUser",
+								"api",
+								"get",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "更新",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 7,\n    \"roleName\": \"超级管理员\",\n    \"userId\": 2,\n    \"version\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/roleUser/api/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"roleUser",
+								"api",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "条件批量更新",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"id\": \"5\",\n        \"roleName\": \"超级管理员\",\n        \"userId\": 2,\n        \"version\": 0\n    },\n    {\n        \"id\": 6,\n        \"roleName\": \"超级管理员\",\n        \"userId\": 2,\n        \"version\": 0\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/roleUser/api/updateBatch",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"roleUser",
+								"api",
+								"updateBatch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/roleUser/api/delete/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"roleUser",
+								"api",
+								"delete",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "条件删除",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"6\",\n    \"roleName\": \"超级管理员\",\n    \"userId\": 2,\n    \"version\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/roleUser/api/deleteByEntity",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"roleUser",
+								"api",
+								"deleteByEntity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ID List 删除",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[20,21,22]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/roleUser/api/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"roleUser",
+								"api",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "统计",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/csi/roleUser/api/account",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"roleUser",
+								"api",
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "条件统计",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/csi/roleUser/api/accountByEntity?roleName=管理员",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"roleUser",
+								"api",
+								"accountByEntity"
+							],
+							"query": [
+								{
+									"key": "roleName",
+									"value": "管理员"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "条件查询单条记录",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/roleUser/api/get?roleName=管理员",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"roleUser",
+								"api",
+								"get"
+							],
+							"query": [
+								{
+									"key": "roleName",
+									"value": "管理员"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "条件查询列表",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/roleUser/api/list?roleName=管理员",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"roleUser",
+								"api",
+								"list"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "26",
+									"disabled": true
+								},
+								{
+									"key": "id",
+									"value": "3",
+									"disabled": true
+								},
+								{
+									"key": "roleName",
+									"value": "管理员"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "分页条件查询列表",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/roleUser/api/pageListByEntity/1/5?roleName=管理员",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"roleUser",
+								"api",
+								"pageListByEntity",
+								"1",
+								"5"
+							],
+							"query": [
+								{
+									"key": "roleName",
+									"value": "管理员"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "分页查询列表",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/roleUser/api/pageList/1/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"roleUser",
+								"api",
+								"pageList",
+								"1",
+								"5"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "26",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "业务",
+			"item": [
+				{
+					"name": "登陆",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\":\"admin123\",\n    \"password\":\"admin123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/user/api/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"user",
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "修改密码",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"oldPassword\": \"admin123\",\n    \"newPassword\": \"admin123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8083/csi/user/api/editPassword",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"user",
+								"api",
+								"editPassword"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "document",
+			"item": [
+				{
+					"name": "插入",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"fileTitle\": \"你好中国\",\n        \"fileDescription\": \"对中国近代历史记录\",\n        \"fileUrl\": \"http://xxx.mv\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/document/api/insert",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"document",
+								"api",
+								"insert"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "批量插入",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"createBy\":26,\n        \"fileTitle\": \"你好中国\",\n        \"fileDescription\": \"对中国近代历史记录\",\n        \"fileUrl\": \"http://xxx.mv\"\n    },\n    {\n        \"createBy\":26,\n        \"fileTitle\": \"你好中国\",\n        \"fileDescription\": \"对中国近代历史记录\",\n        \"fileUrl\": \"http://xxx.mv\"\n    },\n    {\n        \"createBy\":26,\n        \"fileTitle\": \"你好中国\",\n        \"fileDescription\": \"对中国近代历史记录\",\n        \"fileUrl\": \"http://xxx.mv\"\n    },\n    {\n        \"createBy\":26,\n        \"fileTitle\": \"你好中国\",\n        \"fileDescription\": \"对中国近代历史记录\",\n        \"fileUrl\": \"http://xxx.mv\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/document/api/insertBatch",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"document",
+								"api",
+								"insertBatch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查询",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/csi/document/api/get/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"document",
+								"api",
+								"get",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "更新",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":1,\n    \"fileTitle\": \"你好中国\",\n    \"fileDescription\": \"对中国近代历史记录\",\n    \"fileUrl\": \"http://xxx2.mv\",\n    \"version\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/document/api/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"document",
+								"api",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "条件批量更新",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"id\": 4,\n        \"fileTitle\": \"你好中国\",\n        \"fileDescription\": \"对中国近代历史记录\",\n        \"fileUrl\": \"http://xxx.mv\",\n        \"version\": 0\n    },\n    {\n        \"id\": 5,\n        \"fileTitle\": \"你好中国\",\n        \"fileDescription\": \"对中国近代历史记录\",\n        \"fileUrl\": \"http://xxx.mv\",\n        \"version\": 0\n    },\n    {\n        \"id\": 6,\n        \"fileTitle\": \"你好中国\",\n        \"fileDescription\": \"对中国近代历史记录\",\n        \"fileUrl\": \"http://xxx.mv\",\n        \"version\": 0\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/document/api/updateBatch",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"document",
+								"api",
+								"updateBatch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/document/api/delete/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"document",
+								"api",
+								"delete",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "条件删除",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 4,\n    \"fileTitle\": \"你好中国\",\n    \"fileDescription\": \"对中国近代历史记录\",\n    \"fileUrl\": \"http://xxx.mv\",\n    \"version\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/document/api/deleteByEntity",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"document",
+								"api",
+								"deleteByEntity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ID List 删除",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[20,21,22]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/document/api/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"document",
+								"api",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "统计",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/csi/document/api/account",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"document",
+								"api",
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "条件统计",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/csi/document/api/accountByEntity?fileTitle=1你好中国",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"document",
+								"api",
+								"accountByEntity"
+							],
+							"query": [
+								{
+									"key": "fileTitle",
+									"value": "1你好中国"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "条件查询单条记录",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/document/api/get?id=1&?fileTitle=1你好中国",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"document",
+								"api",
+								"get"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								},
+								{
+									"key": "?fileTitle",
+									"value": "1你好中国"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "条件查询列表",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/document/api/list?fileTitle=1你好中国",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"document",
+								"api",
+								"list"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "26",
+									"disabled": true
+								},
+								{
+									"key": "id",
+									"value": "3",
+									"disabled": true
+								},
+								{
+									"key": "fileTitle",
+									"value": "1你好中国"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "分页条件查询列表",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/document/api/pageListByEntity/1/5?fileTitle=1你好中国",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"document",
+								"api",
+								"pageListByEntity",
+								"1",
+								"5"
+							],
+							"query": [
+								{
+									"key": "fileTitle",
+									"value": "1你好中国"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "分页查询列表",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/document/api/pageList/1/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"document",
+								"api",
+								"pageList",
+								"1",
+								"5"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "26",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "上传文件",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/luna_mac/Pictures/img/1812630715.zip"
+								},
+								{
+									"key": "fileTitle",
+									"value": "Hello",
+									"type": "text"
+								},
+								{
+									"key": "fileDescription",
+									"value": "自我描述",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/document/upload",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"document",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "下载文件",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/luna_mac/Pictures/img/1812630715.png"
+								},
+								{
+									"key": "fileTitle",
+									"value": "Hello",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/document/download",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"document",
+								"download"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "notice",
+			"item": [
+				{
+					"name": "插入",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": 26,\n    \"annoTitle\": \"你好中国\",\n    \"annoContent\": \"你好中国\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/anno/api/insert",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"anno",
+								"api",
+								"insert"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "批量插入",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"userId\": 26,\n        \"annoTitle\": \"你好中国\",\n        \"annoContent\": \"你好中国\"\n    },\n    {\n        \"userId\": 26,\n        \"annoTitle\": \"你好中国\",\n        \"annoContent\": \"你好中国\"\n    },\n    {\n        \"userId\": 26,\n        \"annoTitle\": \"你好中国\",\n        \"annoContent\": \"你好中国\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/anno/api/insertBatch",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"anno",
+								"api",
+								"insertBatch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查询",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/csi/anno/api/get/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"anno",
+								"api",
+								"get",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "更新",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"userId\": 26,\n    \"annoTitle\": \"你好中国\",\n    \"annoContent\": \"你好中国\",\n    \"version\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/anno/api/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"anno",
+								"api",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "条件批量更新",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"id\": 3,\n        \"userId\": 26,\n        \"annoTitle\": \"你好中国\",\n        \"annoContent\": \"你好中国\",\n        \"version\": 0\n    },\n    {\n        \"id\": 4,\n        \"userId\": 26,\n        \"annoTitle\": \"你好中国\",\n        \"annoContent\": \"你好中国\",\n        \"version\": 0\n    },\n    {\n        \"id\": 5,\n        \"userId\": 26,\n        \"annoTitle\": \"你好中国\",\n        \"annoContent\": \"你好中国\",\n        \"version\": 0\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/anno/api/updateBatch",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"anno",
+								"api",
+								"updateBatch"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/anno/api/delete/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"anno",
+								"api",
+								"delete",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "条件删除",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 6,\n    \"jobName\": \"JAVA程序员\",\n    \"jobRemark\": \"[]\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/anno/api/deleteByEntity",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"anno",
+								"api",
+								"deleteByEntity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ID List 删除",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[20,21,22]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/anno/api/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"anno",
+								"api",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "统计",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/csi/anno/api/account",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"anno",
+								"api",
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "条件统计",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/csi/anno/api/accountByEntity?deptName=%E9%94%80%E5%94%AE%E9%83%A8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"anno",
+								"api",
+								"accountByEntity"
+							],
+							"query": [
+								{
+									"key": "deptName",
+									"value": "%E9%94%80%E5%94%AE%E9%83%A8"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "条件查询单条记录",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/dept/api/get?id=3&deptName=销售部",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"dept",
+								"api",
+								"get"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								},
+								{
+									"key": "deptName",
+									"value": "销售部"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "条件查询列表",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/dept/api/list?deptName=销售部",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"dept",
+								"api",
+								"list"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "26",
+									"disabled": true
+								},
+								{
+									"key": "id",
+									"value": "3",
+									"disabled": true
+								},
+								{
+									"key": "deptName",
+									"value": "销售部"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "分页条件查询列表",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/job/api/pageListByEntity/1/5?jobName=JAVA程序员",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"job",
+								"api",
+								"pageListByEntity",
+								"1",
+								"5"
+							],
+							"query": [
+								{
+									"key": "jobName",
+									"value": "JAVA程序员"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "分页查询列表",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8083/csi/job/api/pageList/1/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"csi",
+								"job",
+								"api",
+								"pageList",
+								"1",
+								"5"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "26",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
