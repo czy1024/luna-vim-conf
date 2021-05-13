@@ -1,0 +1,7 @@
+<keymap version="1" name="Eclipse 复制" parent="Eclipse">
+  <action id="HippieCompletion" />
+  <action id="SmartTypeCompletion">
+    <keyboard-shortcut first-keystroke="shift alt space" />
+    <keyboard-shortcut first-keystroke="alt slash" />
+  </action>
+</keymap>

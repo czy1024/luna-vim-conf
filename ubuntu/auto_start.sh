@@ -25,3 +25,5 @@ systemctl restart *.service #重启服务
 systemctl reload *.service #重新加载服务配置文件
 
 systemctl status *.service #查询服务运行状态
+
+scp -r  -P 22701  ~/openresty/nginx/lua root@f.xicc.cc:/root/   #主机之间传递文件

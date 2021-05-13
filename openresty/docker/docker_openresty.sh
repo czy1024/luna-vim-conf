@@ -14,9 +14,7 @@ mkdir -p ~/openresty/conf
 # 复制配置文件
 docker cp openresty:/usr/local/openresty/nginx ~/openresty/nginx
 docker cp openresty:/etc/nginx/conf.d ~/openresty/nginx/conf.d
-### 删除 openresty 容器
-docker stop openresty
-docker rm openresty
+
 
 sudo cat > ~/openresty/nginx/html/index.html <<EOF
 
@@ -49,8 +47,13 @@ sudo cat > ~/openresty/nginx/html/index.html <<EOF
 </html>
 
 EOF
+
+### 删除 openresty 容器
+docker stop openresty
+docker rm openresty
+
 ### 配置启动 openresty conf.d -> nginx 配置目录,由 /usr/local/openresty/nginx/conf/nginx.conf 引入
-docker run -it -d -p 82:82 -p 83:80 -p 84:84 \
+docker run -it -d -p 80:80 -p 443:443 -p 82:82 \
 --name openresty --restart always \
 -v ~/openresty/nginx:/usr/local/openresty/nginx \
 -v ~/openresty/nginx/conf.d:/etc/nginx/conf.d \
