@@ -53,7 +53,7 @@ sudo /etc/init.d/ssh restart
 #scp root@%IP%:/tmp/id_rsa ~/Documents/id_rsa 
 #客户端执行: scp ~/.ssh/id_rsa.pub  root@106.14.30.12:/tmp/id_rsa.pub 
 #服务端执行: cat /tmp/id_rsa.pub >> ~/.ssh/authorized_keys
-
+scp -r -P 22501 ./mysql-cluster-master/* root@f.xicc.cc:/root/ 
 # 清空hostname
 echo -n ""> /etc/hostname
 

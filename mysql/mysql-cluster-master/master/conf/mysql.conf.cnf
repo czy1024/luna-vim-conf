@@ -1,0 +1,23 @@
+[mysqld]
+##### 这两部操作可以解决mysql连接很慢的问题 #####
+# 根据官方文档说明，如果你的mysql主机查询DNS很慢或是有很多客户端主机时会导致连接很慢，由于我们的开发机器是不能够连接外网的，
+# 所以DNS解析是不可能完成的，从而也就明白了为什么连接那么慢了。同时，请注意在增加该配置参数后，mysql的授权表中的host字段就
+# 不能够使用域名而只能够使用 ip地址了，因为这是禁止了域名解析的结果。
+
+# 1.禁止域名解析
+skip-host-cache
+
+# 2.禁用dns解析，但是，这样不能在mysql的授权表中使用主机名了，只能使用IP。
+skip-name-resolve
+
+# 数据库编号, 要具有唯一性, 不能跟其他数据库重复, 方便同步区分
+server-id = 11
+
+# mysql日志
+log_bin = /var/log/mysql/mysql-bin.log
+
+# binlog日志格式，mysql默认采用statement，建议使用 mixed(是statement和row模式的结合)
+binlog_format = mixed
+
+# 要同步的库
+binlog_do_db = luna

@@ -49,7 +49,7 @@ listen admin_status
 EOF
 
 docker run -d --name haproxy \
-	-p 8082:80 -p 8083:443 -p 8084:8888\
+	-p 8082:80 -p 8083:443 -p 8084:888a8\
 	-v ~/haproxy/etc/haproxy:/usr/local/etc/haproxy/ \
 	--privileged=true \
 	--restart always \
