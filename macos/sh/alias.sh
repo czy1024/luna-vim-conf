@@ -35,6 +35,9 @@ export PATH=$PATH:$MAVEN_HOME/bin
 CATALINA_HOME=“tomcat 目录”
 export PATH=$PATH:$CATALINA_HOME/bin
 
-# tomcat 环境变量
+# java 环境变量
 JAVA_HOME=“java 目录”
 export PATH=$PATH:$JAVA_HOME/bin
+CLASSPATH=$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar:.
+export CLASSPATH
+
