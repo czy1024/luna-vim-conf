@@ -1,0 +1,9 @@
+EclipseCodeFormatter
+JRebelPlugin
+String Manipulation
+cn.cloud.auto.restful.tool
+cn.yiiguxing.plugin.translate
+com.alibaba.p3c.smartfox
+com.baomidou.plugin.idea.mybatisx
+com.bruce.intellijplugin.generatesetter
+com.sjhy.plugin.easycode

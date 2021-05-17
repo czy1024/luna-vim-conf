@@ -22,3 +22,19 @@ bash: type: foo: not found
 
 # 为多个命令的组合设置别名
 alias hcgd='hexo clean&&hexo g&&hexo d'
+
+# gradle 环境变量
+GRADLE_HOME=“gradle 目录”
+export PATH=$PATH:$GRADLE_HOME/bin
+
+# maven 环境变量
+MAVEN_HOME=“maven 目录”
+export PATH=$PATH:$MAVEN_HOME/bin
+
+# tomcat 环境变量
+CATALINA_HOME=“tomcat 目录”
+export PATH=$PATH:$CATALINA_HOME/bin
+
+# tomcat 环境变量
+JAVA_HOME=“java 目录”
+export PATH=$PATH:$JAVA_HOME/bin

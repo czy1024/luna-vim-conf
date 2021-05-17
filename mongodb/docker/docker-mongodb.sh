@@ -12,10 +12,6 @@ sudo docker cp mongo:/data/db ~/mongo
 docker stop mongo
 docker rm mongo
  
-docker run -p 27017:27017 --name mongo \
---restart always \
--v ~/mongo/db:/data/db \
--d mongo:4.2.5
 # 运行
 echo "运行mysql 27017:27017 "
 docker run -d -p 27017:27017 \
@@ -36,7 +32,12 @@ db.createUser({
    pwd: 'czy1024',
    roles: [ { role: "userAdminAnyDatabase", db: "admin" } ]
 });　
-echo "创建库 demo_db 用户dev 密码czy1024"
+echo "创建库 demo_db 用户 luna 密码czy1024"
 db.auth('admin', 'czy1024')
 use demo_db;
 db.createUser({ user: 'luna', pwd: 'czy1024', roles: [ { role: "readWrite", db: "demo_db" } ] });   
+db.auth('luna', 'czy1024')
+db.createUser({ user: 'admin', pwd: 'czy1024', roles: [ { role: "dbOwner", db: "luna" } ] });   
+
+# 使用用户名luna，密码czy1024登录localhost的demo_db数据库。
+mongodb://luna:czy1024@localhost/demo_db

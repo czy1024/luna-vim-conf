@@ -1,0 +1,126 @@
+@charset "utf-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+#box {
+  width: 400px;
+  height: 30px;
+  border-bottom: 1px solid rgba(200, 200, 200, .8);
+  color: #999999;
+  cursor: pointer;
+}
+
+#totalConfirm {
+  z-index: -9999;
+  opacity: 0;
+  width: 400px;
+  height: 30px;
+  position: absolute;
+  outline: none;
+  left: 0;
+  top: 0;
+}
+
+.text {
+  line-height: 30px;
+}
+
+.icon-arrow-down, .icon-arrow-up {
+  position: absolute;
+  left: 380px;
+  font-size: 22px;
+  line-height: 30px;
+  color: #999999;
+}
+
+#content {
+  width: 400px;
+  display: none;
+  border-top: none;
+  position: relative;
+}
+
+.chosePCA {
+  width: 80px;
+  height: 40px;
+  display: inline-block;
+  font-size: 18px;
+  line-height: 40px;
+  text-align: center;
+  float: left;
+  cursor: pointer;
+}
+
+.province-list, .city-list, .area-list {
+  position: absolute;
+  width: 378px;
+  min-height: 10px;
+  padding: 10px;
+  left: 0;
+  top: 40px;
+}
+
+.select {
+  background-color: #fff;
+  color: #46a4ff;
+  border-bottom: none;
+}
+
+#content li {
+  font-size: 14px;
+  display: inline-block;
+  padding: 8px;
+  line-height: normal;
+  cursor: pointer;
+  color: black;
+}
+
+#content li:hover {
+  background-color: #f1f8ff;
+  color: #46a4ff;
+  border-radius: 4px;
+}
+
+.chose-tab {
+  width: 400px;
+  height: 40px;
+  background-color: #f0f0f0;
+  clear: both;
+}
+
+.chosePCA > ul {
+  border: 1px solid rgba(200, 200, 200, .8);
+  border-top: none;
+  font-size: 18px;
+  line-height: 20px;
+  text-align: left;
+  cursor: auto;
+}
+
+.textProvince:hover, .textArea:hover, .textCity:hover {
+  background-color: #bcd5e7;
+}
+
+.btn {
+  width: 60px;
+  height: 30px;
+  font-size: 16px;
+  line-height: 30px;
+  text-align: center;
+  margin-top: 10px;
+  position: absolute;
+}
+
+.confirm {
+  left: 70px;
+}
+#bigOne{
+  width: 400px;
+  position: relative;
+}

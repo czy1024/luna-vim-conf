@@ -1,0 +1,120 @@
+<templateSet group="user">
+  <template name="/**" value="/**   &#10; * @Title: $enclosing_method$  &#10; * @Description: $todo$&#10; * @param: $param$    &#10; * @return: $return$ &#10; * @date: $date$ $time$    &#10; * @throws   &#10; */" shortcut="ENTER" description="method annotation" toReformat="false" toShortenFQNames="true" deactivated="true">
+    <variable name="enclosing_method" expression="annotated(&quot;annotation qname&quot;)" defaultValue="" alwaysStopAt="true" />
+    <variable name="todo" expression="methodName()" defaultValue="" alwaysStopAt="true" />
+    <variable name="param" expression="methodParameters()" defaultValue="" alwaysStopAt="true" />
+    <variable name="return" expression="methodReturnType()" defaultValue="" alwaysStopAt="true" />
+    <variable name="date" expression="date()" defaultValue="" alwaysStopAt="true" />
+    <variable name="time" expression="date()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="me" value="public void method(){&#10;    &#10;}" shortcut="ENTER" description="方法创建" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="mest" value="public static void method(){&#10;    &#10;}" shortcut="ENTER" description="静态方法创建" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="atest" value="@Test&#10;public void atest(){&#10;&#10;}" description="测试类" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="log" value="    private static final Logger log = LoggerFactory.getLogger($Class$.class);&#10;" description="日志快捷" toReformat="false" toShortenFQNames="true">
+    <variable name="Class" expression="fileNameWithoutExtension()" defaultValue="A" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="anno" value="/** */" description="javaDoc" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="attr" value="    /**  */&#10;    private String $Name$;" description="类属性快速" toReformat="true" toShortenFQNames="true">
+    <variable name="Name" expression="" defaultValue="name" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="map" value="Iterator&lt;Map.Entry&lt;String, String&gt;&gt; entries = $PRO$.entrySet().iterator();&#10;            while (entries.hasNext()) {&#10;                Map.Entry&lt;String, String&gt; entry = entries.next();&#10;            }" description="遍历map" toReformat="true" toShortenFQNames="true">
+    <variable name="PRO" expression="" defaultValue="map" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="main" value="public static void main(String[] args) {&#10;        SpringApplication.run($Class$.class, args);&#10;    }" description="spring main" toReformat="false" toShortenFQNames="true">
+    <variable name="Class" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="---" value="        log.info(&quot;-----------------------xxxx-----------------------&quot;);&#10;" description="分隔符" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="nome" value="void $INDEX$();" shortcut="TAB" description="" toReformat="true" toShortenFQNames="true">
+    <variable name="INDEX" expression="" defaultValue="method" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="sli" value="try { TimeUnit.SECONDS.sleep($seconds$); } catch (InterruptedException e) { e.printStackTrace(); }&#10;" description="睡眠指定时间秒" toReformat="false" toShortenFQNames="true">
+    <variable name="seconds" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="thm" value=" for (int i = 1; i &lt;= $num$; i++) {&#10;            new Thread(() -&gt; {&#10;            &#10;            }, String.valueOf(i)).start();&#10;        }" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="num" expression="" defaultValue="5" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="lock" value="lock.lock();&#10;try {&#10;&#10;} catch (Exception e) {&#10;    e.printStackTrace();&#10;} finally {&#10;    lock.unlock();&#10;}       " description="lock" toReformat="false" toShortenFQNames="true" useStaticImport="true">
+    <context>
+      <option name="JAVA_CODE" value="true" />
+    </context>
+  </template>
+  <template name="cuviv" value="                now(),&#10;                now(),&#10;                0," description="createTime,updateTime,version insnet value" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="cuvu" value="            &lt;if test=&quot;modifiedTime != null&quot;&gt;&#10;                modified_time = now(),&#10;            &lt;/if&gt;&#10;            &lt;if test=&quot;version != null&quot;&gt;&#10;                version = version + 1,&#10;            &lt;/if&gt;&#10;        &lt;/set&gt;&#10;        where id = #{id,jdbcType=INTEGER} and version = #{version}" description="createTime,updateTime,version update" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="cuvis" value="            create_time,&#10;            modified_time,&#10;            version," description="createTime,updateTime,version insnet set" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="cuvus" value="            modified_time = now(),&#10;            version = version + 1,&#10;        &lt;/set&gt;&#10;        where id = #{id,jdbcType=INTEGER} and version =  #{version,jdbcType=OTHER}," description="createTime,updateTime,version update set" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="cuvuss" value="            modified_time = now(),&#10;            version = version + 1," description="createTime,updateTime,version update set" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="cuvub" value="when id = #{item.id} and version = #{item.version} then  #{item.version} + 1" description="createTime,updateTime,version update batch" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="cuvuvv" value="            &lt;trim prefix=&quot;modified_time = case&quot; suffix=&quot;end,&quot;&gt;&#10;                &lt;foreach collection=&quot;list&quot; item=&quot;item&quot; index=&quot;index&quot;&gt;&#10;                    when id = #{item.id} then now()&#10;                &lt;/foreach&gt;&#10;            &lt;/trim&gt;&#10;            &lt;trim prefix=&quot;version = case&quot; suffix=&quot;end,&quot;&gt;&#10;                &lt;foreach collection=&quot;list&quot; item=&quot;item&quot; index=&quot;index&quot;&gt;&#10;                    when id = #{item.id} and version = #{item.version} then #{item.version} + 1&#10;                &lt;/foreach&gt;&#10;            &lt;/trim&gt;" description="createTime,updateTime,version update value" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+</templateSet>

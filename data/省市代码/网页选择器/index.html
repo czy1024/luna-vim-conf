@@ -1,0 +1,53 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery城市三级联动菜单特效 - www.bootstrapmb.com</title>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script src="area.js"></script>
+    <link rel="stylesheet" href="iconfont/iconfont.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div id="bigOne">
+        <div id="box">
+            <span class="loadText text">请选择省/市/区</span>
+            <span class="textProvince text"></span>
+            <span class="textCity text"></span>
+            <span class="textArea text"></span>
+            <span class="iconfont icon-arrow-down arrow"></span>
+        </div>
+        <input type="text" value="" id="totalConfirm" readonly="">
+        <div id="content">
+            <div class="chose-tab">
+                <div id="province" class="chosePCA select">省份
+                    <ul class="province-list list">
+                    </ul>
+                </div>
+                <div id="city" class="chosePCA">城市
+                    <ul class="city-list list">
+                    </ul>
+                </div>
+                <div id="area" class="chosePCA">区县
+                    <ul class="area-list list">
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <button class="reset btn">重置</button>
+        <button class="confirm btn">确定</button>
+    </div>
+
+    <script src="script.js"></script>
+
+
+
+
+
+</body>
+
+</html>

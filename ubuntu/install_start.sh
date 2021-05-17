@@ -59,7 +59,7 @@ echo -n ""> /etc/hostname
 
 echo "输入主机名 =>>>>>>>"
 read hostname
-echo -n "$hostname"> /etc/hostname
+echo -n "$hostname" > /etc/hostname
 echo -n "127.0.0.1 $hostname" >> /etc/hosts 
 
 
