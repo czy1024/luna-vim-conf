@@ -15,7 +15,9 @@ connecting to: test
 ... 
 使用用户名和密码连接登录到指定数据库，格式如下：
 
-mongodb://admin:123456@localhost/test
+mongodb://admin:czy1024@106.14.30.12/luna
+mongodb+srv://luna:luna@cluster0.pas77.mongodb.net/luna
+
 更多连接实例
 连接本地数据库服务器，端口是默认的。
 

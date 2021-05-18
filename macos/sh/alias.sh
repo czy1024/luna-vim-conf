@@ -34,9 +34,9 @@ export PATH=$PATH:$GRADLE_HOME/bin
 export GRADLE_HOME=$GRADLE_HOME
 
 # maven 环境变量
-MAVEN_HOME=/Users/luna/compose/apache-maven
-export PATH=$PATH:$MAVEN_HOME/bin
-export MAVEN_HOME=$MAVEN_HOME
+M2_HOME=/Users/luna/compose/apache-maven
+export PATH=$PATH:$M2_HOME/bin
+export M2_HOME=$M2_HOME
 
 # tomcat 环境变量
 CATALINA_HOME=/Users/luna/compose/apache-tomcat
