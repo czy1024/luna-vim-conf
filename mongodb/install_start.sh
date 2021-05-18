@@ -1,3 +1,6 @@
+初始化
+mongod --dbpath /Users/luna/compose/mongodb/data
+
 MongoDB 连接命令格式
 使用用户名和密码连接到 MongoDB 服务器，你必须使用 'username:password@hostname/dbname' 格式，'username'为用户名，'password' 为密码。
 
