@@ -19,3 +19,6 @@ brew tap beeftornado/rmtree
 
 brew rmtree git
 brew cleanup
+
+# 一句话搞定
+/bin/zsh -c "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"
