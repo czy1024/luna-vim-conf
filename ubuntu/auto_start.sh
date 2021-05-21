@@ -27,3 +27,5 @@ systemctl reload *.service #重新加载服务配置文件
 systemctl status *.service #查询服务运行状态
 
 scp -r  -P 22701  ~/openresty/nginx/lua root@f.xicc.cc:/root/   #主机之间传递文件
+
+du -h --max-depth=1 /home #查看目录存储空间占有情况

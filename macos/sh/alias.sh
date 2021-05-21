@@ -43,6 +43,11 @@ CATALINA_HOME=/Users/luna/compose/apache-tomcat
 export PATH=$PATH:$CATALINA_HOME/bin
 export CATALINA_HOME=$CATALINA_HOME
 
+# jmeter 环境变量
+JMETER_HOME=/Users/luna/compose/apache-jmeter
+export PATH=$PATH:$JMETER_HOME/bin
+export JMETER_HOME=$JMETER_HOME
+
 # java 环境变量
 JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_291.jdk/Contents/Home
 export PATH=$PATH:$JAVA_HOME/jre/bin
