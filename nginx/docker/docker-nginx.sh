@@ -8,12 +8,12 @@ docker run   --name nginx \
 	nginx:1.10
 # 拷贝工作目录	
 echo "拷贝工作目录"
-sudo mkdir ~/nginx
-sudo docker cp nginx:/etc/nginx  ~/nginx/conf
+mkdir ~/nginx
+docker cp nginx:/etc/nginx  ~/nginx/conf
 
 mkdir -p ~/nginx/html
 
-sudo cat > ~/nginx/html/index.html <<EOF
+cat > ~/nginx/html/index.html <<EOF
 
 <!DOCTYPE html>
 <html lang="en">
@@ -50,7 +50,7 @@ docker stop nginx
 # 移除
 docker rm nginx
 # 运行
-echo "运行mysql -p 80:80 -p 443:443 "
+echo "运行nginx -p 80:80 -p 443:443 "
 docker run -d  --name nginx --restart=always  \
       -p 80:80 -p 443:443 \
       --restart always \
