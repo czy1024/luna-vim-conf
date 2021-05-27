@@ -52,11 +52,14 @@ EOF
 docker stop openresty
 docker rm openresty
 
+mkdir -p  ~/openresty/root/luna
+
 ### 配置启动 openresty conf.d -> nginx 配置目录,由 /usr/local/openresty/nginx/conf/nginx.conf 引入
 docker run -it -d -p 80:80 -p 443:443 -p 82:82 \
---name openresty --restart always \
+--name openresty --restart always --privileged=true \
 -v ~/openresty/nginx:/usr/local/openresty/nginx \
 -v ~/openresty/nginx/conf.d:/etc/nginx/conf.d \
+-v ~/openresty/root/luna:/root/luna \
 -v /etc/localtime:/etc/localtime \
 openresty/openresty
 
