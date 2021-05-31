@@ -1,0 +1,270 @@
+##引入mybatis支持
+$!mybatisSupport
+
+##设置保存名称与保存位置
+$!callback.setFileName($tool.append($!{tableInfo.name}, "Mapper.xml"))
+$!callback.setSavePath($tool.append($modulePath, "/src/main/resources/mapper"))
+
+##拿到主键
+#if(!$tableInfo.pkColumn.isEmpty())
+    #set($pk = $tableInfo.pkColumn.get(0))
+#end<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="$!{tableInfo.savePackageName}.mapper.$!{tableInfo.name}Mapper">
+
+    <resultMap type="$!{tableInfo.savePackageName}.entity.$!{tableInfo.name}" id="$!{tableInfo.name}ResultMap">
+        #foreach($column in $tableInfo.fullColumn)
+        <result property="$!column.name" column="$!column.obj.name" jdbcType="$!column.ext.jdbcType" />
+        #end
+    </resultMap>
+
+    <sql id="table_field">
+      #allSqlColumn()
+      
+    </sql>
+
+    <!--通过Id查询单个-->
+    <select id="getById" resultMap="$!{tableInfo.name}ResultMap" parameterType="$pk.type">
+        select
+        <include refid="table_field" />
+        from $!tableInfo.obj.name
+        where $!pk.obj.name = #{$!pk.name,jdbcType=$!pk.ext.jdbcType}
+    </select>
+
+
+    <!--通过实体不为空的属性作为筛选条件查询列表-->
+    <select id="listByEntity" resultMap="$!{tableInfo.name}ResultMap" parameterType="$!{tableInfo.savePackageName}.entity.$!{tableInfo.name}">
+        select
+        <include refid="table_field" />
+        from $!tableInfo.obj.name
+        <where>
+            #foreach($column in $tableInfo.fullColumn)
+            <if test="$!column.name != null #if($column.type.equals(" java.lang.String")) and $!column.name != ''#end ">
+                and $!column.obj.name = #{$!column.name,jdbcType=$!column.ext.jdbcType}
+            </if>
+            #end
+        </where>
+    </select>
+
+    <!--通过实体不为空的属性作为筛选条件查询单个-->
+    <select id="getByEntity" resultMap="$!{tableInfo.name}ResultMap" parameterType="$!{tableInfo.savePackageName}.entity.$!{tableInfo.name}">
+        select
+        <include refid="table_field" />
+        from $!tableInfo.obj.name
+        <where>
+            #foreach($column in $tableInfo.fullColumn)
+            <if test="$!column.name != null #if($column.type.equals(" java.lang.String")) and $!column.name != ''#end ">
+                and $!column.obj.name = #{$!column.name,jdbcType=$!column.ext.jdbcType}
+            </if>
+            #end
+        </where>
+    </select>
+
+    <!--通过Id列表作为筛选条件查询列表，列表长度不为0-->
+    <select id="listByIds" resultMap="$!{tableInfo.name}ResultMap" parameterType="list">
+        select
+        <include refid="table_field" />
+        from $!tableInfo.obj.name
+        where $!pk.obj.name in
+        <foreach item="item" collection="list" separator="," open="(" close=")" index="index">
+            #{item}
+        </foreach>
+    </select>
+
+    <!--新增实体属性不为null的列-->
+    <insert id="insert" keyProperty="$!pk.name" useGeneratedKeys="true" parameterType="$!{tableInfo.savePackageName}.entity.$!{tableInfo.name}">
+        insert into $!{tableInfo.obj.name}
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            #foreach($column in  $tableInfo.otherColumn)
+    #if($column.obj.name.equals("create_time"))
+                    create_time,
+                #elseif($column.obj.name.equals("modified_time"))
+                    modified_time,
+                #elseif($column.obj.name.equals("version"))
+                    version,
+                #else
+            <if test="$!column.name != null #if($column.type.equals(" java.lang.String")) and $!column.name != ''#end ">
+                    $!column.obj.name,
+                </if>
+            #end
+#end
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            #foreach($column in  $tableInfo.otherColumn)
+    #if($column.obj.name.equals("create_time"))
+            now(),
+        #elseif($column.obj.name.equals("modified_time"))
+            now(),
+        #elseif($column.obj.name.equals("version"))
+            0,
+        #else
+            <if test="$!column.name != null #if($column.type.equals(" java.lang.String")) and $!column.name != ''#end ">
+                #{$!column.name,jdbcType=$!column.ext.jdbcType},
+        </if>
+            #end
+#end
+        </trim>
+    </insert>
+
+    <!--批量新增所有列，列表长度不能为0，且列表id统一为null或者统一不为null-->
+    <insert id="insertBatch" keyProperty="$!pk.name" useGeneratedKeys="true" parameterType="list">
+        insert into $!{tableInfo.obj.name}
+        (
+        #foreach($column in $tableInfo.otherColumn)
+    $!{column.obj.name}
+    #if($velocityHasNext) ,
+            #end
+#end)
+        values
+        <foreach item="item" collection="list" separator="," open="" close="" index="index">
+        (#foreach($column in $tableInfo.otherColumn)
+    #if($column.obj.name.equals("create_time")) now() ,
+            #elseif($column.obj.name.equals("modified_time")) now() ,
+            #elseif($column.obj.name.equals("version")) 0 ,
+            #else
+                #{item.$!{column.name},jdbcType=$!column.ext.jdbcType} 
+                #if($velocityHasNext) , 
+                #end
+    #end
+#end)
+        </foreach>
+    </insert>
+
+    <!--通过主键修改实体属性不为null的列-->
+    <update id="update" parameterType="$!{tableInfo.savePackageName}.entity.$!{tableInfo.name}">
+        update $!{tableInfo.obj.name}
+        <set>
+            #foreach($column in $tableInfo.otherColumn)
+    #if($column.obj.name.equals("create_time"))
+    #elseif($column.obj.name.equals("modified_time"))
+                    modified_time = now(),
+                #elseif($column.obj.name.equals("version"))
+                    version = version + 1,
+                #else
+            <if test="$!column.name != null  #if($column.type.equals(" java.lang.String")) and $!column.name != ''#end">
+                    $!column.obj.name = #{$!column.name,jdbcType=$!column.ext.jdbcType},
+                </if>
+            #end
+#end
+        </set>
+        where $!pk.obj.name = #{$!pk.name,jdbcType=$!pk.ext.jdbcType} 
+          #foreach($column in $tableInfo.otherColumn)
+        #if($column.obj.name.equals("version"))
+                        and version = #{version,jdbcType=OTHER}
+                    #end
+#end
+    </update>
+
+    <!--通过表字段修改实体属性不为null的列-->
+    <update id="updateByField">
+        update $!{tableInfo.obj.name}
+        <set>
+            #foreach($column in $tableInfo.otherColumn)
+
+    #if($column.obj.name.equals("create_time"))
+
+    #elseif($column.obj.name.equals("modified_time"))
+                    modified_time = now(),
+                #elseif($column.obj.name.equals("version"))
+                    version = version + 1,
+                #else
+            <if test="where.$!{column.name} == null and set.$!{column.name} != null#if($column.type.equals(" java.lang.String")) and set.$!{column.name} != ''#end">
+                    $!column.obj.name = #{set.$!{column.name},jdbcType=$!column.ext.jdbcType},
+                </if>
+            #end
+#end
+        </set>
+        <where>
+            #foreach($column in $tableInfo.fullColumn)
+    #if($column.obj.name.equals("version"))
+                    and version = #{version,jdbcType=OTHER}
+                #else
+            <if test="where.$!{column.name} != null and $!column.name != ''">
+                    and $!column.obj.name = #{where.$!{column.name},jdbcType=$!column.ext.jdbcType}
+                </if>
+            #end
+#end
+        </where>
+    </update>
+
+    <!--通过主键修改实体列表，列表长度不能为0，注意：当实体属性为null时，对应的列也会别更新为null-->
+    <update id="updateBatch" parameterType="list">
+        update $!{tableInfo.obj.name}
+        <trim prefix="set" suffixOverrides=",">
+            #foreach($column in $tableInfo.otherColumn)
+    #if($column.obj.name.equals("modified_time"))
+            <trim prefix="modified_time = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                        when id = #{item.id} then now()
+                    </foreach>
+            </trim>
+            #elseif($column.obj.name.equals("version"))
+            <trim prefix="version = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                            when id = #{item.id} and version = #{item.version} then #{item.version} + 1
+                        </foreach>
+            </trim>
+            #else
+            <trim prefix="$!{column.obj.name} = case" suffix="end,">
+                <foreach collection="list" item="item" index="index">
+                        when $!pk.obj.name = #{item.$!pk.name} then #{item.$!column.name}
+                        </foreach>
+            </trim>
+            #end
+#end
+        </trim>
+        where $!pk.obj.name in
+        <foreach collection="list" index="index" item="item" separator="," open="(" close=")">
+            #{item.$!pk.name,jdbcType=$!pk.ext.jdbcType}
+        </foreach>
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById" parameterType="$pk.type">
+        delete from $!{tableInfo.obj.name} where $!pk.obj.name = #{$!pk.name,jdbcType=$!pk.ext.jdbcType}
+        #foreach($column in $tableInfo.otherColumn)
+    #if($column.obj.name.equals("version"))
+                        and version = #{version,jdbcType=OTHER}
+                    #end
+#end
+    </delete>
+
+    <!--通过实体非空属性删除-->
+    <delete id="deleteByEntity" parameterType="$!{tableInfo.savePackageName}.entity.$!{tableInfo.name}">
+        delete from $!{tableInfo.obj.name}
+        <where>
+            #foreach($column in $tableInfo.otherColumn)
+    #if($column.obj.name.equals("version"))
+                    and version = #{version,jdbcType=OTHER}
+                #else
+            <if test="$!column.name != null #if($column.type.equals(" java.lang.String")) and $!column.name != ''#end ">
+                and $!column.obj.name = #{$!column.name,jdbcType=$!column.ext.jdbcType}
+            </if>
+            #end
+            #end
+        </where>
+    </delete>
+
+    <!--通过主键列表删除，列表长度不能为0-->
+    <delete id="deleteByIds" parameterType="list">
+        delete from $!{tableInfo.obj.name} where $!pk.obj.name in
+        <foreach item="item" collection="list" separator="," open="(" close=")" index="index">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="countAll" resultType="int">
+        select count($!pk.obj.name) from $!{tableInfo.obj.name}
+    </select>
+
+    <select id="countByEntity" parameterType="$!{tableInfo.savePackageName}.entity.$!{tableInfo.name}" resultType="int">
+        select count($!pk.obj.name) from $!{tableInfo.obj.name}
+        <where>
+            #foreach($column in $tableInfo.fullColumn)
+            <if test="$!column.name != null #if($column.type.equals(" java.lang.String")) and $!column.name != ''#end ">
+                and $!column.obj.name = #{$!column.name,jdbcType=$!column.ext.jdbcType}
+            </if>
+            #end
+        </where>
+    </select>
+</mapper>
