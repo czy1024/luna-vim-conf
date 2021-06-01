@@ -18,3 +18,4 @@ docker run -d \
     --restart always \
     -v ~/nexus-data:/nexus-data  \
     sonatype/nexus3
+

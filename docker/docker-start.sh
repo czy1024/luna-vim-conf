@@ -17,4 +17,15 @@ docker image prune --force --all  docker image prune -f -a #  删除所有不使
 
 docker container prune #  删除所有停止的容器
 
-ExecStart=/usr/bin/dockerd --tlsverify --tlscacert=/usr/local/ca/ca.pem --tlscert=/usr/local/ca/server-cert.pem --tlskey=/usr/local/ca/server-key.pem -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock
+ExecStart=/usr/bin/dockerd --tlsverify --tlscacert=/usr/local/ca/ca.pem --tlscert=/usr/local/ca/server-cert.pem --tlskey=/usr/local/ca/server-key.pem -H tcp:#0.0.0.0:2375 -H unix:#/var/run/docker.sock
+
+docker tag IMAGEID  REPOSITORY:TAG #镜像重命名：
+
+docker 原容器名 新容器名 #容器重命名
+
+docker ps # 查看所有正在运行容器 
+docker stop containerId # containerId 是容器的ID 
+docker ps -a # 查看所有容器 
+docker ps -a -q # 查看所有容器ID 
+docker stop $(docker ps -a -q) #  stop停止所有容器 
+docker rm $(docker ps -a -q) #   remove删除所有容器
