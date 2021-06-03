@@ -48,6 +48,19 @@ JMETER_HOME=/Users/luna/compose/apache-jmeter
 export PATH=$PATH:$JMETER_HOME/bin
 export JMETER_HOME=$JMETER_HOME
 
+# zookeeper 环境变量
+ZOOKEEPER_HOME=/Users/luna/compose/apache-zookeeper
+export PATH=$PATH:$ZOOKEEPER_HOME/bin
+export ZOOKEEPER_HOME=$ZOOKEEPER_HOME
+alias zk-start='/Users/luna/compose/apache-zookeeper/bin/zkServer.sh start'
+alias zk-stop='/Users/luna/compose/apache-zookeeper/bin/zkServer.sh stop'
+alias zk-cli='/Users/luna/compose/apache-zookeeper/bin/zkCli.sh'
+
+# nexus 环境变量
+NEXUS_HOME=/Users/luna/compose/nexus/nexus
+export PATH=$PATH:$NEXUS_HOME/bin
+export NEXUS_HOME=$NEXUS_HOME
+
 # java 环境变量
 JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_291.jdk/Contents/Home
 export PATH=$PATH:$JAVA_HOME/jre/bin

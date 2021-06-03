@@ -6,3 +6,8 @@
 # 升级版本
 mvn versions:set -DnewVersion=2.0.4-RELEASE
 
+# 打包 
+mvn clean package -Dmaven.test.skip=true
+
+# 清楚未下载完成的包
+find . -name "*lastUpdated" | xargs rm -fr
