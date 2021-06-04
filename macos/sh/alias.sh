@@ -56,6 +56,13 @@ alias zk-start='/Users/luna/compose/apache-zookeeper/bin/zkServer.sh start'
 alias zk-stop='/Users/luna/compose/apache-zookeeper/bin/zkServer.sh stop'
 alias zk-cli='/Users/luna/compose/apache-zookeeper/bin/zkCli.sh'
 
+# dubbo
+# dubbo-admin
+alias dubbo-admin='java -jar /Users/luna/compose/dubbo-admin/dubbo-admin/target/dubbo-admin-0.0.1-SNAPSHOT.jar'
+# dubbo-monitor
+alias dubbo-monitor-start='/Users/luna/compose/dubbo-admin/dubbo-monitor-simple/target/dubbo-monitor-simple-2.0.0/assembly.bin/start.sh'
+alias dubbo-monitor-stop='/Users/luna/compose/dubbo-admin/dubbo-monitor-simple/target/dubbo-monitor-simple-2.0.0/assembly.bin/stop.sh'
+
 # nexus 环境变量
 NEXUS_HOME=/Users/luna/compose/nexus/nexus
 export PATH=$PATH:$NEXUS_HOME/bin
