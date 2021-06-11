@@ -619,8 +619,12 @@
 	</data>
 	<key>UseBrightBold</key>
 	<true/>
+	<key>columnCount</key>
+	<integer>100</integer>
 	<key>name</key>
 	<string>Basic</string>
+	<key>rowCount</key>
+	<integer>30</integer>
 	<key>type</key>
 	<string>Window Settings</string>
 </dict>

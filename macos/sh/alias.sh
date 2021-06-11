@@ -82,10 +82,16 @@ ELASTIC_HOME=/Users/luna/compose/elasticsearch
 export PATH=$PATH:$ELASTIC_HOME/bin
 export ELASTIC_HOME=$ELASTIC_HOME
 
-# kibana 环境变量
-KIBANA_HOME=/Users/luna/compose/nacos
-export PATH=$PATH:$KIBANA_HOME/bin
-export KIBANA_HOME=$KIBANA_HOME
+# logstash 环境变量
+LOGSTASH_HOME=/Users/luna/compose/logstash
+export PATH=$PATH:$LOGSTASH_HOME/bin
+export LOGSTASH_HOME=$LOGSTASH_HOME
+alias logstashstart='logstash -f /Users/luna/compose/logstash/config/logstash.conf'
+
+# elastic 环境变量
+ELASTIC_HOME=/Users/luna/compose/elasticsearch
+export PATH=$PATH:$ELASTIC_HOME/bin
+export ELASTIC_HOME=$ELASTIC_HOME
 
 # mongodb 环境变量
 MONGO_HOME=/Users/luna/compose/mongodb
