@@ -53,7 +53,7 @@ sudo /etc/init.d/ssh restart
 #scp root@%IP%:/tmp/id_rsa ~/Documents/id_rsa 
 #客户端执行: scp ~/.ssh/id_rsa.pub  root@192.168.5.68:/tmp/id_rsa.pub 
 #服务端执行: cat /tmp/id_rsa.pub >> ~/.ssh/authorized_keys
-#scp -r -P 23401 ~/.ssh/id_rsa.pub root@f.xicc.cc:/tmp/id_rsa.pub 
+#scp -r -P 3925 ~/.ssh/id_rsa.pub root@f.xicc.cc:/tmp/id_rsa.pub 
 # 清空hostname
 echo -n ""> /etc/hostname
 

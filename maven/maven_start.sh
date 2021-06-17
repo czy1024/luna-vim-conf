@@ -4,7 +4,7 @@
  find . -name 'pom.xml.*' -type f -print -exec rm -rf {} \;
 
 # 升级版本
-mvn versions:set -DnewVersion=2.0.4-RELEASE
+mvn versions:set -DnewVersion=2.2.2-RELEASE
 
 # 打包 
 mvn clean package -Dmaven.test.skip=true
