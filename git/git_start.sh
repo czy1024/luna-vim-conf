@@ -42,3 +42,10 @@ git remote set-url origin xxx
 git clone https://gitclone.com/github.com/tendermint/tendermint.git
 
 git config --global url."https://gitclone.com/".insteadOf https://
+
+
+git filter-branch -f --prune-empty --index-filter 'git rm -rf --cached --ignore-unmatch proxy/v2ray-linux-64.zip' --tag-name-filter cat -- --all
+
+​​git filter-branch -f --prune-empty --index-filter 'git rm -rf --cached --ignore-unmatch cute/chfs' -- <commit_id>​
+
+git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch *.mp3' --prune-empty --tag-name-filter cat -- --all
