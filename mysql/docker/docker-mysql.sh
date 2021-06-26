@@ -30,3 +30,8 @@ sudo docker run -d -p 3306:3306 \
  --character-set-server utf8 \
  --collation-server utf8_general_ci 
 
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION;
+CREATE USER 'lunasaw'@'%' IDENTIFIED BY 'czy1024';
+GRANT ALL PRIVILEGES ON *.* TO 'lunasaw'@'%' IDENTIFIED BY 'czy1024' WITH GRANT OPTION;
+GRANT ALL ON *.* TO 'lunasaw'@'%';
+flush privileges;
