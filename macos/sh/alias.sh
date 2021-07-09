@@ -14,6 +14,13 @@ source .bash_profile
 # 查看现有别名
 alias
 
+alias grep='grep --color=always'  
+alias vi='vim'   
+alias ll='ls -al'  
+alias la='ls -A'  
+alias l='ls -CF'  
+alias ls='ls -G'  
+
 # 为多个命令的组合设置别名
 # hexo 清理打包发布
 alias hcgd='hexo clean&&hexo g&&hexo d'
@@ -102,6 +109,9 @@ alias mongostart='mongod -f /Users/luna/compose/mongodb/mongodb.config'
 # nacos 环境变量
 alias nastartup='sh /Users/luna/compose/nacos/bin/startup.sh -m standalone'
 alias nashutdown='sh /Users/luna/compose/nacos/bin/shutdown.sh'
+
+# vdian 堡垒机
+alias vdssh='sh /Users/luna/weidian/ssh/login_relay.sh'
 
 #macOS根据名称杀死进程
 ps -ef | grep 进程名称 | awk '{print $2}' | xargs kill -9
