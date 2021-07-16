@@ -3,6 +3,9 @@ sudo apt-get instal git
 
 echo "配置用户"
 
+git config user.name "luna"
+git config user.email iszychen@gmail.com
+
 git config --global user.name "luna"
 git config --global user.email iszychen@gmail.com
 

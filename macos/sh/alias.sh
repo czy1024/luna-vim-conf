@@ -117,3 +117,6 @@ alias vdssh='sh /Users/luna/weidian/ssh/login_relay.sh'
 ps -ef | grep 进程名称 | awk '{print $2}' | xargs kill -9
 
 killall -9 完整进程名
+
+# 允许任何来源
+sudo spctl --master-disable
